@@ -35,11 +35,11 @@ const HeaderView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template())
     if (localStorage.authtoken) {
-      let $logoutBtn = $(`<button id="logout-btn">Logout</button>`)
+      let $logoutBtn = $(`<button id="logout-btn"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</button>`)
       this.$('.nav-buttons').append($logoutBtn)
     } else {
-      let $loginBtn = $(`<button id="goto-login-btn">Login</button>`)
-      let $signupBtn = $(`<button id="goto-signup-btn">Signup</button>`)
+      let $loginBtn = $(`<button id="goto-login-btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</button>`)
+      let $signupBtn = $(`<button id="goto-signup-btn"><i class="fa fa-user-plus" aria-hidden="true"></i> Signup</button>`)
       this.$('.nav-buttons').append($loginBtn).append($signupBtn)
     }
     return this
