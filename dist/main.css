@@ -415,6 +415,29 @@ header {
       header .nav-buttons #goto-signup-btn:hover {
         background-color: #ab0823; }
 
+.login-form, .signup-form {
+  width: 400px;
+  margin: 150px auto;
+  padding: 20px 0;
+  background: #DC0A2D;
+  text-align: center; }
+  .login-form h2, .signup-form h2 {
+    color: #fff; }
+  .login-form input, .signup-form input {
+    width: 80%;
+    line-height: 1.5rem;
+    margin: 10px 0; }
+  .login-form input[type="submit"], .signup-form input[type="submit"] {
+    width: 40%;
+    border: 0;
+    background: #fff;
+    color: #DC0A2D; }
+  .login-form a, .signup-form a {
+    display: block;
+    color: #fff; }
+    .login-form a span, .signup-form a span {
+      text-decoration: underline; }
+
 ul {
   list-style: none;
   margin: 0;
@@ -431,5 +454,8 @@ button {
   button:hover {
     background: #ab0823;
     cursor: pointer; }
+
+a {
+  text-decoration: none; }
 
 /*# sourceMappingURL=main.css.map */

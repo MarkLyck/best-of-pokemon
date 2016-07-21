@@ -1,0 +1,28 @@
+.login-form, .signup-form {
+  width: 400px;
+  margin: 150px auto;
+  padding: 20px 0;
+  background: $primary-color;
+  text-align: center;
+  h2 {
+    color: $secondary-color;
+  }
+  input {
+    width: 80%;
+    line-height: 1.5rem;
+    margin: 10px 0;
+  }
+  input[type="submit"] {
+    width: 40%;
+    border: 0;
+    background: $secondary-color;
+    color: $primary-color;
+  }
+  a {
+    display: block;
+    color: $secondary-color;
+    span {
+      text-decoration: underline;
+    }
+  }
+}
