@@ -35,7 +35,8 @@ const Router = Backbone.Router.extend({
   },
   pokemon: function(id) {
     let headerView = new HeaderView()
-    $('#container').empty().append(headerView.render().$el)
+    let pokemonView = new PokemonView(id)
+    $('#container').empty().append(headerView.render().$el).append(pokemonView.render().$el)
   }
 });
 
