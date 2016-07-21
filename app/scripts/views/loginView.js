@@ -1,6 +1,8 @@
 import $ from 'jquery'
 import Backbone from 'backbone'
 
+import store from '../store'
+
 const LoginView = Backbone.View.extend({
   initialize: function() {
 
@@ -33,7 +35,7 @@ const LoginView = Backbone.View.extend({
     //     console.log('error, you did not log in');
     //   }
     // });
-    localStorage.authtoken = 1234;
+    store.session.login()
   },
   render: function() {
     this.$el.html(this.template());

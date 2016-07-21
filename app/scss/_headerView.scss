@@ -7,6 +7,9 @@ header {
   #logo {
     padding-left: 40px;
     color: #fff;
+    &:hover {
+      cursor: pointer;
+    }
   }
   .nav-buttons {
     height: 100%;

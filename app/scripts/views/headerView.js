@@ -14,8 +14,8 @@ const HeaderView = Backbone.View.extend({
     `
   },
   events: {
-    'click #logout-btn': 'logout',
-    'click #goto-login-btn': 'gotoLogin',
+    'click #logout-btn'     : 'logout',
+    'click #goto-login-btn' : 'gotoLogin',
     'click #goto-signup-btn': 'gotoSignup',
     'click #logo'           : 'gotoPokedex'
   },
