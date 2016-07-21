@@ -18,11 +18,13 @@ const Router = Backbone.Router.extend({
     '/*'          : 'pokedex'
   },
   login: function() {
+    console.log('RENDER LOGIN');
     let loginView = new LoginView();
     let headerView = new HeaderView()
     $('#container').empty().append(headerView.render().$el).append(loginView.render().$el);
   },
   signup: function() {
+    console.log('RENDER SIGNUP');
     let signupView = new SignupView();
     let headerView = new HeaderView()
     $('#container').empty().append(headerView.render().$el).append(signupView.render().$el);
