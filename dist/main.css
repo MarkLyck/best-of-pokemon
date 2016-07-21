@@ -406,7 +406,7 @@ header {
   header .nav-buttons {
     height: 100%; }
     header .nav-buttons button {
-      width: 100px;
+      width: 125px;
       box-sizing: border-box;
       height: 100%;
       padding: 0 20px; }
