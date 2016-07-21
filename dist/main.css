@@ -440,6 +440,52 @@ header {
     .login-form a span, .signup-form a span {
       text-decoration: underline; }
 
+#pokedex-list {
+  display: flex;
+  flex-wrap: wrap; }
+  #pokedex-list li {
+    width: calc(100% / 5 - 40px);
+    height: 250px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #eee;
+    margin: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    #pokedex-list li .pokemon-number {
+      margin: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.1);
+      border-bottom-right-radius: 10px; }
+    #pokedex-list li .wrapper {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      background: rgba(0, 0, 0, 0.1);
+      height: 40px; }
+      #pokedex-list li .wrapper .like-btn {
+        color: #DC0A2D;
+        background: none;
+        display: flex;
+        height: 100%;
+        width: 40px;
+        padding: 0;
+        box-sizing: border-box;
+        justify-content: center; }
+      #pokedex-list li .wrapper .pokemon-name {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0; }
+
 ul {
   list-style: none;
   margin: 0;
