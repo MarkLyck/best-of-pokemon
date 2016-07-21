@@ -13,7 +13,7 @@ const LoginView = Backbone.View.extend({
     <input type="text" name="username" id="username" />
     <input type="password" name="password" id="password" />
     <input type="submit" name="submit" />
-    <a href="#signup">Don't have an account? Sign up!</a>
+    <a href="#signup">Don't have an account? <span>Sign up!</span></a>
     `;
   },
   events: {
