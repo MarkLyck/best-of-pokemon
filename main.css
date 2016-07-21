@@ -403,6 +403,8 @@ header {
   header #logo {
     padding-left: 40px;
     color: #fff; }
+    header #logo:hover {
+      cursor: pointer; }
   header .nav-buttons {
     height: 100%; }
     header .nav-buttons button {
