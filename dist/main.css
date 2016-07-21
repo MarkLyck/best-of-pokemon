@@ -394,6 +394,27 @@ optgroup {
 textarea {
   overflow: auto; }
 
+header {
+  background: #DC0A2D;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px; }
+  header #logo {
+    padding-left: 40px;
+    color: #fff; }
+  header .nav-buttons {
+    height: 100%; }
+    header .nav-buttons button {
+      width: 125px;
+      box-sizing: border-box;
+      height: 100%;
+      padding: 0 20px; }
+    header .nav-buttons #goto-signup-btn {
+      background-color: #dc0a2d; }
+      header .nav-buttons #goto-signup-btn:hover {
+        background-color: #ab0823; }
+
 .login-form, .signup-form {
   width: 400px;
   margin: 150px auto;
@@ -417,7 +438,13 @@ ul {
 button, input {
   outline: none; }
 
-button:hover {
-  cursor: pointer; }
+button {
+  background: #c40928;
+  border: none;
+  color: #fff;
+  box-sizing: border-box; }
+  button:hover {
+    background: #ab0823;
+    cursor: pointer; }
 
 /*# sourceMappingURL=main.css.map */

@@ -19,14 +19,22 @@ const Router = Backbone.Router.extend({
   },
   login: function() {
     let loginView = new LoginView();
-    $('#container').empty().append(loginView.render().$el);
+    let headerView = new HeaderView()
+    $('#container').empty().append(headerView.render().$el).append(loginView.render().$el);
   },
   signup: function() {
     let signupView = new SignupView();
-    $('#container').empty().append(signupView.render().$el);
+    let headerView = new HeaderView()
+    $('#container').empty().append(headerView.render().$el).append(signupView.render().$el);
   },
-  pokedex: function() {},
-  pokemon: function(id) {}
+  pokedex: function() {
+    let headerView = new HeaderView()
+    $('#container').empty().append(headerView.render().$el)
+  },
+  pokemon: function(id) {
+    let headerView = new HeaderView()
+    $('#container').empty().append(headerView.render().$el)
+  }
 });
 
 let router = new Router()

@@ -1,0 +1,26 @@
+header {
+  background: $primary-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+  #logo {
+    padding-left: 40px;
+    color: #fff;
+  }
+  .nav-buttons {
+    height: 100%;
+    button {
+      width: 125px;
+      box-sizing: border-box;
+      height: 100%;
+      padding: 0 20px;
+    }
+    #goto-signup-btn {
+      background-color: darken($primary-color, 0);
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+}
