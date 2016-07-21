@@ -17,8 +17,14 @@ const Router = Backbone.Router.extend({
     'pokemon/:id' : 'pokemon',
     '/*'          : 'pokedex'
   },
-  login: function() {},
-  signup: function() {},
+  login: function() {
+    let loginView = new LoginView();
+    $('#container').empty().append(loginView.render().$el);
+  },
+  signup: function() {
+    let signupView = new SignupView();
+    $('#container').empty().append(signupView.render().$el);
+  },
   pokedex: function() {},
   pokemon: function(id) {}
 });

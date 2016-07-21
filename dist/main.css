@@ -394,6 +394,21 @@ optgroup {
 textarea {
   overflow: auto; }
 
+.login-form, .signup-form {
+  width: 400px;
+  margin: 150px auto;
+  padding: 20px 0;
+  background: pink;
+  text-align: center; }
+  .login-form input, .signup-form input {
+    width: 80%;
+    line-height: 1.5rem;
+    margin: 10px 0; }
+  .login-form input[type="submit"], .signup-form input[type="submit"] {
+    width: 40%; }
+  .login-form a, .signup-form a {
+    display: block; }
+
 ul {
   list-style: none;
   margin: 0;

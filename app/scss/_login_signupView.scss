@@ -1,0 +1,18 @@
+.login-form, .signup-form {
+  width: 400px;
+  margin: 150px auto;
+  padding: 20px 0;
+  background: pink;
+  text-align: center;
+  input {
+    width: 80%;
+    line-height: 1.5rem;
+    margin: 10px 0;
+  }
+  input[type="submit"] {
+    width: 40%;
+  }
+  a {
+    display: block;
+  }
+}
