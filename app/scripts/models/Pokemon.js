@@ -8,10 +8,9 @@ const Pokemon = Backbone.Model.extend({
   defaults: {
     name: '',
     type: '',
-    description: '',
     height: 0,
     weight: 0,
-    moves: []
+    types: []
   }
 })
 

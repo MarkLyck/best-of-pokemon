@@ -22,9 +22,7 @@ const TopPokemonView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template())
     let counter = 100
-    console.log('STARTING LOOP');
     while (counter <= 110) {
-      console.log('looping');
       let $topLi = $(`
         <li class="pokemon-li">
           <div class="top">
