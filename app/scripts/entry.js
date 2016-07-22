@@ -44,16 +44,16 @@ let counter = 0
 //   counter++
 // }
 
-let sortedData = _.sortBy(JSON.parse(localStorage.pokemonData), 'id')
-let mappedData = sortedData.map(function(pokemon) {
-  // console.log(pokemon);
-  return {
-    name: pokemon.name,
-    height: pokemon.height,
-    weight: pokemon.weight,
-    types: pokemon.types.join(' ')
-  }
-})
+// let sortedData = _.sortBy(JSON.parse(localStorage.pokemonData), 'id')
+// let mappedData = sortedData.map(function(pokemon) {
+//   // console.log(pokemon);
+//   return {
+//     name: pokemon.name,
+//     height: pokemon.height,
+//     weight: pokemon.weight,
+//     types: pokemon.types.join(' ')
+//   }
+// })
 // console.log(mappedData);
 // console.log(sortedData);
 
@@ -76,7 +76,7 @@ let mappedData = sortedData.map(function(pokemon) {
 //   }
 // })
 
-createPokemon(1)
+// createPokemon(1)
 function createPokemon(id) {
   store.pokemons.data.create({
     name: mappedData[id-1].name,
