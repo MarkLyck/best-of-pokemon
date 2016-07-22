@@ -7,7 +7,7 @@ import store from '../store';
 
 const PokedexView = Backbone.View.extend({
   initialize: function() {
-    console.log('FETCHING POKEMON 1');
+    // console.log('FETCHING POKEMON 1');
   },
   tagName: 'ul',
   id: 'pokedex-list',
@@ -15,7 +15,6 @@ const PokedexView = Backbone.View.extend({
 
   },
   render: function() {
-    console.log('RENDEING POKEDEX');
     let counter = 1;
     while (counter <= 151) {
       let $pokemonLi = $(`
