@@ -14,9 +14,12 @@ const PokemonView = Backbone.View.extend({
       store.pokemons.data.add({_id: id})
     }
     this.model = new Pokemon()
-    this.model = store.pokemons.data.get(id)
-    this.model.on('change', () => this.render())
-    this.model.fetch()
+    this.model.set('id', id)
+    // this.model = store.pokemons.data.get(id)
+    // this.model.on('change', () => this.render())
+
+
+    // this.model.fetch()
   },
   events: {
     'click #goto-pokedex-btn' : 'gotoPokedex'
@@ -49,7 +52,14 @@ const PokemonView = Backbone.View.extend({
   render: function() {
     console.log('RENDER');
     this.$el.html(this.template());
-    this.$('#pokemon-image').css(`background`, `url('assets/images/pokemon1.jpg')`)
+    let imageid = this.model.get('id')
+    if (imageid < 10) {
+      imageid = '00' + String(imageid)
+    } else if (imageid < 100) {
+      imageid = '0' + String(imageid)
+    }
+
+    this.$('#pokemon-image').css(`background`, `url('assets/images/pokemon/${imageid}.png')`)
     this.model.get('moves').forEach((move) => {
       let $moveLi = $(`
         <li>
