@@ -12,12 +12,15 @@ const PokedexView = Backbone.View.extend({
 
   },
   render: function() {
+    console.log('RENDEING POKEDEX');
     let counter = 1;
     while (counter <= 720) {
       let $pokemonLi = $(`
         <li>
-          <p class="pokemon-number">${counter}</p>
-          <div class="wrapper">
+          <div class="top">
+            <p class="pokemon-number">${counter}</p>
+          </div>
+          <div class="bottom">
             <h3 class="pokemon-name">Name</h3>
             <button class="like-btn"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
           </div>
@@ -31,7 +34,7 @@ const PokedexView = Backbone.View.extend({
         fixedNumber = '0' + String(fixedNumber)
       }
 
-      $pokemonLi.css('background-image', `url('assets/images/pokemon/${fixedNumber}.png')`);
+      $pokemonLi.find('.top').css('background-image', `url('assets/images/pokemon/${fixedNumber}.png')`);
       this.$el.append($pokemonLi);
       counter++
       $pokemonLi.on('click', function () {

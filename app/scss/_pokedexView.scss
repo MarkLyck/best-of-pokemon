@@ -4,25 +4,28 @@
   li {
     width: calc(100% / 5 - 40px);
     height: 250px;
-    background-repeat: no-repeat;
-    background-size: contain;
     background-color: #eee;
     margin: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    .pokemon-number {
-      margin: 0;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgba(0,0,0,0.1);
-      border-bottom-right-radius: 10px;
+    .top {
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      .pokemon-number {
+        margin: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0,0,0,0.1);
+        border-bottom-right-radius: 10px;
+      }
     }
-    .wrapper {
+    .bottom {
       display: flex;
       justify-content: flex-end;
       align-items: center;
