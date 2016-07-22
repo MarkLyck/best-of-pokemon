@@ -7,6 +7,10 @@
 @import "pokemonView";
 @import "topPokemonView";
 
+body {
+  background: $primary-background;
+}
+
 ul {
   list-style: none;
   margin: 0;
@@ -17,7 +21,7 @@ button, input {
   outline: none;
 }
 
-button {
+button, input[type=submit] {
   background: darken($primary-color, 5%);
   border: none;
   color: #fff;
