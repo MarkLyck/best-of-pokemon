@@ -395,7 +395,7 @@ textarea {
   overflow: auto; }
 
 header {
-  background: #DC0A2D;
+  background: #ED1851;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -413,15 +413,15 @@ header {
       height: 100%;
       padding: 0 20px; }
     header .nav-buttons #goto-signup-btn {
-      background-color: #dc0a2d; }
+      background-color: #ed1851; }
       header .nav-buttons #goto-signup-btn:hover {
-        background-color: #ab0823; }
+        background-color: #c30f3f; }
 
 .login-form, .signup-form {
   width: 400px;
   margin: 150px auto;
   padding: 20px 0;
-  background: #DC0A2D;
+  background: #ED1851;
   text-align: center; }
   .login-form h2, .signup-form h2 {
     color: #fff; }
@@ -433,7 +433,7 @@ header {
     width: 40%;
     border: 0;
     background: #fff;
-    color: #DC0A2D; }
+    color: #ED1851; }
   .login-form a, .signup-form a {
     display: block;
     color: #fff; }
@@ -446,32 +446,50 @@ header {
   #pokedex-list li {
     width: calc(100% / 5 - 40px);
     height: 250px;
-    background-repeat: no-repeat;
-    background-size: contain;
     background-color: #eee;
     margin: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; }
-    #pokedex-list li .pokemon-number {
-      margin: 0;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.1);
-      border-bottom-right-radius: 10px; }
-    #pokedex-list li .wrapper {
+    justify-content: space-between;
+    border-radius: 5px; }
+    #pokedex-list li:hover {
+      cursor: pointer;
+      background-color: #d5d5d5; }
+      #pokedex-list li:hover .top .pokemon-number {
+        background: #ED1851;
+        color: #fff; }
+      #pokedex-list li:hover .bottom {
+        background: #ED1851;
+        color: #fff; }
+        #pokedex-list li:hover .bottom .like-btn {
+          color: #fff; }
+    #pokedex-list li .top {
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center; }
+      #pokedex-list li .top .pokemon-number {
+        margin: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.1);
+        border-bottom-right-radius: 5px;
+        border-top-left-radius: 5px; }
+    #pokedex-list li .bottom {
       display: flex;
       justify-content: flex-end;
       align-items: center;
       position: relative;
       background: rgba(0, 0, 0, 0.1);
-      height: 40px; }
-      #pokedex-list li .wrapper .like-btn {
-        color: #DC0A2D;
+      height: 40px;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px; }
+      #pokedex-list li .bottom .like-btn {
+        color: #ED1851;
         background: none;
         display: flex;
         height: 100%;
@@ -479,13 +497,37 @@ header {
         padding: 0;
         box-sizing: border-box;
         justify-content: center; }
-      #pokedex-list li .wrapper .pokemon-name {
+      #pokedex-list li .bottom .pokemon-name {
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
         margin: 0; }
 
+@media (max-width: 1200px) {
+  #pokedex-list {
+    display: flex;
+    flex-wrap: wrap; }
+    #pokedex-list li {
+      width: calc(100% / 4 - 40px); } }
+@media (max-width: 1000px) {
+  #pokedex-list {
+    display: flex;
+    flex-wrap: wrap; }
+    #pokedex-list li {
+      width: calc(100% / 3 - 40px); } }
+@media (max-width: 750px) {
+  #pokedex-list {
+    display: flex;
+    flex-wrap: wrap; }
+    #pokedex-list li {
+      width: calc(100% / 2 - 40px); } }
+@media (max-width: 500px) {
+  #pokedex-list {
+    display: flex;
+    flex-wrap: wrap; }
+    #pokedex-list li {
+      width: calc(100% - 40px); } }
 ul {
   list-style: none;
   margin: 0;
@@ -495,12 +537,12 @@ button, input {
   outline: none; }
 
 button {
-  background: #c40928;
+  background: #da1147;
   border: none;
   color: #fff;
   box-sizing: border-box; }
   button:hover {
-    background: #ab0823;
+    background: #c30f3f;
     cursor: pointer; }
 
 a {
