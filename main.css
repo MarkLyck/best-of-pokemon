@@ -395,7 +395,7 @@ textarea {
   overflow: auto; }
 
 header {
-  background: #DC0A2D;
+  background: #ED1851;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -413,15 +413,15 @@ header {
       height: 100%;
       padding: 0 20px; }
     header .nav-buttons #goto-signup-btn {
-      background-color: #dc0a2d; }
+      background-color: #ed1851; }
       header .nav-buttons #goto-signup-btn:hover {
-        background-color: #ab0823; }
+        background-color: #c30f3f; }
 
 .login-form, .signup-form {
   width: 400px;
   margin: 150px auto;
   padding: 20px 0;
-  background: #DC0A2D;
+  background: #ED1851;
   text-align: center; }
   .login-form h2, .signup-form h2 {
     color: #fff; }
@@ -433,7 +433,7 @@ header {
     width: 40%;
     border: 0;
     background: #fff;
-    color: #DC0A2D; }
+    color: #ED1851; }
   .login-form a, .signup-form a {
     display: block;
     color: #fff; }
@@ -445,46 +445,147 @@ header {
   flex-wrap: wrap; }
   #pokedex-list li {
     width: calc(100% / 5 - 40px);
-    height: 250px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: #eee;
+    height: 300px;
+    background-color: #fff;
     margin: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; }
-    #pokedex-list li .pokemon-number {
-      margin: 0;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.1);
-      border-bottom-right-radius: 10px; }
-    #pokedex-list li .wrapper {
+    justify-content: space-between;
+    border: 1px solid #eeeeee;
+    border-radius: 5px; }
+    #pokedex-list li:hover {
+      cursor: pointer;
+      background-color: #f2f2f2; }
+      #pokedex-list li:hover .bottom {
+        background: #ED1851;
+        color: #fff; }
+        #pokedex-list li:hover .bottom .pokemon-name {
+          color: #fff; }
+        #pokedex-list li:hover .bottom .like-btn {
+          color: #fff; }
+    #pokedex-list li .top {
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center; }
+      #pokedex-list li .top .pokemon-number {
+        margin: 20px;
+        font-size: 1.2rem; }
+    #pokedex-list li .bottom {
       display: flex;
       justify-content: flex-end;
       align-items: center;
       position: relative;
-      background: rgba(0, 0, 0, 0.1);
-      height: 40px; }
-      #pokedex-list li .wrapper .like-btn {
-        color: #DC0A2D;
+      height: 100px;
+      box-sizing: border-box;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px; }
+      #pokedex-list li .bottom .pokemon-name {
+        padding: 10px 20px;
+        color: #8B8B8B;
+        font-size: 1.5rem;
+        font-weight: normal;
+        font-family: Avenir;
+        border-radius: 5px;
+        box-sizing: border-box;
+        margin-bottom: 20px; }
+      #pokedex-list li .bottom .like-btn {
+        color: #ED1851;
         background: none;
         display: flex;
         height: 100%;
-        width: 40px;
+        width: 75px;
+        font-size: 1.5rem;
         padding: 0;
         box-sizing: border-box;
         justify-content: center; }
-      #pokedex-list li .wrapper .pokemon-name {
+      #pokedex-list li .bottom .pokemon-name {
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
         margin: 0; }
+
+@media (max-width: 1200px) {
+  #pokedex-list {
+    display: flex;
+    flex-wrap: wrap; }
+    #pokedex-list li {
+      width: calc(100% / 4 - 40px); } }
+@media (max-width: 1000px) {
+  #pokedex-list {
+    display: flex;
+    flex-wrap: wrap; }
+    #pokedex-list li {
+      width: calc(100% / 3 - 40px); } }
+@media (max-width: 750px) {
+  #pokedex-list {
+    display: flex;
+    flex-wrap: wrap; }
+    #pokedex-list li {
+      width: calc(100% / 2 - 40px); } }
+@media (max-width: 500px) {
+  #pokedex-list {
+    display: flex;
+    flex-wrap: wrap; }
+    #pokedex-list li {
+      width: calc(100% - 40px); } }
+#pokemonView #goto-pokedex-btn {
+  margin: 20px;
+  background: none;
+  color: #ED1851;
+  font-size: 1.5rem; }
+  #pokemonView #goto-pokedex-btn:hover {
+    color: #c30f3f; }
+#pokemonView #pokemon-info {
+  margin-left: 20px;
+  margin-top: 20px;
+  display: flex; }
+  #pokemonView #pokemon-info #pokemon-image {
+    width: 250px;
+    height: 250px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-right: 20px; }
+#pokemonView #traits {
+  margin: 20px; }
+#pokemonView #comment-section {
+  background-color: #ED1851;
+  padding-top: 20px; }
+  #pokemonView #comment-section h2 {
+    width: 80%;
+    margin: 0 auto;
+    color: #fff; }
+  #pokemonView #comment-section .comment {
+    width: 80%;
+    margin: 20px auto 20px auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-sizing: border-box; }
+  #pokemonView #comment-section #input-wrapper {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+    padding-bottom: 40px; }
+    #pokemonView #comment-section #input-wrapper textarea {
+      width: 80%;
+      border: none;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      padding: 20px;
+      outline: none; }
+    #pokemonView #comment-section #input-wrapper input[type=submit] {
+      width: 20%;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px; }
+
+body {
+  background: #F9F9F9; }
 
 ul {
   list-style: none;
@@ -494,13 +595,13 @@ ul {
 button, input {
   outline: none; }
 
-button {
-  background: #c40928;
+button, input[type=submit] {
+  background: #da1147;
   border: none;
   color: #fff;
   box-sizing: border-box; }
-  button:hover {
-    background: #ab0823;
+  button:hover, input[type=submit]:hover {
+    background: #c30f3f;
     cursor: pointer; }
 
 a {
