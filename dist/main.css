@@ -440,72 +440,99 @@ header {
     .login-form a span, .signup-form a span {
       text-decoration: underline; }
 
+#pokedex-container {
+  margin-top: calc(300px + 50px);
+  display: flex;
+  flex-wrap: wrap; }
+  #pokedex-container #pokedex-title {
+    color: #ED1851;
+    margin: 20px 0 0 20px; }
+
 #pokedex-list {
   display: flex;
   flex-wrap: wrap; }
-  #pokedex-list li {
-    width: calc(100% / 5 - 40px);
-    height: 300px;
-    background-color: #fff;
-    margin: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid #eeeeee;
-    border-radius: 5px; }
-    #pokedex-list li:hover {
-      cursor: pointer;
-      background-color: #f2f2f2; }
-      #pokedex-list li:hover .bottom {
-        background: #ED1851;
+
+.pokemon-li {
+  width: calc(100% / 5 - 40px);
+  height: 300px;
+  background-color: #fff;
+  margin: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #eeeeee;
+  border-radius: 5px; }
+  .pokemon-li:hover {
+    cursor: pointer;
+    background-color: #f2f2f2; }
+    .pokemon-li:hover .bottom {
+      background: #ED1851;
+      color: #fff; }
+      .pokemon-li:hover .bottom .pokemon-name {
         color: #fff; }
-        #pokedex-list li:hover .bottom .pokemon-name {
-          color: #fff; }
-        #pokedex-list li:hover .bottom .like-btn {
-          color: #fff; }
-    #pokedex-list li .top {
-      height: 100%;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center center; }
-      #pokedex-list li .top .pokemon-number {
-        margin: 20px;
-        font-size: 1.2rem; }
-    #pokedex-list li .bottom {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      position: relative;
-      height: 100px;
+      .pokemon-li:hover .bottom .like-btn {
+        color: #fff; }
+        .pokemon-li:hover .bottom .like-btn::before {
+          content: '\f08a';
+          font-family: FontAwesome;
+          color: #fff;
+          margin-right: 5px; }
+  .pokemon-li .top {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center; }
+    .pokemon-li .top .pokemon-number, .pokemon-li .top .pokemon-fav {
+      margin: 20px;
+      font-size: 1.2rem; }
+  .pokemon-li .bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    height: 100px;
+    box-sizing: border-box;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px; }
+    .pokemon-li .bottom .pokemon-name {
+      padding: 10px 20px;
+      color: #8B8B8B;
+      font-size: 1.5rem;
+      font-weight: normal;
+      font-family: Avenir;
+      border-radius: 5px;
       box-sizing: border-box;
-      border-bottom-right-radius: 5px;
-      border-bottom-left-radius: 5px; }
-      #pokedex-list li .bottom .pokemon-name {
-        padding: 10px 20px;
-        color: #8B8B8B;
-        font-size: 1.5rem;
-        font-weight: normal;
-        font-family: Avenir;
-        border-radius: 5px;
-        box-sizing: border-box;
-        margin-bottom: 20px; }
-      #pokedex-list li .bottom .like-btn {
+      margin-bottom: 20px; }
+    .pokemon-li .bottom .like-btn {
+      color: #ED1851;
+      background: none;
+      display: flex;
+      height: 100%;
+      width: 75px;
+      font-size: 1.2rem;
+      padding: 0;
+      box-sizing: border-box;
+      justify-content: center;
+      align-items: center; }
+      .pokemon-li .bottom .like-btn .like-number {
+        font-size: 1rem; }
+      .pokemon-li .bottom .like-btn::before {
+        content: '\f08a';
+        font-family: FontAwesome;
         color: #ED1851;
-        background: none;
-        display: flex;
-        height: 100%;
-        width: 75px;
-        font-size: 1.5rem;
-        padding: 0;
-        box-sizing: border-box;
-        justify-content: center; }
-      #pokedex-list li .bottom .pokemon-name {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        margin: 0; }
+        margin-right: 5px; }
+      .pokemon-li .bottom .like-btn:hover::before {
+        content: '\f004';
+        font-family: FontAwesome;
+        color: #fff;
+        margin-right: 5px; }
+    .pokemon-li .bottom .pokemon-name {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0; }
 
 @media (max-width: 1200px) {
   #pokedex-list {
@@ -583,6 +610,25 @@ header {
       width: 20%;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px; }
+
+#top-section {
+  padding-top: 20px;
+  background: #404040; }
+
+#top-pokemon-title {
+  margin: 0 20px;
+  color: #ED1851;
+  background: #404040; }
+
+#top-list {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  overflow-x: scroll;
+  background: #404040; }
+  #top-list li {
+    min-width: 250px;
+    border: none; }
 
 body {
   background: #F9F9F9; }

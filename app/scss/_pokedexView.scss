@@ -1,119 +1,113 @@
+#pokedex-container {
+  margin-top: calc(300px + 50px);
+  display: flex;
+  flex-wrap: wrap;
+  #pokedex-title {
+    color: $primary-color;
+    margin: 20px 0 0 20px;;
+  }
+}
 #pokedex-list {
   display: flex;
   flex-wrap: wrap;
-  li {
-    width: calc(100% / 5 - 40px);
-    height: 300px;
-    background-color: $secondary-background;
-    margin: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid $primary-border;
-    border-radius: 5px;
-    &:hover {
-      cursor: pointer;
-      background-color: darken($secondary-background,5%);
-      .bottom {
-        background: $primary-color;
-        color: #fff;
-        .pokemon-name {
-          color: #fff;
-        }
-        .like-btn {
-          color: #fff;
-        }
-      }
-    }
-    .top {
-      height: 100%;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center center;
-      .pokemon-number {
-        margin: 20px;
-        font-size: 1.2rem;
-      }
-    }
-    // .grass {
-    //   background-color: $type-grass;
-    // }
-    // .fire {
-    //   background-color: $type-fire;
-    // }
-    // .water {
-    //   background-color: $type-water;
-    // }
-    // .poison {
-    //   background-color: $type-poison;
-    // }
-    // .flying {
-    //   background-color: $type-flying;
-    // }
-    // .normal {
-    //   background-color: $type-normal;
-    // }
-    // .fairy {
-    //   background-color: $type-fairy;
-    // }
-    // .rock {
-    //   background-color: $type-rock;
-    // }
-    // .ground {
-    //   background-color: $type-ground;
-    // }
-    // .ice {
-    //   background-color: $type-ice;
-    // }
-    // .psychic {
-    //   background-color: $type-psychic;
-    // }
-    // .ghost {
-    //   background-color: $type-ghost;
-    // }
-    // .electric {
-    //   background-color: $type-electric;
-    // }
+}
+
+.pokemon-li {
+  width: calc(100% / 5 - 40px);
+  height: 300px;
+  background-color: $secondary-background;
+  margin: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid $primary-border;
+  border-radius: 5px;
+  &:hover {
+    cursor: pointer;
+    background-color: darken($secondary-background,5%);
     .bottom {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      position: relative;
-      // background: rgba(0, 0, 0, 0.1);
-      height: 100px;
-      box-sizing: border-box;
-      border-bottom-right-radius: 5px;
-      border-bottom-left-radius: 5px;
+      background: $primary-color;
+      color: #fff;
       .pokemon-name {
-        padding: 10px 20px;
-        // border: 3px solid $primary-border;
-        color: $secondary-text-color;
-        font-size: 1.5rem;
-        font-weight: normal;
-        font-family: $font;
-        border-radius: 5px;
-        box-sizing: border-box;
-        margin-bottom: 20px;
+        color: #fff;
       }
       .like-btn {
+        color: #fff;
+        &::before {
+          content: '\f08a';
+          font-family: FontAwesome;
+          color: #fff;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+  .top {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    .pokemon-number, .pokemon-fav {
+      margin: 20px;
+      font-size: 1.2rem;
+    }
+  }
+  .bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    // background: rgba(0, 0, 0, 0.1);
+    height: 100px;
+    box-sizing: border-box;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    .pokemon-name {
+      padding: 10px 20px;
+      color: $secondary-text-color;
+      font-size: 1.5rem;
+      font-weight: normal;
+      font-family: $font;
+      border-radius: 5px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+    .like-btn {
+      color: $primary-color;
+      background: none;
+      display: flex;
+      height: 100%;
+      width: 75px;
+      font-size: 1.2rem;
+      padding: 0;
+      box-sizing: border-box;
+      justify-content: center;
+      align-items: center;
+      .like-number {
+        font-size: 1rem;
+      }
+      &::before {
+        content: '\f08a';
+        font-family: FontAwesome;
         color: $primary-color;
-        background: none;
-        display: flex;
-        height: 100%;
-        width: 75px;
-        font-size: 1.5rem;
-        padding: 0;
-        box-sizing: border-box;
-        justify-content: center;
+        margin-right: 5px;
       }
-      .pokemon-name {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        margin: 0;
+      &:hover {
+        &::before {
+          content: '\f004';
+          font-family: FontAwesome;
+          color: #fff;
+          margin-right: 5px;
+        }
       }
+    }
+    .pokemon-name {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
     }
   }
 }

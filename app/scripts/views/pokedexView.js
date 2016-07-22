@@ -9,24 +9,31 @@ const PokedexView = Backbone.View.extend({
   initialize: function() {
     // console.log('FETCHING POKEMON 1');
   },
-  tagName: 'ul',
-  id: 'pokedex-list',
+  id: 'pokedex-container',
   events: {
 
   },
+  template: function() {
+    return `
+    <h3 id="pokedex-title">All Pokemon</h3>
+    <ul id="pokedex-list">
+    </ul>
+    `
+  },
   render: function() {
+    this.$el.html(this.template())
     let counter = 1;
     while (counter <= 151) {
       let $pokemonLi = $(`
-        <li>
-          <div class="top">
-            <p class="pokemon-number">${counter}</p>
-          </div>
-          <div class="bottom">
-            <h3 class="pokemon-name">Name</h3>
-            <button class="like-btn"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
-          </div>
-        </li>
+          <li class="pokemon-li">
+            <div class="top">
+              <p class="pokemon-number">${counter}</p>
+            </div>
+            <div class="bottom">
+              <h3 class="pokemon-name">Name</h3>
+              <button class="like-btn"><span class="like-number">0</span></button>
+            </div>
+          </li>
         `);
       // console.log(`https://pokeapi.co/api/v2/pokemon/${counter}`);
       // $.ajax({
@@ -51,7 +58,7 @@ const PokedexView = Backbone.View.extend({
       }
 
       $pokemonLi.find('.top').css('background-image', `url('assets/images/pokemon/${fixedNumber}.png')`);
-      this.$el.append($pokemonLi);
+      this.$('#pokedex-list').append($pokemonLi);
       $pokemonLi.on('click', function () {
         router.navigate(`pokemon/${$pokemonLi.find('.pokemon-number').text()}`, {trigger:true});
       });
