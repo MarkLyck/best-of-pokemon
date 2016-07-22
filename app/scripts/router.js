@@ -8,6 +8,7 @@ import LoginView from './views/loginView'
 import SignupView from './views/signupView'
 import PokedexView from './views/pokedexView'
 import PokemonView from './views/pokemonView'
+import TopPokemonView from './views/TopPokemonView'
 
 const Router = Backbone.Router.extend({
   routes: {
@@ -33,7 +34,8 @@ const Router = Backbone.Router.extend({
   pokedex: function() {
     let headerView = new HeaderView();
     let pokedexView = new PokedexView();
-    $('#container').empty().append(headerView.render().$el).append(pokedexView.render().$el);
+    let topPokemonView = new TopPokemonView()
+    $('#container').empty().append(headerView.render().$el).append(topPokemonView.render().$el).append(pokedexView.render().$el);
   },
   pokemon: function(id) {
     let headerView = new HeaderView();
