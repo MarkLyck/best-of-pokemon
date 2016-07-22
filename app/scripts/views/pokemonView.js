@@ -45,7 +45,16 @@ const PokemonView = Backbone.View.extend({
         </ul>
       </section>
       <section id="comment-section">
-        <ul id="comments"></ul>
+        <h2>Comments</h2>
+        <ul id="comments">
+          <li class="comment">
+            <p class="comment-body">This is a test comment<p>
+          </li>
+        </ul>
+        <div id="input-wrapper">
+          <textarea placeholder="Comment"></textarea>
+          <input type="submit" value="Comment">
+        </div>
       </section>
     `
   },

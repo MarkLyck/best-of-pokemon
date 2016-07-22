@@ -1,6 +1,6 @@
 #pokemonView {
-  padding: 20px;
   #goto-pokedex-btn {
+    margin: 20px;
     background: none;
     color: $primary-color;
     font-size: 1.5rem;
@@ -9,6 +9,7 @@
     }
   }
   #pokemon-info {
+    margin-left: 20px;
     margin-top: 20px;
     display: flex;
     #pokemon-image {
@@ -21,6 +22,44 @@
       border-radius: 5px;
       margin-right: 20px;
     }
-    // background: yellow;
+  }
+  #traits {
+    margin: 20px;
+  }
+  #comment-section {
+    background-color: $primary-color;
+    padding-top: 20px;
+    h2 {
+      width: 80%;
+      margin: 0 auto;
+      color: #fff;
+    }
+    .comment {
+      width: 80%;
+      margin: 20px auto 20px auto;
+      background: rgba(255,255,255,0.9);
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    #input-wrapper {
+      display: flex;
+      margin: 0 auto;
+      width: 80%;
+      padding-bottom: 40px;
+      textarea {
+        width: 80%;
+        border: none;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        padding: 20px;
+        outline: none;
+      }
+      input[type=submit] {
+        width: 20%;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+    }
   }
 }
