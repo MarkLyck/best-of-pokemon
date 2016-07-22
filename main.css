@@ -455,7 +455,8 @@ header {
     #pokedex-list li .top {
       height: 100%;
       background-repeat: no-repeat;
-      background-size: contain; }
+      background-size: contain;
+      background-position: center center; }
       #pokedex-list li .top .pokemon-number {
         margin: 0;
         width: 40px;
@@ -488,6 +489,30 @@ header {
         transform: translate(-50%, -50%);
         margin: 0; }
 
+@media (max-width: 1200px) {
+  #pokedex-list {
+    display: flex;
+    flex-wrap: wrap; }
+    #pokedex-list li {
+      width: calc(100% / 4 - 40px); } }
+@media (max-width: 1000px) {
+  #pokedex-list {
+    display: flex;
+    flex-wrap: wrap; }
+    #pokedex-list li {
+      width: calc(100% / 3 - 40px); } }
+@media (max-width: 750px) {
+  #pokedex-list {
+    display: flex;
+    flex-wrap: wrap; }
+    #pokedex-list li {
+      width: calc(100% / 2 - 40px); } }
+@media (max-width: 500px) {
+  #pokedex-list {
+    display: flex;
+    flex-wrap: wrap; }
+    #pokedex-list li {
+      width: calc(100% - 40px); } }
 ul {
   list-style: none;
   margin: 0;
