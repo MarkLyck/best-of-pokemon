@@ -29,9 +29,18 @@ const LoginView = Backbone.View.extend({
   },
   events: {
     'submit': 'submit',
+    'keyup #username': 'validateUsername',
     'keyup #password': 'validatePassword'
   },
-  validatePassword: function(){
+  validateUsername: function() {
+    this.$('.validation-icon').hide();
+    this.$('.error-icon').hide();
+    this.$('p').hide();
+  },
+  validatePassword: function() {
+    this.$('.validation-icon').hide();
+    this.$('.error-icon').hide();
+    this.$('p').hide();
     let username = $('#username').val();
     let password = $('#password').val();
     let checker = /[a-zA-Z0-9]/g;
@@ -54,7 +63,7 @@ const LoginView = Backbone.View.extend({
     if (characters.length < username.length) {
       this.$('.error-username').show();
       this.$('.username p').show();
-    } else if (password < 6) {
+    } else if (password.length < 6) {
       this.$('.error-password').show();
       this.$('.password p').show();
     } else {
