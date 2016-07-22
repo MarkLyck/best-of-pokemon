@@ -17,7 +17,7 @@ const PokedexView = Backbone.View.extend({
   render: function() {
     console.log('RENDEING POKEDEX');
     let counter = 1;
-    while (counter <= 100) {
+    while (counter <= 151) {
       let $pokemonLi = $(`
         <li>
           <div class="top">
