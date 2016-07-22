@@ -21,7 +21,7 @@ button, input {
   outline: none;
 }
 
-button {
+button, input[type=submit] {
   background: darken($primary-color, 5%);
   border: none;
   color: #fff;

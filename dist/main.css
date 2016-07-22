@@ -531,6 +531,59 @@ header {
     flex-wrap: wrap; }
     #pokedex-list li {
       width: calc(100% - 40px); } }
+#pokemonView #goto-pokedex-btn {
+  margin: 20px;
+  background: none;
+  color: #ED1851;
+  font-size: 1.5rem; }
+  #pokemonView #goto-pokedex-btn:hover {
+    color: #c30f3f; }
+#pokemonView #pokemon-info {
+  margin-left: 20px;
+  margin-top: 20px;
+  display: flex; }
+  #pokemonView #pokemon-info #pokemon-image {
+    width: 250px;
+    height: 250px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-right: 20px; }
+#pokemonView #traits {
+  margin: 20px; }
+#pokemonView #comment-section {
+  background-color: #ED1851;
+  padding-top: 20px; }
+  #pokemonView #comment-section h2 {
+    width: 80%;
+    margin: 0 auto;
+    color: #fff; }
+  #pokemonView #comment-section .comment {
+    width: 80%;
+    margin: 20px auto 20px auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-sizing: border-box; }
+  #pokemonView #comment-section #input-wrapper {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+    padding-bottom: 40px; }
+    #pokemonView #comment-section #input-wrapper textarea {
+      width: 80%;
+      border: none;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      padding: 20px;
+      outline: none; }
+    #pokemonView #comment-section #input-wrapper input[type=submit] {
+      width: 20%;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px; }
+
 body {
   background: #F9F9F9; }
 
@@ -542,12 +595,12 @@ ul {
 button, input {
   outline: none; }
 
-button {
+button, input[type=submit] {
   background: #da1147;
   border: none;
   color: #fff;
   box-sizing: border-box; }
-  button:hover {
+  button:hover, input[type=submit]:hover {
     background: #c30f3f;
     cursor: pointer; }
 
