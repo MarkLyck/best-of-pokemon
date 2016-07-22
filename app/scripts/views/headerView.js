@@ -3,6 +3,8 @@ import Backbone from 'backbone'
 
 import router from '../router'
 
+import LoginView from './loginView';
+
 const HeaderView = Backbone.View.extend({
   tagName: 'header',
   template: function() {
@@ -24,7 +26,9 @@ const HeaderView = Backbone.View.extend({
     this.render()
   },
   gotoLogin: function() {
-    router.navigate('login', {trigger:true})
+    let loginView = new LoginView();
+    this.$el.append(loginView.render().$el);
+    // router.navigate('login', {trigger:true})
   },
   gotoSignup: function() {
     router.navigate('signup', {trigger:true})

@@ -21,7 +21,8 @@ const Router = Backbone.Router.extend({
     console.log('RENDER LOGIN');
     let loginView = new LoginView();
     let headerView = new HeaderView();
-    $('#container').empty().append(headerView.render().$el).append(loginView.render().$el);
+    $('#container').append(headerView.render().$el).append(loginView.render().$el);
+    $('.login-form').hide();
   },
   signup: function() {
     console.log('RENDER SIGNUP');

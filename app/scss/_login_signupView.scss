@@ -1,8 +1,12 @@
 .login-form, .signup-form {
-  width: 400px;
-  margin: 150px auto;
+  position: absolute;
+  top: 75px;
+  right: 0;
+  width: 260px;
+  float: right;
+  margin-right: 60px;
   padding: 20px 0;
-  background: $primary-color;
+  background: #ED1851;
   text-align: center;
   h2 {
     color: $secondary-color;
@@ -25,4 +29,50 @@
       text-decoration: underline;
     }
   }
+  .username, .password {
+    position: relative;
+    .error-icon, .validation-icon {
+      position: absolute;
+      top: 18px;
+      right: 30px;
+    }
+    .validation-icon {
+      color: #1cb81c;
+    }
+    .error-icon {
+      color: red;
+    }
+  }
+}
+
+.username, .password {
+  p {
+    position: absolute;
+    top: 0px;
+    left: -135px;
+    background: $primary-color;
+    color: $secondary-color;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    &::after {
+      content: '';
+      position: absolute;
+      right: -20px;
+      border-bottom: 7px solid transparent;
+      border-left: 7px solid $secondary-color;
+      border-top: 7px solid transparent;
+    }
+  }
+}
+
+#login-btn {
+  position: absolute;
+  top: 0;
+  right: 125px;
+  width: 125px;
+  height: 75px;
+  padding: 0 20px;
+  margin-right: 2px;
+  box-sizing: border-box;
 }
