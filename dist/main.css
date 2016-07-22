@@ -528,6 +528,27 @@ header {
     flex-wrap: wrap; }
     #pokedex-list li {
       width: calc(100% - 40px); } }
+#pokemonView {
+  padding: 20px; }
+  #pokemonView #goto-pokedex-btn {
+    background: none;
+    color: #ED1851;
+    font-size: 1.5rem; }
+    #pokemonView #goto-pokedex-btn:hover {
+      color: #c30f3f; }
+  #pokemonView #pokemon-info {
+    margin-top: 20px;
+    display: flex; }
+    #pokemonView #pokemon-info #pokemon-image {
+      width: 250px;
+      height: 250px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      background-color: #eee;
+      border-radius: 5px;
+      margin-right: 20px; }
+
 ul {
   list-style: none;
   margin: 0;

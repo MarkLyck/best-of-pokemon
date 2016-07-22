@@ -1,0 +1,26 @@
+#pokemonView {
+  padding: 20px;
+  #goto-pokedex-btn {
+    background: none;
+    color: $primary-color;
+    font-size: 1.5rem;
+    &:hover {
+      color: darken($primary-color,10%);
+    }
+  }
+  #pokemon-info {
+    margin-top: 20px;
+    display: flex;
+    #pokemon-image {
+      width: 250px;
+      height: 250px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      background-color: $secondary-background;
+      border-radius: 5px;
+      margin-right: 20px;
+    }
+    // background: yellow;
+  }
+}
