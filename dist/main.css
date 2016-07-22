@@ -470,6 +470,7 @@ header {
       background-size: contain;
       background-position: center center; }
       #pokedex-list li .top .pokemon-number {
+        text-align: right;
         margin: 20px;
         font-size: 1.2rem; }
     #pokedex-list li .bottom {
