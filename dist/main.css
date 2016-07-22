@@ -419,32 +419,46 @@ header {
 
 .login-form, .signup-form {
   position: absolute;
-  top: 75px;
-  right: 0;
-  width: 260px;
+  top: 81px;
+  right: 65px;
+  width: 240px;
   float: right;
   margin-right: 60px;
-  padding: 20px 0;
+  border-radius: 5px;
   background: #ED1851;
   text-align: center; }
+  .login-form::before, .signup-form::before {
+    content: '';
+    position: absolute;
+    right: 53px;
+    top: -14px;
+    border-bottom: 7px solid #ED1851;
+    border-left: 7px solid transparent;
+    border-top: 7px solid transparent;
+    border-right: 7px solid transparent; }
   .login-form h2, .signup-form h2 {
     color: #fff; }
   .login-form input, .signup-form input {
     width: 80%;
     line-height: 1.5rem;
-    margin: 10px 0; }
+    border-radius: 5px;
+    border: none;
+    padding: 8px 5px; }
   .login-form input[type="submit"], .signup-form input[type="submit"] {
-    width: 40%;
+    width: 100%;
+    padding: 10px 0;
     border: 0;
-    background: #fff;
-    color: #ED1851; }
+    margin: 0;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px; }
   .login-form a, .signup-form a {
     display: block;
     color: #fff; }
     .login-form a span, .signup-form a span {
       text-decoration: underline; }
   .login-form .username, .login-form .password, .signup-form .username, .signup-form .password {
-    position: relative; }
+    position: relative;
+    margin: 12px 0; }
     .login-form .username .error-icon, .login-form .username .validation-icon, .login-form .password .error-icon, .login-form .password .validation-icon, .signup-form .username .error-icon, .signup-form .username .validation-icon, .signup-form .password .error-icon, .signup-form .password .validation-icon {
       position: absolute;
       top: 18px;
@@ -471,6 +485,10 @@ header {
     border-left: 7px solid #fff;
     border-top: 7px solid transparent; }
 
+.username-icon, .password-icon {
+  margin-right: 3px;
+  color: #fff; }
+
 #login-btn {
   position: absolute;
   top: 0;
@@ -480,6 +498,11 @@ header {
   padding: 0 20px;
   margin-right: 2px;
   box-sizing: border-box; }
+
+.signup-form {
+  right: -50px; }
+  .signup-form::before {
+    right: 47px; }
 
 #pokedex-container {
   display: flex;

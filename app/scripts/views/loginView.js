@@ -12,19 +12,20 @@ const LoginView = Backbone.View.extend({
   template: function () {
     return `
     <div class="username">
+      <i class="fa fa-user username-icon" aria-hidden="true"></i>
       <input type="text" name="username" placeholder="username" id="username" />
       <p>Username is invalid</p>
       <i class="fa fa-times error-icon error-username" aria-hidden="true"></i>
       <i class="fa fa-check validation-icon validation-username" aria-hidden="true"></i>
     </div>
     <div class="password">
+      <i class="fa fa-unlock-alt password-icon" aria-hidden="true"></i>
       <input type="password" name="password" placeholder="password" id="password" />
       <p>Password is invalid</p>
       <i class="fa fa-times error-icon error-password" aria-hidden="true"></i>
       <i class="fa fa-check validation-icon validation-password" aria-hidden="true"></i>
     </div>
     <input type="submit" name="submit" />
-    <a href="#signup">Don't have an account? <span>Sign up!</span></a>
     `;
   },
   events: {
@@ -52,6 +53,8 @@ const LoginView = Backbone.View.extend({
     }
     if (username.length > 0 && characters.length === username.length) {
       this.$('.validation-username').show();
+    } else {
+      this.$('.error-username').show();
     }
   },
   submit: function (e) {
@@ -82,13 +85,6 @@ const LoginView = Backbone.View.extend({
     // });
   },
   render: function() {
-    let $loginDropdown = $(`
-      <button id="login-btn">Login</button>
-      `);
-    $loginDropdown.on('click', function(e) {
-      $('.login-form').slideToggle(100);
-    });
-    $('#container').append($loginDropdown);
     this.$el.html(this.template());
     this.$('.error-icon').hide();
     this.$('.validation-icon').hide();

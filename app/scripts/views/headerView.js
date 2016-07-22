@@ -4,6 +4,7 @@ import Backbone from 'backbone'
 import router from '../router'
 
 import LoginView from './loginView';
+import SignupView from './signupView';
 
 const HeaderView = Backbone.View.extend({
   tagName: 'header',
@@ -27,11 +28,21 @@ const HeaderView = Backbone.View.extend({
   },
   gotoLogin: function() {
     let loginView = new LoginView();
-    this.$el.append(loginView.render().$el);
-    // router.navigate('login', {trigger:true})
+    if (this.$el.find('.login-form').length === 0) {
+      this.$el.append(loginView.render().$el);
+      this.$el.find('.signup-form').remove();
+    } else {
+      this.$el.find('.login-form').slideToggle(100);
+    }
   },
   gotoSignup: function() {
-    router.navigate('signup', {trigger:true})
+    let signupView = new SignupView();
+    if (this.$el.find('.signup-form').length === 0) {
+      this.$el.append(signupView.render().$el);
+      this.$el.find('.login-form').remove();
+    } else {
+      this.$el.find('.signup-form').slideToggle(100);
+    }
   },
   gotoPokedex: function() {
     router.navigate('', {trigger:true})
