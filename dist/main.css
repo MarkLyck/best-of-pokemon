@@ -441,7 +441,6 @@ header {
       text-decoration: underline; }
 
 #pokedex-container {
-  margin-top: calc(300px + 50px);
   display: flex;
   flex-wrap: wrap; }
   #pokedex-container #pokedex-title {
@@ -613,7 +612,9 @@ header {
 
 #top-section {
   padding-top: 20px;
-  background: #404040; }
+  background: #404040;
+  overflow-x: scroll;
+  width: 100%; }
 
 #top-pokemon-title {
   margin: 0 20px;
@@ -621,14 +622,16 @@ header {
   background: #404040; }
 
 #top-list {
-  display: flex;
-  position: absolute;
-  width: 100%;
-  overflow-x: scroll;
+  width: calc((250px + 40px) * 11);
   background: #404040; }
+  #top-list::after {
+    clear: both;
+    content: '';
+    display: block; }
   #top-list li {
-    min-width: 250px;
-    border: none; }
+    width: 250px;
+    border: none;
+    float: left; }
 
 body {
   background: #F9F9F9; }
