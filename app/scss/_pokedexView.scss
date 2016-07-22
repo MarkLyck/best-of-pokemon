@@ -4,12 +4,30 @@
   li {
     width: calc(100% / 5 - 40px);
     height: 250px;
-    background-color: #eee;
+    background-color: $secondary-background;
     margin: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-radius: 5px;
+    &:hover {
+      cursor: pointer;
+      background-color: darken($secondary-background,10%);
+      .top {
+        .pokemon-number {
+          background: $primary-color;
+          color: #fff;
+        }
+      }
+      .bottom {
+        background: $primary-color;
+        color: #fff;
+        .like-btn {
+          color: #fff;
+        }
+      }
+    }
     .top {
       height: 100%;
       background-repeat: no-repeat;
@@ -23,9 +41,49 @@
         justify-content: center;
         align-items: center;
         background: rgba(0,0,0,0.1);
-        border-bottom-right-radius: 10px;
+        border-bottom-right-radius: 5px;
+        border-top-left-radius: 5px;
       }
     }
+    // .grass {
+    //   background-color: $type-grass;
+    // }
+    // .fire {
+    //   background-color: $type-fire;
+    // }
+    // .water {
+    //   background-color: $type-water;
+    // }
+    // .poison {
+    //   background-color: $type-poison;
+    // }
+    // .flying {
+    //   background-color: $type-flying;
+    // }
+    // .normal {
+    //   background-color: $type-normal;
+    // }
+    // .fairy {
+    //   background-color: $type-fairy;
+    // }
+    // .rock {
+    //   background-color: $type-rock;
+    // }
+    // .ground {
+    //   background-color: $type-ground;
+    // }
+    // .ice {
+    //   background-color: $type-ice;
+    // }
+    // .psychic {
+    //   background-color: $type-psychic;
+    // }
+    // .ghost {
+    //   background-color: $type-ghost;
+    // }
+    // .electric {
+    //   background-color: $type-electric;
+    // }
     .bottom {
       display: flex;
       justify-content: flex-end;
@@ -33,6 +91,8 @@
       position: relative;
       background: rgba(0, 0, 0, 0.1);
       height: 40px;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
       .like-btn {
         color: $primary-color;
         background: none;
