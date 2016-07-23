@@ -26,20 +26,16 @@ const PokemonView = Backbone.View.extend({
     return `
       <button id="goto-pokedex-btn"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
       <section id="pokemon-info">
-        <div id="pokemon-image"></div>
+        <div id="pokemon-image">
+          <h4 id="pokemon-likes">0 <i class="fa fa-heart-o" aria-hidden="true"></i></h4>
+        </div>
         <div id="main-info">
           <h1>${this.model.get('name')}</h1>
           <h3 id="types">Type: </h3>
+          <h4 id="pokemon-height">Height ${this.model.get('height')}</h4>
+          <h4 id="pokemon-weight">Weight ${this.model.get('weight')}</h4>
           <h3>Description: ${this.model.get('description')}</h3>
-          <h4 id="pokemon-likes">0 <i class="fa fa-heart-o" aria-hidden="true"></i></h4>
         </div>
-      </section>
-      <section id="traits">
-        <h4 id="pokemon-height">Height ${this.model.get('height')}</h4>
-        <h4 id="pokemon-weight">Weight ${this.model.get('weight')}</h4>
-        <ul id="pokemon-moves">
-
-        </ul>
       </section>
       <section id="comment-section">
         <h2>Comments</h2>
