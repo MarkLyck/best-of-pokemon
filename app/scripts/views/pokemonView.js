@@ -17,6 +17,13 @@ const PokemonView = Backbone.View.extend({
     this.model = store.pokemons.data.get(id)
     this.model.on('change', () => this.render())
     this.model.fetch()
+
+    // Fake comment
+    // Comments.create({
+    //
+    // })
+
+
   },
   events: {
     'click #goto-pokedex-btn'   : 'gotoPokedex',
