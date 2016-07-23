@@ -54,7 +54,7 @@ const PokemonView = Backbone.View.extend({
         <h2>Comments</h2>
         <ul id="comments">
           <li class="comment">
-            <div>
+            <div class="wrapper">
               <h4 class="comment-user">MarkL</h4>
               <p class="comment-timestamp">${moment().format('MMM DD YYYY')}</p>
             </div>

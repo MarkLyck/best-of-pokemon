@@ -3,8 +3,11 @@
   display: flex;
   flex-direction: column;
   nav {
-    display: flex;
-    justify-content: space-between;
+    // display: flex;
+    // justify-content: space-between;
+    #goto-next-btn {
+      float: right;
+    }
     button {
       padding: 20px;
       background: none;
@@ -150,6 +153,22 @@
     padding: 10px 20px;
     border-radius: 5px;
     box-sizing: border-box;
+    .wrapper {
+      display: flex;
+      justify-content: space-between;
+      h4, .comment-timestamp {
+        margin: 10px 0 0 0;
+      }
+      .comment-timestamp {
+        color: rgba(0,0,0,0.5);
+      }
+      .comment-user {
+        &:hover {
+          cursor: pointer;
+          color: $primary-color;
+        }
+      }
+    }
   }
   #input-wrapper {
     display: flex;
