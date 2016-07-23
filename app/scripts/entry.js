@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import _ from 'underscore'
 import Backbone from 'backbone'
-
+//
 import router from './router'
 import store from './store'
 
@@ -29,7 +29,7 @@ Backbone.history.start()
 //     console.log('ERROR: ', response);
 //   }
 // })
-let counter = 0
+// let counter = 0
 
 // localStorage.pokemonData = JSON.stringify(data)
 // console.log(localStorage.pokemonData);
@@ -54,6 +54,7 @@ let counter = 0
 //     types: pokemon.types.join(' ')
 //   }
 // })
+//
 // console.log(mappedData);
 // console.log(sortedData);
 
@@ -75,7 +76,7 @@ let counter = 0
 //     console.log('error: ', response);
 //   }
 // })
-
+//
 // createPokemon(1)
 function createPokemon(id) {
   store.pokemons.data.create({
@@ -98,35 +99,35 @@ function createPokemon(id) {
   })
 }
 
-function CreatePokemonData(counter, max) {
-  console.log('test');
-  let savedPokemons = []
-  if (localStorage.pokemonData) {
-    savedPokemons = JSON.parse(localStorage.pokemonData)
-  }
-
-  while (counter <= max) {
-    $.ajax(`http://pokeapi.co/api/v2/pokemon/${counter}`).then(function(response) {
-      console.log(response);
-      let typesArr = []
-
-      response.types.forEach(type => {
-        typesArr.push(type.type.name)
-      })
-      // console.log('TypesArr: ', typesArr);
-      let newPokemon = {
-        id: response.id,
-        name: response.name,
-        height: response.height,
-        weight: response.weight,
-        types:typesArr
-      }
-      savedPokemons.push(newPokemon)
-      localStorage.pokemonData = JSON.stringify(savedPokemons)
-      console.log(localStorage.pokemonData);
-    })
-    counter++
-  }
-}
+// function CreatePokemonData(counter, max) {
+//   console.log('test');
+//   let savedPokemons = []
+//   if (localStorage.pokemonData) {
+//     savedPokemons = JSON.parse(localStorage.pokemonData)
+//   }
+//
+//   while (counter <= max) {
+//     $.ajax(`http://pokeapi.co/api/v2/pokemon/${counter}`).then(function(response) {
+//       console.log(response);
+//       let typesArr = []
+//
+//       response.types.forEach(type => {
+//         typesArr.push(type.type.name)
+//       })
+//       // console.log('TypesArr: ', typesArr);
+//       let newPokemon = {
+//         id: response.id,
+//         name: response.name,
+//         height: response.height,
+//         weight: response.weight,
+//         types:typesArr
+//       }
+//       savedPokemons.push(newPokemon)
+//       localStorage.pokemonData = JSON.stringify(savedPokemons)
+//       console.log(localStorage.pokemonData);
+//     })
+//     counter++
+//   }
+// }
 //
 // CreatePokemonData(701, 720)

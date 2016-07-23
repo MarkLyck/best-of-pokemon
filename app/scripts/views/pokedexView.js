@@ -30,7 +30,7 @@ const PokedexView = Backbone.View.extend({
             </div>
             <div class="bottom">
               <h3 class="pokemon-name">${pokemon.get('name')}</h3>
-              <button class="like-btn"><span class="like-number">0</span></button>
+              <button class="like-btn"><span class="like-number">${Math.round(Math.random()*100)}</span></button>
             </div>
           </li>
         `);
