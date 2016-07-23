@@ -436,6 +436,7 @@ header {
   .login-form::before, .signup-form::before {
     content: '';
     position: absolute;
+    top: -14px;
     right: 53px;
     border-bottom: 7px solid #ED1851;
     border-left: 7px solid transparent;
