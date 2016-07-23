@@ -31,6 +31,15 @@ const HeaderView = Backbone.View.extend({
     if (this.$el.find('.login-form').length === 0) {
       this.$el.append(loginView.render().$el);
       this.$el.find('.signup-form').remove();
+      let removeLoginTimeout = window.setTimeout(() => {
+        $(document).on('click', e => {
+          if ($(e.target).closest('.login-form').length < 1) {
+            console.log('test');
+            this.$el.find('.login-form').slideToggle(100);
+            $(document).off();
+          }
+        })
+      }, 100);
     } else {
       this.$el.find('.login-form').slideToggle(100);
     }
@@ -40,6 +49,15 @@ const HeaderView = Backbone.View.extend({
     if (this.$el.find('.signup-form').length === 0) {
       this.$el.append(signupView.render().$el);
       this.$el.find('.login-form').remove();
+      let removeSignupTimeout = window.setTimeout(() => {
+        $(document).on('click', e => {
+          if ($(e.target).closest('.signup-form').length < 1) {
+            console.log('test');
+            this.$el.find('.signup-form').slideToggle(100);
+            $(document).off();
+          }
+        })
+      }, 100);
     } else {
       this.$el.find('.signup-form').slideToggle(100);
     }

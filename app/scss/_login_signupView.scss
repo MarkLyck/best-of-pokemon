@@ -1,6 +1,6 @@
 .login-form, .signup-form {
   position: absolute;
-  top: 81px;
+  top: 85px;
   right: 65px;
   width: 240px;
   float: right;
@@ -11,6 +11,7 @@
   &::before {
     content: '';
     position: absolute;
+    top: -14px;
     right: 53px;
     border-bottom: 7px solid $primary-color;
     border-left: 7px solid transparent;
@@ -50,13 +51,13 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      right: 30px;
+      right: 20px;
     }
     .validation-icon {
-      color: #1cb81c;
+      color: #1cb871;
     }
     .error-icon {
-      color: red;
+      color: $primary-color;
     }
   }
 }
@@ -64,20 +65,36 @@
 .username, .password {
   p {
     position: absolute;
-    top: 0px;
-    left: -135px;
-    background: $primary-color;
-    color: $secondary-color;
-    border-radius: 10px;
+    top: -13px;
+    left: -150px;
+    background: #ED1851;
+    color: #fff;
+    border-radius: 5px;
     font-size: 0.8rem;
-    padding: 4px 10px;
+    padding: 10px;
+    // position: absolute;
+    // top: 0px;
+    // left: -135px;
+    // background: $primary-color;
+    // color: $secondary-color;
+    // border-radius: 10px;
+    // font-size: 0.8rem;
+    // padding: 4px 10px;
     &::after {
       content: '';
       position: absolute;
-      right: -20px;
-      border-bottom: 7px solid transparent;
-      border-left: 7px solid $secondary-color;
-      border-top: 7px solid transparent;
+      right: -8px;
+      top: 10px;
+      color: #ED1851;
+      border-bottom: 8px solid transparent;
+      border-left: 8px solid $primary-color;
+      border-top: 8px solid transparent;
+      // content: '';
+      // position: absolute;
+      // right: -20px;
+      // border-bottom: 7px solid transparent;
+      // border-left: 7px solid $secondary-color;
+      // border-top: 7px solid transparent;
     }
   }
 }

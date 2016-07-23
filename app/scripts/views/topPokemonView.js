@@ -8,7 +8,6 @@ const TopPokemonView = Backbone.View.extend({
   initialize: function() {
     store.pokemons.data.fetch({success: () => this.render()})
     },
-  // tagName: 'ul',
   tagName: 'div',
   id: 'top-section',
   events: {
@@ -25,8 +24,6 @@ const TopPokemonView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template())
     let counter = 1
-    console.log('STARTING LOOP');
-    console.log(store.pokemons.data);
     while (counter <= 10) {
       let pokemon = store.pokemons.data.models[counter-1]
       let $topLi = $(`
