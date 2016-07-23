@@ -394,6 +394,9 @@ optgroup {
 textarea {
   overflow: auto; }
 
+@font-face {
+  font-family: pokemonTitle;
+  src: url("assets/fonts/PokemonSolid.ttf"); }
 header {
   background: #ED1851;
   display: flex;
@@ -402,9 +405,12 @@ header {
   height: 75px; }
   header #logo {
     padding-left: 40px;
-    color: #fff; }
+    color: #fff;
+    font-family: pokemonTitle;
+    font-size: 2rem; }
     header #logo:hover {
-      cursor: pointer; }
+      cursor: pointer;
+      color: #fff; }
   header .nav-buttons {
     height: 100%; }
     header .nav-buttons button {
@@ -431,7 +437,6 @@ header {
     content: '';
     position: absolute;
     right: 53px;
-    top: -14px;
     border-bottom: 7px solid #ED1851;
     border-left: 7px solid transparent;
     border-top: 7px solid transparent;
@@ -461,7 +466,8 @@ header {
     margin: 12px 0; }
     .login-form .username .error-icon, .login-form .username .validation-icon, .login-form .password .error-icon, .login-form .password .validation-icon, .signup-form .username .error-icon, .signup-form .username .validation-icon, .signup-form .password .error-icon, .signup-form .password .validation-icon {
       position: absolute;
-      top: 18px;
+      top: 50%;
+      transform: translateY(-50%);
       right: 30px; }
     .login-form .username .validation-icon, .login-form .password .validation-icon, .signup-form .username .validation-icon, .signup-form .password .validation-icon {
       color: #1cb81c; }
@@ -696,6 +702,27 @@ header {
     width: 250px;
     border: none;
     float: left; }
+
+#missing-container {
+  background: #fff;
+  width: 100vw;
+  height: 100vh;
+  text-align: center; }
+  #missing-container img {
+    margin-top: 10%;
+    width: 60%;
+    height: auto; }
+  #missing-container h3 {
+    font-size: 1.4rem;
+    font-weight: lighter; }
+  #missing-container button {
+    background: none;
+    color: #323B49;
+    border: 2px solid #DFE5EB;
+    padding: 10px 20px;
+    border-radius: 5px; }
+    #missing-container button:hover {
+      background: #DFE5EB; }
 
 body {
   background: #F9F9F9; }

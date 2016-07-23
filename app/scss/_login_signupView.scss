@@ -12,7 +12,6 @@
     content: '';
     position: absolute;
     right: 53px;
-    top: -14px;
     border-bottom: 7px solid $primary-color;
     border-left: 7px solid transparent;
     border-top: 7px solid transparent;
@@ -49,7 +48,8 @@
     margin: 12px 0;
     .error-icon, .validation-icon {
       position: absolute;
-      top: 18px;
+      top: 50%;
+      transform: translateY(-50%);
       right: 30px;
     }
     .validation-icon {
