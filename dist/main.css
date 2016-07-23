@@ -394,6 +394,9 @@ optgroup {
 textarea {
   overflow: auto; }
 
+@font-face {
+  font-family: pokemonTitle;
+  src: url("assets/fonts/PokemonSolid.ttf"); }
 header {
   background: #ED1851;
   display: flex;
@@ -402,9 +405,12 @@ header {
   height: 75px; }
   header #logo {
     padding-left: 40px;
-    color: #fff; }
+    color: #fff;
+    font-family: pokemonTitle;
+    font-size: 2rem; }
     header #logo:hover {
-      cursor: pointer; }
+      cursor: pointer;
+      color: #fff; }
   header .nav-buttons {
     height: 100%; }
     header .nav-buttons button {
