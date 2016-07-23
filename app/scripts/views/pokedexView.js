@@ -4,7 +4,6 @@ import Backbone from 'backbone';
 import router from '../router';
 import store from '../store';
 
-
 const PokedexView = Backbone.View.extend({
   initialize: function() {
     this.$el.append($(`<div class="loader"></div>`));
@@ -35,7 +34,7 @@ const PokedexView = Backbone.View.extend({
               <p class="pokemon-number">${pokemon.get('id')}</p>
             </div>
             <div class="bottom">
-              <h3 class="pokemon-name">${pokemon.get('name')}</h3>
+              <h3 class="pokemon-name">${pokemon.get('name').capitalizeFirstLetter()}</h3>
               <button class="like-btn"><span class="like-number">${Math.round(Math.random()*100)}</span></button>
             </div>
           </li>
