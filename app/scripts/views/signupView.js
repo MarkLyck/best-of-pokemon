@@ -1,6 +1,8 @@
 import $ from 'jquery'
 import Backbone from 'backbone'
 
+import store from '../store'
+
 const SignupView = Backbone.View.extend({
   initialize: function() {
 
@@ -71,6 +73,7 @@ const SignupView = Backbone.View.extend({
         this.$('.password p').show();
         this.$el.shake(-50);
       } else {
+        store.session.signup(username, password)
         localStorage.authtoken = 1234;
       }
     } else {
