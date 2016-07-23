@@ -9,40 +9,45 @@ import Pokemon from '../models/Pokemon'
 const PokemonView = Backbone.View.extend({
   id: 'pokemonView',
   initialize: function(id) {
-    console.log(id);
     if (!store.pokemons.data.get(id)) {
       store.pokemons.data.add({id: id})
     }
-    // this.model = new Pokemon()
     this.model = store.pokemons.data.get(id)
-    // this.model.set('id', id)
     this.model.on('change', () => this.render())
     this.model.fetch()
   },
   events: {
-    'click #goto-pokedex-btn' : 'gotoPokedex'
+    'click #goto-pokedex-btn'   : 'gotoPokedex',
+    'click #goto-previous-btn'  : 'gotoPrev',
+    'click #goto-next-btn'      : 'gotoNext'
   },
   gotoPokedex: function() {
     router.navigate('', {trigger:true})
   },
+  gotoNext: function() {
+    console.log(this.model.get('id'));
+    router.navigate('pokemon/' + (Number(this.model.get('id')) + 1), {trigger:true})
+  },
+  gotoPrev: function() {
+    console.log(this.model.get('id'));
+    router.navigate('pokemon/' + (Number(this.model.get('id')) - 1), {trigger:true})
+  },
   template: function() {
     return `
-      <button id="goto-pokedex-btn"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
+      <nav>
+        <button id="goto-previous-btn"><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous</button>
+        <button id="goto-next-btn">Next <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+      </nav>
       <section id="pokemon-info">
-        <div id="pokemon-image"></div>
-        <div id="main-info">
-          <h1>${this.model.get('name')}</h1>
-          <h3>Type: ${this.model.get('types')}</h3>
-          <h3>Description: ${this.model.get('description')}</h3>
-          <h4 id="pokemon-likes">0 <i class="fa fa-heart-o" aria-hidden="true"></i></h4>
+        <div id="pokemon-image">
         </div>
-      </section>
-      <section id="traits">
-        <h4 id="pokemon-height">Height ${this.model.get('height')}</h4>
-        <h4 id="pokemon-weight">Weight ${this.model.get('weight')}</h4>
-        <ul id="pokemon-moves">
-
-        </ul>
+        <div id="main-info">
+          <h1 id="pokemon-name">#${this.model.get('id')} - ${this.model.get('name')} <button id="like-btn">0</button></h1>
+          <h3 id="types">Type: </h3>
+          <h4 id="pokemon-height">Height ${this.model.get('height')}</h4>
+          <h4 id="pokemon-weight">Weight ${this.model.get('weight')}</h4>
+          <h3>Description: ${this.model.get('description')}</h3>
+        </div>
       </section>
       <section id="comment-section">
         <h2>Comments</h2>
@@ -59,7 +64,6 @@ const PokemonView = Backbone.View.extend({
     `
   },
   render: function() {
-    console.log('RENDER');
     this.$el.html(this.template());
     let imageid = this.model.get('id')
     if (imageid < 10) {
@@ -67,15 +71,20 @@ const PokemonView = Backbone.View.extend({
     } else if (imageid < 100) {
       imageid = '0' + String(imageid)
     }
-
     this.$('#pokemon-image').css(`background-image`, `url('assets/images/pokemon/${imageid}.png')`)
-    // this.model.get('moves').forEach((move) => {
-    //   let $moveLi = $(`
-    //     <li>
-    //       <h3>${move}</h3>
-    //     </li>`);
-    //     this.$('#pokemon-moves').append($moveLi);
-    // });
+
+    let typesArr = this.model.get('types').split(' ')
+    typesArr.forEach(type => {
+      let $typeSpan = $(`<span class="${type}">${type} </span>`)
+      this.$('#types').append($typeSpan)
+    })
+
+    if (this.model.get('id') <= 1) {
+      this.$('#goto-previous-btn').remove()
+    } else if (this.model.get('id') >= 720) {
+      this.$('#goto-next-btn').remove()
+    }
+
     return this;
   }
 })
