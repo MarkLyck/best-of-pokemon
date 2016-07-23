@@ -18,6 +18,7 @@ const PokedexView = Backbone.View.extend({
     <h3 id="pokedex-title">All Pokemon</h3>
     <ul id="pokedex-list">
     </ul>
+    <button id="load-more-btn">Load more Pokemon</button>
     `
   },
   render: function() {
