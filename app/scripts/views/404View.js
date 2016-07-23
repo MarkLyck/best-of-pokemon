@@ -19,6 +19,9 @@ const MissingView = Backbone.View.extend({
     `
   },
   render: function() {
+    window.onpopstate = function() {
+      location.hash = '#pokedex';
+    }
     this.$el.html(this.template())
     return this
   }

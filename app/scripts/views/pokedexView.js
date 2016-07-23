@@ -4,10 +4,15 @@ import Backbone from 'backbone';
 import router from '../router';
 import store from '../store';
 
-
 const PokedexView = Backbone.View.extend({
   initialize: function() {
-    store.pokemons.data.fetch({success: () => this.render()})
+    this.$el.append($(`<div class="loader"></div>`));
+    store.pokemons.data.fetch({success: () => {
+      this.render()
+      store.pokemons.fetching = false;
+      this.$('.loader').hide();
+      }
+    })
   },
   id: 'pokedex-container',
   events: {
@@ -30,7 +35,7 @@ const PokedexView = Backbone.View.extend({
               <p class="pokemon-number">${pokemon.get('id')}</p>
             </div>
             <div class="bottom">
-              <h3 class="pokemon-name">${pokemon.get('name')}</h3>
+              <h3 class="pokemon-name">${pokemon.get('name').capitalizeFirstLetter()}</h3>
               <button class="like-btn"><span class="like-number">${Math.round(Math.random()*100)}</span></button>
             </div>
           </li>
@@ -45,8 +50,13 @@ const PokedexView = Backbone.View.extend({
 
       $pokemonLi.find('.top').css('background-image', `url('assets/images/pokemon/${fixedNumber}.png')`);
       this.$('#pokedex-list').append($pokemonLi);
-      $pokemonLi.on('click', function () {
-        router.navigate(`pokemon/${$pokemonLi.find('.pokemon-number').text()}`, {trigger:true});
+      $pokemonLi.find('.like-btn').on('click',function() {
+        $pokemonLi.find('.like-btn').toggleClass('liked')
+      });
+      $pokemonLi.on('click', function (e) {
+        if (!$(e.target).hasClass('like-btn')) {
+          router.navigate(`pokemon/${$pokemonLi.find('.pokemon-number').text()}`, {trigger:true});
+        }
       });
     })
     return this

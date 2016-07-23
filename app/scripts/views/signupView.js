@@ -1,6 +1,8 @@
 import $ from 'jquery'
 import Backbone from 'backbone'
 
+import store from '../store'
+
 const SignupView = Backbone.View.extend({
   initialize: function() {
 
@@ -61,14 +63,23 @@ const SignupView = Backbone.View.extend({
     let password = $('#password').val();
     let checker = /[a-zA-Z0-9]/g;
     let characters = username.match(checker);
-    if (characters.length < username.length) {
+    if (characters) {
+      if (characters.length < username.length) {
+        this.$('.error-username').show();
+        this.$('.username p').show();
+        this.$el.shake(-50);
+      } else if (password.length < 6) {
+        this.$('.error-password').show();
+        this.$('.password p').show();
+        this.$el.shake(-50);
+      } else {
+        store.session.signup(username, password)
+        localStorage.authtoken = 1234;
+      }
+    } else {
       this.$('.error-username').show();
       this.$('.username p').show();
-    } else if (password.length < 6) {
-      this.$('.error-password').show();
-      this.$('.password p').show();
-    } else {
-      localStorage.authtoken = 1234;
+      this.$el.shake(-50);
     }
     // let newUser = new UserMod();
     // userCollection.create({username:username, password: password, fullname: fullname}, {

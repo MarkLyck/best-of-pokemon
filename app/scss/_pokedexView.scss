@@ -11,6 +11,20 @@
   flex-wrap: wrap;
 }
 
+.loader {
+  height: 50px;
+  width: 50px;
+  margin: 100px auto 0 auto;
+  border: 20px solid $secondary-color;
+  border-top: 20px solid $primary-color;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+  @keyframes spin {
+    0% {transform: rotate(0deg)};
+    100% {transform: rotate(360deg)};
+  }
+}
+
 .pokemon-li {
   width: calc(100% / 5 - 40px);
   height: 300px;
@@ -38,6 +52,18 @@
           font-family: FontAwesome;
           color: #fff;
           margin-right: 5px;
+        }
+      }
+      .liked {
+        &::before {
+          content: '\f004';
+          font-family: FontAwesome;
+        }
+        &:hover {
+          &::before {
+            content: '\f004';
+            color: #696969;
+          }
         }
       }
     }
@@ -98,6 +124,17 @@
           font-family: FontAwesome;
           color: #fff;
           margin-right: 5px;
+        }
+      }
+    }
+    .liked {
+      &::before {
+        content: '\f004';
+      }
+      &:hover {
+        &::before {
+          content: '\f004';
+          color: #696969;
         }
       }
     }

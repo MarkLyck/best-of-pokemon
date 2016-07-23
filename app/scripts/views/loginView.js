@@ -3,6 +3,16 @@ import Backbone from 'backbone'
 
 import store from '../store'
 
+// Custom Jquery shake function
+$.fn.shake = function(currRight) {
+    this.each(function(i) {
+        for (var x = 1; x <= 3; x++) {
+            $(this).animate({ right: currRight-25 }, 10).animate({ right: currRight }, 50).animate({ right: currRight + 25 }, 10).animate({ right: currRight }, 50);
+        }
+    });
+    return this;
+}
+
 const LoginView = Backbone.View.extend({
   initialize: function() {
 
@@ -63,15 +73,25 @@ const LoginView = Backbone.View.extend({
     let password = $('#password').val();
     let checker = /[a-zA-Z0-9]/g;
     let characters = username.match(checker);
-    if (characters.length < username.length) {
+    console.log(characters);
+    if (characters) {
+      if (characters.length < username.length) {
+        this.$('.error-username').show();
+        this.$('.username p').show();
+        this.$el.shake(65);
+      } else if (password.length < 6) {
+        this.$('.error-password').show();
+        this.$('.password p').show();
+        this.$el.shake(65);
+      } else {
+        store.session.login(username, password)
+      }
+    } else {
       this.$('.error-username').show();
       this.$('.username p').show();
-    } else if (password.length < 6) {
-      this.$('.error-password').show();
-      this.$('.password p').show();
-    } else {
-      store.session.login()
+      this.$el.shake(65);
     }
+
     // session.save({username: username, password: password}, {
     //   success: function (model, response) {
     //     window.localStorage.setItem('authtoken', response._kmd.authtoken);
