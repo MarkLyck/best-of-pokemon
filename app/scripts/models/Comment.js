@@ -1,13 +1,12 @@
 import Backbone from 'backbone';
 
 const Comment = Backbone.Model.extend({
-  urlRoot: 'https://tiny-za-server.herokuapp.com/collections/unicorns',
-  idAttribute: '_id',
+  urlRoot: 'https://pokekeemster.herokuapp.com/comments',
   defaults: {
     username: '',
     body: '',
-    timestamp: '',
-    pokemonId: 1,
+    timestamp: new Date(),
+    pokemonId: 1
   }
 })
 
