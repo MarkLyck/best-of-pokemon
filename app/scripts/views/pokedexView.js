@@ -4,10 +4,6 @@ import Backbone from 'backbone';
 import router from '../router';
 import store from '../store';
 
-String.prototype.capitalizeFirstLetter = function() {
-    return this.charAt(0).toUpperCase() + this.slice(1);
-}
-
 const PokedexView = Backbone.View.extend({
   initialize: function() {
     this.$el.append($(`<div class="loader"></div>`));
