@@ -6,6 +6,7 @@
 @import "pokedexView";
 @import "pokemonView";
 @import "topPokemonView";
+@import "missingView";
 
 body {
   background: $primary-background;
@@ -21,7 +22,7 @@ button, input {
   outline: none;
 }
 
-button {
+button, input[type=submit] {
   background: darken($primary-color, 5%);
   border: none;
   color: #fff;

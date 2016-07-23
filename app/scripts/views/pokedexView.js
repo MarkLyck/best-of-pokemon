@@ -7,27 +7,33 @@ import store from '../store';
 
 const PokedexView = Backbone.View.extend({
   initialize: function() {
-    console.log('FETCHING POKEMON 1');
+    store.pokemons.data.fetch({success: () => this.render()})
+    // console.log('FETCHING POKEMON 1');
   },
-  tagName: 'ul',
-  id: 'pokedex-list',
+  id: 'pokedex-container',
   events: {
 
   },
+  template: function() {
+    return `
+    <h3 id="pokedex-title">All Pokemon</h3>
+    <ul id="pokedex-list">
+    </ul>
+    `
+  },
   render: function() {
-    console.log('RENDEING POKEDEX');
-    let counter = 1;
-    while (counter <= 100) {
+    this.$el.html(this.template())
+    store.pokemons.data.each((pokemon) => {
       let $pokemonLi = $(`
-        <li>
-          <div class="top">
-            <p class="pokemon-number">${counter}</p>
-          </div>
-          <div class="bottom">
-            <h3 class="pokemon-name">Name</h3>
-            <button class="like-btn"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
-          </div>
-        </li>
+          <li class="pokemon-li">
+            <div class="top">
+              <p class="pokemon-number">${pokemon.get('id')}</p>
+            </div>
+            <div class="bottom">
+              <h3 class="pokemon-name">${pokemon.get('name')}</h3>
+              <button class="like-btn"><span class="like-number">0</span></button>
+            </div>
+          </li>
         `);
       // console.log(`https://pokeapi.co/api/v2/pokemon/${counter}`);
       // $.ajax({
@@ -43,21 +49,23 @@ const PokedexView = Backbone.View.extend({
       //     $pokemonLi.find('.pokemon-name').text(response.name);
       //   }
       // });
-      let fixedNumber = counter
+      let fixedNumber = pokemon.id
 
-      if (counter < 10) {
+      if (fixedNumber < 10) {
         fixedNumber = '00' + String(fixedNumber)
-      } else if (counter < 100) {
+      } else if (fixedNumber < 100) {
         fixedNumber = '0' + String(fixedNumber)
       }
 
       $pokemonLi.find('.top').css('background-image', `url('assets/images/pokemon/${fixedNumber}.png')`);
-      this.$el.append($pokemonLi);
+      this.$('#pokedex-list').append($pokemonLi);
       $pokemonLi.on('click', function () {
         router.navigate(`pokemon/${$pokemonLi.find('.pokemon-number').text()}`, {trigger:true});
       });
-      counter++
-    }
+
+
+      // counter++
+    })
     return this
   }
 })

@@ -1,22 +1,40 @@
 .login-form, .signup-form {
-  width: 400px;
-  margin: 150px auto;
-  padding: 20px 0;
+  position: absolute;
+  top: 81px;
+  right: 65px;
+  width: 240px;
+  float: right;
+  margin-right: 60px;
+  border-radius: 5px;
   background: $primary-color;
   text-align: center;
+  &::before {
+    content: '';
+    position: absolute;
+    right: 53px;
+    border-bottom: 7px solid $primary-color;
+    border-left: 7px solid transparent;
+    border-top: 7px solid transparent;
+    border-right: 7px solid transparent;
+  }
   h2 {
     color: $secondary-color;
   }
   input {
     width: 80%;
     line-height: 1.5rem;
-    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    padding: 8px 5px;
   }
   input[type="submit"] {
-    width: 40%;
+    width: 100%;
+    padding: 10px 0;
+    // background: darken($primary-color, 10%);
     border: 0;
-    background: $secondary-color;
-    color: $primary-color;
+    margin: 0;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
   }
   a {
     display: block;
@@ -24,5 +42,65 @@
     span {
       text-decoration: underline;
     }
+  }
+  .username, .password {
+    position: relative;
+    margin: 12px 0;
+    .error-icon, .validation-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 30px;
+    }
+    .validation-icon {
+      color: #1cb81c;
+    }
+    .error-icon {
+      color: red;
+    }
+  }
+}
+
+.username, .password {
+  p {
+    position: absolute;
+    top: 0px;
+    left: -135px;
+    background: $primary-color;
+    color: $secondary-color;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    &::after {
+      content: '';
+      position: absolute;
+      right: -20px;
+      border-bottom: 7px solid transparent;
+      border-left: 7px solid $secondary-color;
+      border-top: 7px solid transparent;
+    }
+  }
+}
+
+.username-icon, .password-icon {
+    margin-right: 3px;
+    color: $secondary-color;
+}
+
+#login-btn {
+  position: absolute;
+  top: 0;
+  right: 125px;
+  width: 125px;
+  height: 75px;
+  padding: 0 20px;
+  margin-right: 2px;
+  box-sizing: border-box;
+}
+
+.signup-form {
+  right: -50px;
+  &::before {
+    right: 47px;
   }
 }
