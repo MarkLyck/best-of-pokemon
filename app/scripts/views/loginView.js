@@ -65,15 +65,22 @@ const LoginView = Backbone.View.extend({
     let password = $('#password').val();
     let checker = /[a-zA-Z0-9]/g;
     let characters = username.match(checker);
-    if (characters.length < username.length) {
+    console.log(characters);
+    if (characters) {
+      if (characters.length < username.length) {
+        this.$('.error-username').show();
+        this.$('.username p').show();
+      } else if (password.length < 6) {
+        this.$('.error-password').show();
+        this.$('.password p').show();
+      } else {
+        store.session.login()
+      }
+    } else {
       this.$('.error-username').show();
       this.$('.username p').show();
-    } else if (password.length < 6) {
-      this.$('.error-password').show();
-      this.$('.password p').show();
-    } else {
-      store.session.login()
     }
+
     // session.save({username: username, password: password}, {
     //   success: function (model, response) {
     //     window.localStorage.setItem('authtoken', response._kmd.authtoken);
