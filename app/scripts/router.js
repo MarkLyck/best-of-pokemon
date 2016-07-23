@@ -22,6 +22,7 @@ const Router = Backbone.Router.extend({
     let headerView = new HeaderView();
     let pokedexView = new PokedexView();
     let topPokemonView = new TopPokemonView()
+    store.pokemons.fetching = true;
     $('#container').empty().append(headerView.render().$el).append(topPokemonView.$el).append(pokedexView.$el);
   },
   pokemon: function(id) {
