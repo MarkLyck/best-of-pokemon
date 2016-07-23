@@ -8,7 +8,6 @@ import store from '../store';
 const PokedexView = Backbone.View.extend({
   initialize: function() {
     store.pokemons.data.fetch({success: () => this.render()})
-    // console.log('FETCHING POKEMON 1');
   },
   id: 'pokedex-container',
   events: {
