@@ -1,5 +1,6 @@
 import $ from 'jquery'
 import Backbone from 'backbone'
+import moment from 'moment'
 
 import router from '../router'
 import store from '../store'
@@ -53,6 +54,10 @@ const PokemonView = Backbone.View.extend({
         <h2>Comments</h2>
         <ul id="comments">
           <li class="comment">
+            <div class="wrapper">
+              <h4 class="comment-user">MarkL</h4>
+              <p class="comment-timestamp">${moment().format('MMM DD YYYY')}</p>
+            </div>
             <p class="comment-body">This is a test comment<p>
           </li>
         </ul>
