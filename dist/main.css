@@ -696,6 +696,7 @@ header {
       display: flex;
       align-items: center; }
       #pokemonView #pokemon-info #main-info #types span {
+        padding: 5px 10px;
         display: flex;
         justify-content: center;
         padding: 5px;

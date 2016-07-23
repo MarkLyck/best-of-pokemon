@@ -66,9 +66,13 @@
         display: flex;
         align-items: center;
         span {
+// <<<<<<< HEAD
+          padding: 5px 10px;
+// =======
           display: flex;
           justify-content: center;
           padding: 5px;
+// >>>>>>> ecc2c25d0cf66b1aceb2a71c3c6c5aa46f31373b
           border-radius: 5px;
           color: #fff;
           font-weight: normal;
