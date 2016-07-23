@@ -3,7 +3,15 @@ import Backbone from 'backbone'
 
 import store from '../store'
 
-let isShowingLogin = false
+// Custom Jquery shake function
+$.fn.shake = function(currRight) {
+    this.each(function(i) {
+        for (var x = 1; x <= 3; x++) {
+            $(this).animate({ right: currRight-25 }, 10).animate({ right: currRight }, 50).animate({ right: currRight + 25 }, 10).animate({ right: currRight }, 50);
+        }
+    });
+    return this;
+}
 
 const LoginView = Backbone.View.extend({
   initialize: function() {
@@ -70,15 +78,18 @@ const LoginView = Backbone.View.extend({
       if (characters.length < username.length) {
         this.$('.error-username').show();
         this.$('.username p').show();
+        this.$el.shake(65);
       } else if (password.length < 6) {
         this.$('.error-password').show();
         this.$('.password p').show();
+        this.$el.shake(65);
       } else {
         store.session.login()
       }
     } else {
       this.$('.error-username').show();
       this.$('.username p').show();
+      this.$el.shake(65);
     }
 
     // session.save({username: username, password: password}, {
