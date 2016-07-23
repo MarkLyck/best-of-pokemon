@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import _ from 'underscore'
 import Backbone from 'backbone'
-//
+
 import router from './router'
 import store from './store'
 
@@ -45,6 +45,7 @@ Backbone.history.start()
 // }
 
 // let sortedData = _.sortBy(JSON.parse(localStorage.pokemonData), 'id')
+// let sortedData = _.sortBy(data, 'id')
 // let mappedData = sortedData.map(function(pokemon) {
 //   // console.log(pokemon);
 //   return {
@@ -54,9 +55,9 @@ Backbone.history.start()
 //     types: pokemon.types.join(' ')
 //   }
 // })
-//
+// //
 // console.log(mappedData);
-// console.log(sortedData);
+// // console.log(sortedData);
 
 // $.ajax({
 //   type: 'POST',
@@ -77,27 +78,43 @@ Backbone.history.start()
 //   }
 // })
 //
+//
 // createPokemon(1)
-function createPokemon(id) {
-  store.pokemons.data.create({
-    name: mappedData[id-1].name,
-    height: mappedData[id-1].height,
-    weight: mappedData[id-1].weight,
-    types: mappedData[id-1].types,
-  }, {
-    success: function(model, response) {
-      console.log('SUCCESSFUL POST!!!');
-      console.log('model: ', model);
-      console.log('response ', response);
-      if (id <= 720) {
-        createPokemon(id+1);
-      }
-    },
-    error: function(response) {
-      console.log('POST ERROR: ', response);
-    }
-  })
-}
+// function createPokemon(id) {
+//   console.log(id);
+//   store.pokemons.data.create({
+//     name: mappedData[id-1].name,
+//     height: mappedData[id-1].height,
+//     weight: mappedData[id-1].weight,
+//     types: mappedData[id-1].types,
+//   }, {
+//     success: function(model, response) {
+//       console.log('SUCCESS: ', id);
+//       if (id <= 720) {
+//         createPokemon(id+1);
+//       }
+//     },
+//     error: function(response) {
+//       console.log('POST ERROR: ', response);
+//     }
+//   })
+// }
+
+// let counter = 721
+// while (counter <= 730) {
+//   console.log(counter);
+//   $.ajax({
+//     type: 'DELETE',
+//     url: `https://pokekeemster.herokuapp.com/pokemons/${counter}`,
+//     success: function() {
+//       console.log('DELETED ' + counter);
+//     },
+//     error: function(response) {
+//       console.log('ERRROR ', response);
+//     }
+//   })
+//   counter++
+// }
 
 // function CreatePokemonData(counter, max) {
 //   console.log('test');
