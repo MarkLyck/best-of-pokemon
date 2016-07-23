@@ -4,6 +4,9 @@ import Backbone from 'backbone';
 import router from '../router';
 import store from '../store';
 
+String.prototype.capitalizeFirstLetter = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
 
 const PokedexView = Backbone.View.extend({
   initialize: function() {
@@ -35,7 +38,7 @@ const PokedexView = Backbone.View.extend({
               <p class="pokemon-number">${pokemon.get('id')}</p>
             </div>
             <div class="bottom">
-              <h3 class="pokemon-name">${pokemon.get('name')}</h3>
+              <h3 class="pokemon-name">${pokemon.get('name').capitalizeFirstLetter()}</h3>
               <button class="like-btn"><span class="like-number">${Math.round(Math.random()*100)}</span></button>
             </div>
           </li>
