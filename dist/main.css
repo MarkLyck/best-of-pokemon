@@ -697,6 +697,27 @@ header {
     border: none;
     float: left; }
 
+#missing-container {
+  background: #fff;
+  width: 100vw;
+  height: 100vh;
+  text-align: center; }
+  #missing-container img {
+    margin-top: 10%;
+    width: 60%;
+    height: auto; }
+  #missing-container h3 {
+    font-size: 1.4rem;
+    font-weight: lighter; }
+  #missing-container button {
+    background: none;
+    color: #323B49;
+    border: 2px solid #DFE5EB;
+    padding: 10px 20px;
+    border-radius: 5px; }
+    #missing-container button:hover {
+      background: #DFE5EB; }
+
 body {
   background: #F9F9F9; }
 
