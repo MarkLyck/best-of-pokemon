@@ -36,7 +36,7 @@ const PokemonView = Backbone.View.extend({
     return `
       <nav>
         <button id="goto-previous-btn"><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous</button>
-        <button id="goto-next-btn"><i class="fa fa-arrow-right" aria-hidden="true"></i> Next</button>
+        <button id="goto-next-btn">Next <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
       </nav>
       <section id="pokemon-info">
         <div id="pokemon-image">
