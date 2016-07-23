@@ -30,24 +30,10 @@ const PokedexView = Backbone.View.extend({
             </div>
             <div class="bottom">
               <h3 class="pokemon-name">${pokemon.get('name')}</h3>
-              <button class="like-btn"><span class="like-number">0</span></button>
+              <button class="like-btn"><span class="like-number">${Math.round(Math.random()*100)}</span></button>
             </div>
           </li>
         `);
-      // console.log(`https://pokeapi.co/api/v2/pokemon/${counter}`);
-      // $.ajax({
-      //   url: `https://pokeapi.co/api/v2/pokemon/${counter}`,
-      //   success: (response) => {
-      //     // console.log(respon se);
-      //     // console.log(response.name);
-      //     // console.log(response.types.type.name);
-      //     // response.types.forEach(type => {
-      //     //   console.log(type.type.name);
-      //     //   $pokemonLi.find('.top').addClass(type.type.name)
-      //     // })
-      //     $pokemonLi.find('.pokemon-name').text(response.name);
-      //   }
-      // });
       let fixedNumber = pokemon.id
 
       if (fixedNumber < 10) {
@@ -66,9 +52,6 @@ const PokedexView = Backbone.View.extend({
           router.navigate(`pokemon/${$pokemonLi.find('.pokemon-number').text()}`, {trigger:true});
         }
       });
-
-
-      // counter++
     })
     return this
   }
