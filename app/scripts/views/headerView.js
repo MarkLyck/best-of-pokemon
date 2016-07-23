@@ -31,11 +31,11 @@ const HeaderView = Backbone.View.extend({
     if (this.$el.find('.login-form').length === 0) {
       this.$el.append(loginView.render().$el);
       this.$el.find('.signup-form').remove();
-      let removeLoginTimeout = window.setTimeout(function() {
+      let removeLoginTimeout = window.setTimeout(() => {
         $(document).on('click', e => {
           if ($(e.target).closest('.login-form').length < 1) {
             console.log('test');
-            loginView.remove();
+            this.$el.find('.login-form').slideToggle(100);
             $(document).off();
           }
         })
@@ -49,11 +49,11 @@ const HeaderView = Backbone.View.extend({
     if (this.$el.find('.signup-form').length === 0) {
       this.$el.append(signupView.render().$el);
       this.$el.find('.login-form').remove();
-      let removeSignupTimeout = window.setTimeout(function() {
+      let removeSignupTimeout = window.setTimeout(() => {
         $(document).on('click', e => {
           if ($(e.target).closest('.signup-form').length < 1) {
             console.log('test');
-            signupView.remove();
+            this.$el.find('.signup-form').slideToggle(100);
             $(document).off();
           }
         })
