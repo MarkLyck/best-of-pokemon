@@ -9,13 +9,10 @@ import Pokemon from '../models/Pokemon'
 const PokemonView = Backbone.View.extend({
   id: 'pokemonView',
   initialize: function(id) {
-    console.log(id);
     if (!store.pokemons.data.get(id)) {
       store.pokemons.data.add({id: id})
     }
-    // this.model = new Pokemon()
     this.model = store.pokemons.data.get(id)
-    // this.model.set('id', id)
     this.model.on('change', () => this.render())
     this.model.fetch()
   },
@@ -32,7 +29,7 @@ const PokemonView = Backbone.View.extend({
         <div id="pokemon-image"></div>
         <div id="main-info">
           <h1>${this.model.get('name')}</h1>
-          <h3>Type: ${this.model.get('types')}</h3>
+          <h3 id="types">Type: </h3>
           <h3>Description: ${this.model.get('description')}</h3>
           <h4 id="pokemon-likes">0 <i class="fa fa-heart-o" aria-hidden="true"></i></h4>
         </div>
@@ -59,7 +56,6 @@ const PokemonView = Backbone.View.extend({
     `
   },
   render: function() {
-    console.log('RENDER');
     this.$el.html(this.template());
     let imageid = this.model.get('id')
     if (imageid < 10) {
@@ -69,13 +65,12 @@ const PokemonView = Backbone.View.extend({
     }
 
     this.$('#pokemon-image').css(`background-image`, `url('assets/images/pokemon/${imageid}.png')`)
-    // this.model.get('moves').forEach((move) => {
-    //   let $moveLi = $(`
-    //     <li>
-    //       <h3>${move}</h3>
-    //     </li>`);
-    //     this.$('#pokemon-moves').append($moveLi);
-    // });
+
+    let typesArr = this.model.get('types').split(' ')
+    typesArr.forEach(type => {
+      let $typeSpan = $(`<span class="${type}">${type} </span>`)
+      this.$('#types').append($typeSpan)
+    })
     return this;
   }
 })

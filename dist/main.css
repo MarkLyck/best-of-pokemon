@@ -647,35 +647,78 @@ header {
     background-color: #fff;
     border-radius: 5px;
     margin-right: 20px; }
+  #pokemonView #pokemon-info #main-info #types span {
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: normal;
+    margin-right: 5px; }
+  #pokemonView #pokemon-info #main-info #types .fire {
+    background: #F65549; }
+  #pokemonView #pokemon-info #main-info #types .water {
+    background: #5BAEFC; }
+  #pokemonView #pokemon-info #main-info #types .grass {
+    background: #8DD658; }
+  #pokemonView #pokemon-info #main-info #types .poison {
+    background: #A85F9F; }
+  #pokemonView #pokemon-info #main-info #types .flying {
+    background: #79A3FC; }
+  #pokemonView #pokemon-info #main-info #types .bug {
+    background: #C0CD36; }
+  #pokemonView #pokemon-info #main-info #types .normal {
+    background: #BEBEB1; }
+  #pokemonView #pokemon-info #main-info #types .fairy {
+    background: #FAB0FD; }
+  #pokemonView #pokemon-info #main-info #types .fighting {
+    background: #A75645; }
+  #pokemonView #pokemon-info #main-info #types .rock {
+    background: #CCBB76; }
+  #pokemonView #pokemon-info #main-info #types .ground {
+    background: #E9C85E; }
+  #pokemonView #pokemon-info #main-info #types .ice {
+    background: #99F1FE; }
+  #pokemonView #pokemon-info #main-info #types .psychic {
+    background: #F868B3; }
+  #pokemonView #pokemon-info #main-info #types .ghost {
+    background: #7877D2; }
+  #pokemonView #pokemon-info #main-info #types .electric {
+    background: #FBE24C; }
+  #pokemonView #pokemon-info #main-info #types .dragon {
+    background: #8979FB; }
+  #pokemonView #pokemon-info #main-info #types .dark {
+    background: #886554; }
+  #pokemonView #pokemon-info #main-info #types .steel {
+    background: #C2C2D9; }
 #pokemonView #traits {
   margin: 20px; }
-#pokemonView #comment-section {
+
+#comment-section {
   background-color: #ED1851;
   padding-top: 20px; }
-  #pokemonView #comment-section h2 {
+  #comment-section h2 {
     width: 80%;
     margin: 0 auto;
     color: #fff; }
-  #pokemonView #comment-section .comment {
+  #comment-section .comment {
     width: 80%;
     margin: 20px auto 20px auto;
     background: rgba(255, 255, 255, 0.9);
     padding: 10px 20px;
     border-radius: 5px;
     box-sizing: border-box; }
-  #pokemonView #comment-section #input-wrapper {
+  #comment-section #input-wrapper {
     display: flex;
     margin: 0 auto;
     width: 80%;
     padding-bottom: 40px; }
-    #pokemonView #comment-section #input-wrapper textarea {
+    #comment-section #input-wrapper textarea {
       width: 80%;
       border: none;
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
       padding: 20px;
       outline: none; }
-    #pokemonView #comment-section #input-wrapper input[type=submit] {
+    #comment-section #input-wrapper input[type=submit] {
       width: 20%;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px; }
