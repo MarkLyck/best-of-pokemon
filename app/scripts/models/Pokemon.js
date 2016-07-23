@@ -8,7 +8,7 @@ const Pokemon = Backbone.Model.extend({
     name: '',
     height: 0,
     weight: 0,
-    types: []
+    types: ''
   },
   toJSON: function() {
     return { pokemon: _.clone( this.attributes ) }

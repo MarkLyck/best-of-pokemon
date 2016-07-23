@@ -22,44 +22,131 @@
       border-radius: 5px;
       margin-right: 20px;
     }
+    #main-info {
+      #types {
+        span {
+          padding: 5px 10px;
+          border-radius: 5px;
+          color: #fff;
+          font-weight: normal;
+          margin-right: 5px;
+        }
+        .fire {
+          background: $type-fire;
+        }
+        .water {
+          background: $type-water;
+        }
+        .grass {
+          background: $type-grass;
+        }
+        .poison {
+          background: $type-poison;
+        }
+        .flying {
+          background: $type-flying;
+        }
+        .bug {
+          background: $type-bug;
+        }
+        .normal {
+          background: $type-normal;
+        }
+        .fairy {
+          background: $type-fairy;
+        }
+        .fighting {
+          background: $type-fighting;
+        }
+        .rock {
+          background: $type-rock;
+        }
+        .ground {
+          background: $type-ground;
+        }
+        .ice {
+          background: $type-ice;
+        }
+        .psychic {
+          background: $type-psychic;
+        }
+        .ghost {
+          background: $type-ghost;
+        }
+        .electric {
+          background: $type-electric;
+        }
+        .dragon {
+          background: $type-dragon;
+        }
+        .dark {
+          background: $type-dark;
+        }
+        .steel {
+          background: $type-steel;
+        }
+
+      }
+    }
+
+    // $type-fire: #F65549;
+    // $type-water: #5BAEFC;
+    // $type-grass: #8DD658;
+    // $type-poison: #A85F9F;
+    // $type-flying: #79A3FC;
+    // $type-bug: #C0CD36;
+    // $type-normal: #BEBEB1;
+    // $type-fairy: #FAB0FD;
+    // $type-fighting: #A75645;
+    // $type-rock: #CCBB76;
+    // $type-ground: #E9C85E;
+    // $type-ice: #99F1FE;
+    // $type-psychic: #F868B3;
+    // $type-ghost: #7877D2;
+    // $type-electric: #FBE24C;
+    // $type-dragon: #8979FB;
+    // $type-dark: #886554;
+    // $type-steel: #C2C2D9;
+
   }
   #traits {
     margin: 20px;
   }
-  #comment-section {
-    background-color: $primary-color;
-    padding-top: 20px;
-    h2 {
+}
+
+#comment-section {
+  background-color: $primary-color;
+  padding-top: 20px;
+  h2 {
+    width: 80%;
+    margin: 0 auto;
+    color: #fff;
+  }
+  .comment {
+    width: 80%;
+    margin: 20px auto 20px auto;
+    background: rgba(255,255,255,0.9);
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  #input-wrapper {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+    padding-bottom: 40px;
+    textarea {
       width: 80%;
-      margin: 0 auto;
-      color: #fff;
+      border: none;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      padding: 20px;
+      outline: none;
     }
-    .comment {
-      width: 80%;
-      margin: 20px auto 20px auto;
-      background: rgba(255,255,255,0.9);
-      padding: 10px 20px;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
-    #input-wrapper {
-      display: flex;
-      margin: 0 auto;
-      width: 80%;
-      padding-bottom: 40px;
-      textarea {
-        width: 80%;
-        border: none;
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
-        padding: 20px;
-        outline: none;
-      }
-      input[type=submit] {
-        width: 20%;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
-      }
+    input[type=submit] {
+      width: 20%;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
     }
   }
 }
