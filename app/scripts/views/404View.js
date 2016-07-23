@@ -19,6 +19,9 @@ const MissingView = Backbone.View.extend({
     `
   },
   render: function() {
+    window.history.back = function () {
+
+    }
     this.$el.html(this.template())
     return this
   }
