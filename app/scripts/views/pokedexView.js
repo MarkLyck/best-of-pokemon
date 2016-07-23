@@ -44,8 +44,13 @@ const PokedexView = Backbone.View.extend({
 
       $pokemonLi.find('.top').css('background-image', `url('assets/images/pokemon/${fixedNumber}.png')`);
       this.$('#pokedex-list').append($pokemonLi);
-      $pokemonLi.on('click', function () {
-        router.navigate(`pokemon/${$pokemonLi.find('.pokemon-number').text()}`, {trigger:true});
+      $pokemonLi.find('.like-btn').on('click',function() {
+        $pokemonLi.find('.like-btn').toggleClass('liked')
+      });
+      $pokemonLi.on('click', function (e) {
+        if (!$(e.target).hasClass('like-btn')) {
+          router.navigate(`pokemon/${$pokemonLi.find('.pokemon-number').text()}`, {trigger:true});
+        }
       });
     })
     return this
