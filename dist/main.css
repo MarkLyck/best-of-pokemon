@@ -431,7 +431,6 @@ header {
     content: '';
     position: absolute;
     right: 53px;
-    top: -14px;
     border-bottom: 7px solid #ED1851;
     border-left: 7px solid transparent;
     border-top: 7px solid transparent;
@@ -461,7 +460,8 @@ header {
     margin: 12px 0; }
     .login-form .username .error-icon, .login-form .username .validation-icon, .login-form .password .error-icon, .login-form .password .validation-icon, .signup-form .username .error-icon, .signup-form .username .validation-icon, .signup-form .password .error-icon, .signup-form .password .validation-icon {
       position: absolute;
-      top: 18px;
+      top: 50%;
+      transform: translateY(-50%);
       right: 30px; }
     .login-form .username .validation-icon, .login-form .password .validation-icon, .signup-form .username .validation-icon, .signup-form .password .validation-icon {
       color: #1cb81c; }
