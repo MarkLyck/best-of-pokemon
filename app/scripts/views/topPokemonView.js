@@ -7,7 +7,6 @@ const TopPokemonView = Backbone.View.extend({
   initialize: function() {
     store.pokemons.data.fetch({success: () => this.render()})
     },
-  // tagName: 'ul',
   tagName: 'div',
   id: 'top-section',
   events: {
