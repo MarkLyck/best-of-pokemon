@@ -32,7 +32,7 @@ const TopPokemonView = Backbone.View.extend({
               <p class="pokemon-fav">${pokemon.get('id')}</p>
           </div>
           <div class="bottom">
-            <h3 class="pokemon-name">${pokemon.get('name')}</h3>
+            <h3 class="pokemon-name">${pokemon.get('name').capitalizeFirstLetter()}</h3>
             <button class="like-btn"><span class="like-number">0</span></button>
           </div>
         </li>
