@@ -522,7 +522,8 @@ header {
 
 #pokedex-list {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  margin-top: 80px; }
 
 .loader {
   height: 50px;
@@ -629,6 +630,187 @@ header {
       top: 50%;
       transform: translate(-50%, -50%);
       margin: 0; }
+
+#load-more-btn {
+  margin: 0 auto;
+  padding: 15px;
+  width: 60%;
+  border-radius: 5px;
+  margin-bottom: 20px; }
+
+.float-right {
+  float: right; }
+
+dropdown {
+  position: absolute;
+  display: inline-block;
+  margin: 20px; }
+
+dropdown label, dropdown ul li {
+  display: block;
+  width: 200px;
+  background: #fff;
+  padding: 15px 20px; }
+
+dropdown label:hover, dropdown ul li:hover {
+  background: #ED1851;
+  color: white;
+  cursor: pointer; }
+
+dropdown label {
+  color: #ED1851;
+  border: 1px solid #eee;
+  border-left: 4px solid #ED1851;
+  border-radius: 0 5px 0 0;
+  position: relative;
+  z-index: 2; }
+
+dropdown input {
+  display: none; }
+
+dropdown input ~ ul {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -20px;
+  z-index: 1; }
+
+dropdown input:checked + label {
+  background: #ED1851;
+  color: white; }
+
+dropdown input:checked ~ ul {
+  visibility: visible;
+  opacity: 1;
+  top: 0; }
+
+dropdown ul li:nth-child(1) {
+  border-left: 4px solid #BEBEB1; }
+  dropdown ul li:nth-child(1):hover {
+    background: #BEBEB1;
+    color: white; }
+
+dropdown ul li:nth-child(2) {
+  border-left: 4px solid #C0CD36; }
+  dropdown ul li:nth-child(2):hover {
+    background: #C0CD36;
+    color: white; }
+
+dropdown ul li:nth-child(3) {
+  border-left: 4px solid #886554; }
+  dropdown ul li:nth-child(3):hover {
+    background: #886554;
+    color: white; }
+
+dropdown ul li:nth-child(4) {
+  border-left: 4px solid #8979FB; }
+  dropdown ul li:nth-child(4):hover {
+    background: #8979FB;
+    color: white; }
+
+dropdown ul li:nth-child(5) {
+  border-left: 4px solid #FBE24C; }
+  dropdown ul li:nth-child(5):hover {
+    background: #FBE24C;
+    color: white; }
+
+dropdown ul li:nth-child(6) {
+  border-left: 4px solid #FAB0FD; }
+  dropdown ul li:nth-child(6):hover {
+    background: #FAB0FD;
+    color: white; }
+
+dropdown ul li:nth-child(7) {
+  border-left: 4px solid #A75645; }
+  dropdown ul li:nth-child(7):hover {
+    background: #A75645;
+    color: white; }
+
+dropdown ul li:nth-child(8) {
+  border-left: 4px solid #F65549; }
+  dropdown ul li:nth-child(8):hover {
+    background: #F65549;
+    color: white; }
+
+dropdown ul li:nth-child(9) {
+  border-left: 4px solid #79A3FC; }
+  dropdown ul li:nth-child(9):hover {
+    background: #79A3FC;
+    color: white; }
+
+dropdown ul li:nth-child(10) {
+  border-left: 4px solid #7877D2; }
+  dropdown ul li:nth-child(10):hover {
+    background: #7877D2;
+    color: white; }
+
+dropdown ul li:nth-child(11) {
+  border-left: 4px solid #8DD658; }
+  dropdown ul li:nth-child(11):hover {
+    background: #8DD658;
+    color: white; }
+
+dropdown ul li:nth-child(12) {
+  border-left: 4px solid #E9C85E; }
+  dropdown ul li:nth-child(12):hover {
+    background: #E9C85E;
+    color: white; }
+
+dropdown ul li:nth-child(13) {
+  border-left: 4px solid #99F1FE; }
+  dropdown ul li:nth-child(13):hover {
+    background: #99F1FE;
+    color: white; }
+
+dropdown ul li:nth-child(14) {
+  border-left: 4px solid #BEBEB1; }
+  dropdown ul li:nth-child(14):hover {
+    background: #BEBEB1;
+    color: white; }
+
+dropdown ul li:nth-child(15) {
+  border-left: 4px solid #A85F9F; }
+  dropdown ul li:nth-child(15):hover {
+    background: #A85F9F;
+    color: white; }
+
+dropdown ul li:nth-child(16) {
+  border-left: 4px solid #F868B3; }
+  dropdown ul li:nth-child(16):hover {
+    background: #F868B3;
+    color: white; }
+
+dropdown ul li:nth-child(17) {
+  border-left: 4px solid #CCBB76; }
+  dropdown ul li:nth-child(17):hover {
+    background: #CCBB76;
+    color: white; }
+
+dropdown ul li:nth-child(18) {
+  border-left: 4px solid #C2C2D9; }
+  dropdown ul li:nth-child(18):hover {
+    background: #C2C2D9;
+    color: white; }
+
+dropdown ul li:nth-child(19) {
+  border-left: 4px solid #5BAEFC; }
+  dropdown ul li:nth-child(19):hover {
+    background: #5BAEFC;
+    color: white; }
+
+.animate {
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -ms-transition: all .3s;
+  transition: all .3s;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Chrome and Safari */
+  -moz-backface-visibility: hidden;
+  /* Firefox */
+  -ms-backface-visibility: hidden;
+  /* Internet Explorer */ }
 
 @media (max-width: 1200px) {
   #pokedex-list {
