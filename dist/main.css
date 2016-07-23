@@ -547,6 +547,12 @@ header {
           font-family: FontAwesome;
           color: #fff;
           margin-right: 5px; }
+      .pokemon-li:hover .bottom .liked::before {
+        content: '\f004';
+        font-family: FontAwesome; }
+      .pokemon-li:hover .bottom .liked:hover::before {
+        content: '\f004';
+        color: #696969; }
   .pokemon-li .top {
     height: 100%;
     background-repeat: no-repeat;
@@ -596,6 +602,11 @@ header {
         font-family: FontAwesome;
         color: #fff;
         margin-right: 5px; }
+    .pokemon-li .bottom .liked::before {
+      content: '\f004'; }
+    .pokemon-li .bottom .liked:hover::before {
+      content: '\f004';
+      color: #696969; }
     .pokemon-li .bottom .pokemon-name {
       position: absolute;
       left: 50%;
