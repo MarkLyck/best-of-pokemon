@@ -3,6 +3,8 @@ import Backbone from 'backbone'
 
 import store from '../store'
 
+let isShowingLogin = false
+
 const LoginView = Backbone.View.extend({
   initialize: function() {
 
