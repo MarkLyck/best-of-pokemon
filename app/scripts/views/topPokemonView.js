@@ -1,10 +1,12 @@
 import $ from 'jquery'
 import Backbone from 'backbone'
 
+import store from '../store'
+
 const TopPokemonView = Backbone.View.extend({
   initialize: function() {
-
-  },
+    store.pokemons.data.fetch({success: () => this.render()})
+    },
   // tagName: 'ul',
   tagName: 'div',
   id: 'top-section',
@@ -21,17 +23,18 @@ const TopPokemonView = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.template())
-    let counter = 100
+    let counter = 1
     console.log('STARTING LOOP');
-    while (counter <= 110) {
-      console.log('looping');
+    console.log(store.pokemons.data);
+    while (counter <= 10) {
+      let pokemon = store.pokemons.data.models[counter-1]
       let $topLi = $(`
         <li class="pokemon-li">
           <div class="top">
-              <p class="pokemon-fav">${counter}</p>
+              <p class="pokemon-fav">${pokemon.get('id')}</p>
           </div>
           <div class="bottom">
-            <h3 class="pokemon-name">Name</h3>
+            <h3 class="pokemon-name">${pokemon.get('name')}</h3>
             <button class="like-btn"><span class="like-number">0</span></button>
           </div>
         </li>
@@ -46,6 +49,7 @@ const TopPokemonView = Backbone.View.extend({
       this.$('#top-list').append($topLi)
       counter++
     }
+
     return this
   }
 })

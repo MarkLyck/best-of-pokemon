@@ -7,6 +7,7 @@ import store from '../store';
 
 const PokedexView = Backbone.View.extend({
   initialize: function() {
+    store.pokemons.data.fetch({success: () => this.render()})
     // console.log('FETCHING POKEMON 1');
   },
   id: 'pokedex-container',
@@ -22,15 +23,14 @@ const PokedexView = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.template())
-    let counter = 1;
-    while (counter <= 151) {
+    store.pokemons.data.each((pokemon) => {
       let $pokemonLi = $(`
           <li class="pokemon-li">
             <div class="top">
-              <p class="pokemon-number">${counter}</p>
+              <p class="pokemon-number">${pokemon.get('id')}</p>
             </div>
             <div class="bottom">
-              <h3 class="pokemon-name">Name</h3>
+              <h3 class="pokemon-name">${pokemon.get('name')}</h3>
               <button class="like-btn"><span class="like-number">0</span></button>
             </div>
           </li>
@@ -49,11 +49,11 @@ const PokedexView = Backbone.View.extend({
       //     $pokemonLi.find('.pokemon-name').text(response.name);
       //   }
       // });
-      let fixedNumber = counter
+      let fixedNumber = pokemon.id
 
-      if (counter < 10) {
+      if (fixedNumber < 10) {
         fixedNumber = '00' + String(fixedNumber)
-      } else if (counter < 100) {
+      } else if (fixedNumber < 100) {
         fixedNumber = '0' + String(fixedNumber)
       }
 
@@ -62,8 +62,10 @@ const PokedexView = Backbone.View.extend({
       $pokemonLi.on('click', function () {
         router.navigate(`pokemon/${$pokemonLi.find('.pokemon-number').text()}`, {trigger:true});
       });
-      counter++
-    }
+
+
+      // counter++
+    })
     return this
   }
 })

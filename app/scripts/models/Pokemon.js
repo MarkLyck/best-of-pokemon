@@ -1,18 +1,18 @@
+import _ from 'underscore';
 import Backbone from 'backbone';
 
 const Pokemon = Backbone.Model.extend({
-  urlRoot: 'http://pokeapi.co/api/v2/pokemon/',
-  // urlRoot: 'https://tiny-za-server.herokuapp.com/collections/unicorns',
-  // idAttribute: '_id',
+  urlRoot: 'https://pokekeemster.herokuapp.com/pokemons',
   idAttribute: 'id',
   defaults: {
     name: '',
-    type: '',
-    description: '',
     height: 0,
     weight: 0,
-    moves: []
-  }
+    types: []
+  },
+  toJSON: function() {
+    return { pokemon: _.clone( this.attributes ) }
+  },
 })
 
 export default Pokemon
