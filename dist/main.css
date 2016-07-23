@@ -692,7 +692,7 @@ header {
   background: #404040; }
 
 #top-list {
-  width: calc((250px + 40px) * 11);
+  width: calc((250px + 40px) * 10);
   background: #404040; }
   #top-list::after {
     clear: both;
