@@ -23,9 +23,7 @@ const PokedexView = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.template())
-    console.log(store.pokemons.data);
     store.pokemons.data.each((pokemon) => {
-      console.log(pokemon.get('id'));
       let $pokemonLi = $(`
           <li class="pokemon-li">
             <div class="top">
