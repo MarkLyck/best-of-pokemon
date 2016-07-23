@@ -1,4 +1,19 @@
 #pokemonView {
+  min-height: calc(100vh - 75px);
+  display: flex;
+  flex-direction: column;
+  nav {
+    display: flex;
+    justify-content: space-between;
+    button {
+      padding: 20px;
+      background: none;
+      color: $primary-color;
+      &:hover {
+        color: darken($primary-color, 5%);
+      }
+    }
+  }
   #goto-pokedex-btn {
     margin: 20px;
     background: none;
@@ -9,27 +24,59 @@
     }
   }
   #pokemon-info {
-    margin-left: 20px;
-    margin-top: 20px;
+    margin: 0 20px 20px 20px;
     display: flex;
     #pokemon-image {
+      display: flex;
       width: 250px;
       height: 250px;
       background-repeat: no-repeat;
       background-position: center center;
       background-size: contain;
       background-color: $secondary-background;
+      border: 2px solid $primary-border;
       border-radius: 5px;
       margin-right: 20px;
     }
     #main-info {
+      #pokemon-name {
+        display: flex;
+        align-items: center;
+        #like-btn {
+          font-size: 1rem;
+          margin-left: 15px;
+          padding: 0;
+          background: none;
+          color: $primary-color;
+          &::before {
+            content: '\f08a';
+            font-family: FontAwesome;
+            color: $primary-color;
+            margin-right: 5px;
+          }
+          &:hover {
+            &::before {
+              content: '\f004';
+              color:$primary-color;
+            }
+          }
+        }
+      }
       #types {
+        display: flex;
+        align-items: center;
         span {
+// <<<<<<< HEAD
           padding: 5px 10px;
+// =======
+          display: flex;
+          justify-content: center;
+          padding: 5px;
+// >>>>>>> ecc2c25d0cf66b1aceb2a71c3c6c5aa46f31373b
           border-radius: 5px;
           color: #fff;
           font-weight: normal;
-          margin-right: 5px;
+          margin: 0 5px;
         }
         .fire {
           background: $type-fire;
@@ -88,35 +135,13 @@
 
       }
     }
-
-    // $type-fire: #F65549;
-    // $type-water: #5BAEFC;
-    // $type-grass: #8DD658;
-    // $type-poison: #A85F9F;
-    // $type-flying: #79A3FC;
-    // $type-bug: #C0CD36;
-    // $type-normal: #BEBEB1;
-    // $type-fairy: #FAB0FD;
-    // $type-fighting: #A75645;
-    // $type-rock: #CCBB76;
-    // $type-ground: #E9C85E;
-    // $type-ice: #99F1FE;
-    // $type-psychic: #F868B3;
-    // $type-ghost: #7877D2;
-    // $type-electric: #FBE24C;
-    // $type-dragon: #8979FB;
-    // $type-dark: #886554;
-    // $type-steel: #C2C2D9;
-
-  }
-  #traits {
-    margin: 20px;
   }
 }
 
 #comment-section {
   background-color: $primary-color;
   padding-top: 20px;
+  flex-grow: 1;
   h2 {
     width: 80%;
     margin: 0 auto;
