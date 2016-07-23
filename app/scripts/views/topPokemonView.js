@@ -1,6 +1,7 @@
 import $ from 'jquery'
 import Backbone from 'backbone'
 
+import router from '../router'
 import store from '../store'
 
 const TopPokemonView = Backbone.View.extend({
@@ -46,6 +47,9 @@ const TopPokemonView = Backbone.View.extend({
         imageid = '0' + String(imageid)
       }
       $topLi.find('.top').css('background-image', `url('assets/images/pokemon/${imageid}.png')`)
+      $topLi.on('click', function () {
+        router.navigate(`pokemon/${pokemon.get('id')}`, {trigger:true});
+      });
       this.$('#top-list').append($topLi)
       counter++
     }
