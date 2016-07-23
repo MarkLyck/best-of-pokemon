@@ -425,7 +425,7 @@ header {
 
 .login-form, .signup-form {
   position: absolute;
-  top: 81px;
+  top: 85px;
   right: 65px;
   width: 240px;
   float: right;
@@ -436,6 +436,7 @@ header {
   .login-form::before, .signup-form::before {
     content: '';
     position: absolute;
+    top: -14px;
     right: 53px;
     border-bottom: 7px solid #ED1851;
     border-left: 7px solid transparent;
@@ -468,28 +469,30 @@ header {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      right: 30px; }
+      right: 20px; }
     .login-form .username .validation-icon, .login-form .password .validation-icon, .signup-form .username .validation-icon, .signup-form .password .validation-icon {
-      color: #1cb81c; }
+      color: #1cb871; }
     .login-form .username .error-icon, .login-form .password .error-icon, .signup-form .username .error-icon, .signup-form .password .error-icon {
-      color: red; }
+      color: #ED1851; }
 
 .username p, .password p {
   position: absolute;
-  top: 0px;
-  left: -135px;
+  top: -13px;
+  left: -150px;
   background: #ED1851;
   color: #fff;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 0.8rem;
-  padding: 4px 10px; }
+  padding: 10px; }
   .username p::after, .password p::after {
     content: '';
     position: absolute;
-    right: -20px;
-    border-bottom: 7px solid transparent;
-    border-left: 7px solid #fff;
-    border-top: 7px solid transparent; }
+    right: -8px;
+    top: 10px;
+    color: #ED1851;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #ED1851;
+    border-top: 8px solid transparent; }
 
 .username-icon, .password-icon {
   margin-right: 3px;
@@ -547,6 +550,12 @@ header {
           font-family: FontAwesome;
           color: #fff;
           margin-right: 5px; }
+      .pokemon-li:hover .bottom .liked::before {
+        content: '\f004';
+        font-family: FontAwesome; }
+      .pokemon-li:hover .bottom .liked:hover::before {
+        content: '\f004';
+        color: #696969; }
   .pokemon-li .top {
     height: 100%;
     background-repeat: no-repeat;
@@ -596,6 +605,11 @@ header {
         font-family: FontAwesome;
         color: #fff;
         margin-right: 5px; }
+    .pokemon-li .bottom .liked::before {
+      content: '\f004'; }
+    .pokemon-li .bottom .liked:hover::before {
+      content: '\f004';
+      color: #696969; }
     .pokemon-li .bottom .pokemon-name {
       position: absolute;
       left: 50%;
@@ -681,6 +695,7 @@ header {
       display: flex;
       align-items: center; }
       #pokemonView #pokemon-info #main-info #types span {
+        padding: 5px 10px;
         display: flex;
         justify-content: center;
         padding: 5px;

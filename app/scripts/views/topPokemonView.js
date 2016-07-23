@@ -1,13 +1,13 @@
 import $ from 'jquery'
 import Backbone from 'backbone'
 
+import router from '../router'
 import store from '../store'
 
 const TopPokemonView = Backbone.View.extend({
   initialize: function() {
     store.pokemons.data.fetch({success: () => this.render()})
     },
-  // tagName: 'ul',
   tagName: 'div',
   id: 'top-section',
   events: {
@@ -24,8 +24,6 @@ const TopPokemonView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template())
     let counter = 1
-    console.log('STARTING LOOP');
-    console.log(store.pokemons.data);
     while (counter <= 10) {
       let pokemon = store.pokemons.data.models[counter-1]
       let $topLi = $(`
@@ -46,6 +44,9 @@ const TopPokemonView = Backbone.View.extend({
         imageid = '0' + String(imageid)
       }
       $topLi.find('.top').css('background-image', `url('assets/images/pokemon/${imageid}.png')`)
+      $topLi.on('click', function () {
+        router.navigate(`pokemon/${pokemon.get('id')}`, {trigger:true});
+      });
       this.$('#top-list').append($topLi)
       counter++
     }
