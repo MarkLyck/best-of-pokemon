@@ -658,15 +658,14 @@ header {
   min-height: calc(100vh - 75px);
   display: flex;
   flex-direction: column; }
-  #pokemonView nav {
-    display: flex;
-    justify-content: space-between; }
-    #pokemonView nav button {
-      padding: 20px;
-      background: none;
-      color: #ED1851; }
-      #pokemonView nav button:hover {
-        color: #da1147; }
+  #pokemonView nav #goto-next-btn {
+    float: right; }
+  #pokemonView nav button {
+    padding: 20px;
+    background: none;
+    color: #ED1851; }
+    #pokemonView nav button:hover {
+      color: #da1147; }
   #pokemonView #goto-pokedex-btn {
     margin: 20px;
     background: none;
@@ -769,6 +768,16 @@ header {
     padding: 10px 20px;
     border-radius: 5px;
     box-sizing: border-box; }
+    #comment-section .comment .wrapper {
+      display: flex;
+      justify-content: space-between; }
+      #comment-section .comment .wrapper h4, #comment-section .comment .wrapper .comment-timestamp {
+        margin: 10px 0 0 0; }
+      #comment-section .comment .wrapper .comment-timestamp {
+        color: rgba(0, 0, 0, 0.5); }
+      #comment-section .comment .wrapper .comment-user:hover {
+        cursor: pointer;
+        color: #ED1851; }
   #comment-section #input-wrapper {
     display: flex;
     margin: 0 auto;
