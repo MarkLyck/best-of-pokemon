@@ -59,6 +59,7 @@ const PokemonView = Backbone.View.extend({
     store.session.save({
       favorite: this.model.get('id')
     })
+    localStorage.favorite = this.model.get('id')
     this.$('.pokemon-favorite').addClass('favorited')
   },
   postComment: function() {
