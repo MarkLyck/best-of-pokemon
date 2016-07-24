@@ -1028,7 +1028,7 @@ header {
   text-align: center; }
   #missing-container img {
     margin-top: 10%;
-    width: 60%;
+    max-height: 60vh;
     height: auto; }
   #missing-container h3 {
     font-size: 1.4rem;
