@@ -84,8 +84,8 @@ const PokemonView = Backbone.View.extend({
           <h1 id="pokemon-name">#${this.model.get('id')} - ${this.model.get('name')} <button id="like-btn">${this.model.get('likes')}</button></h1>
           <button class="pokemon-favorite">Favorite</button>
           <h3 id="types">Type: </h3>
-          <h4 id="pokemon-height">Height ${this.model.get('height')}</h4>
-          <h4 id="pokemon-weight">Weight ${this.model.get('weight')}</h4>
+          <h4 id="pokemon-height">Height: ${this.model.get('height')}</h4>
+          <h4 id="pokemon-weight">Weight: ${this.model.get('weight')}</h4>
         </div>
       </section>
       <section id="comment-section">
