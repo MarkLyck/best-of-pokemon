@@ -91,7 +91,7 @@ const PokedexView = Backbone.View.extend({
     });
 
     $pokemonLi.on('click', function (e) {
-      if (!$(e.target).hasClass('like-btn')) {
+      if (!$(e.target).hasClass('like-btn') && !$(e.target).hasClass('like-number')) {
         router.navigate(`pokemon/${$pokemonLi.find('.pokemon-number').text()}`, {trigger:true});
       }
     });
