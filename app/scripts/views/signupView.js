@@ -25,7 +25,7 @@ const SignupView = Backbone.View.extend({
       <i class="fa fa-times error-icon error-password" aria-hidden="true"></i>
       <i class="fa fa-check validation-icon validation-password" aria-hidden="true"></i>
     </div>
-    <input type="submit" name="submit" />
+    <input type="submit" name="submit"  value="Signup"/>
     `;
   },
   events: {
@@ -90,6 +90,7 @@ const SignupView = Backbone.View.extend({
     // });
   },
   render: function() {
+    this.$el.hide()
     this.$el.html(this.template());
     this.$('.error-icon').hide();
     this.$('.validation-icon').hide();

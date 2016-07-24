@@ -893,20 +893,42 @@ header {
     #pokemonView #pokemon-info #main-info #pokemon-name {
       display: flex;
       align-items: center; }
-      #pokemonView #pokemon-info #main-info #pokemon-name #like-btn {
+      #pokemonView #pokemon-info #main-info #pokemon-name .like-btn {
         font-size: 1rem;
         margin-left: 15px;
         padding: 0;
         background: none;
         color: #ED1851; }
-        #pokemonView #pokemon-info #main-info #pokemon-name #like-btn::before {
+        #pokemonView #pokemon-info #main-info #pokemon-name .like-btn::before {
           content: '\f08a';
           font-family: FontAwesome;
           color: #ED1851;
           margin-right: 5px; }
-        #pokemonView #pokemon-info #main-info #pokemon-name #like-btn:hover::before {
+        #pokemonView #pokemon-info #main-info #pokemon-name .like-btn:hover::before {
           content: '\f004';
           color: #ED1851; }
+      #pokemonView #pokemon-info #main-info #pokemon-name .liked::before {
+        content: '\f004'; }
+      #pokemonView #pokemon-info #main-info #pokemon-name .liked:hover::before {
+        content: '\f004';
+        color: #696969; }
+    #pokemonView #pokemon-info #main-info .pokemon-favorite {
+      color: #ED1851;
+      background: none;
+      padding: 0; }
+      #pokemonView #pokemon-info #main-info .pokemon-favorite::before {
+        content: '\f006';
+        font-family: FontAwesome;
+        margin-right: 5px; }
+      #pokemonView #pokemon-info #main-info .pokemon-favorite:hover {
+        color: #da1147; }
+        #pokemonView #pokemon-info #main-info .pokemon-favorite:hover::before {
+          content: '\f005';
+          color: #ED1851; }
+    #pokemonView #pokemon-info #main-info .favorited::before {
+      content: '\f005';
+      font-family: FontAwesome;
+      margin-right: 5px; }
     #pokemonView #pokemon-info #main-info #types {
       display: flex;
       align-items: center; }
@@ -981,11 +1003,23 @@ header {
       #comment-section .comment .wrapper .comment-user:hover {
         cursor: pointer;
         color: #ED1851; }
+    #comment-section .comment .manage-comment {
+      float: right;
+      margin-top: -35px;
+      margin-right: -5px; }
+      #comment-section .comment .manage-comment button {
+        padding: 10px;
+        background: none;
+        color: #ED1851; }
+        #comment-section .comment .manage-comment button:hover {
+          background: #ED1851;
+          border-radius: 5px;
+          color: #fff; }
   #comment-section #input-wrapper {
     display: flex;
-    margin: 0 auto;
     width: 80%;
-    padding-bottom: 40px; }
+    padding-bottom: 40px;
+    margin: 20px auto 20px auto; }
     #comment-section #input-wrapper textarea {
       width: 80%;
       border: none;
@@ -993,7 +1027,7 @@ header {
       border-bottom-left-radius: 5px;
       padding: 20px;
       outline: none; }
-    #comment-section #input-wrapper input[type=submit] {
+    #comment-section #input-wrapper input[type=submit], #comment-section #input-wrapper .edit-comment-submit {
       width: 20%;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px; }
@@ -1028,7 +1062,7 @@ header {
   text-align: center; }
   #missing-container img {
     margin-top: 10%;
-    width: 60%;
+    max-height: 60vh;
     height: auto; }
   #missing-container h3 {
     font-size: 1.4rem;
@@ -1080,6 +1114,37 @@ header {
       padding: 1em 0;
       justify-content: center;
       color: #8B8B8B; }
+
+#trainer-profile {
+  margin: 0 20px; }
+  #trainer-profile button {
+    padding: 20px;
+    background: none;
+    color: #ED1851;
+    display: block; }
+    #trainer-profile button i {
+      margin-right: 5px; }
+    #trainer-profile button:hover {
+      color: #da1147; }
+  #trainer-profile #trainer-image {
+    width: 250px;
+    height: 350px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid #eeeeee;
+    border-radius: 5px;
+    float: left;
+    margin-right: 20px; }
+    #trainer-profile #trainer-image #change-image {
+      position: relative;
+      top: 305px;
+      right: 10px; }
+  #trainer-profile #trainer-info {
+    float: left; }
+    #trainer-profile #trainer-info #edit-profile {
+      position: absolute;
+      right: 0; }
 
 body {
   background: #F9F9F9; }
