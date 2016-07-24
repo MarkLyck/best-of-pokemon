@@ -1036,6 +1036,45 @@ header {
     #missing-container button:hover {
       background: #DFE5EB; }
 
+#trainerView h1 {
+  color: #ED1851;
+  font-size: 1.5rem;
+  display: inline-block;
+  padding-left: 30px; }
+
+#trainer-list {
+  display: flex;
+  flex-wrap: wrap; }
+  #trainer-list .user-thumbnail {
+    width: calc(100% / 5 - 20px);
+    height: 183px;
+    margin: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 5px;
+    font-family: Avenir; }
+    #trainer-list .user-thumbnail .user-image {
+      height: 183px;
+      width: 100%;
+      margin-top: 5px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center; }
+    #trainer-list .user-thumbnail:hover {
+      background: #f2f2f2; }
+      #trainer-list .user-thumbnail:hover h3 {
+        background: #ED1851;
+        color: #fff; }
+    #trainer-list .user-thumbnail h3 {
+      display: flex;
+      margin: 3px 0 0 0;
+      padding: 1em 0;
+      justify-content: center;
+      color: #8B8B8B; }
+
 body {
   background: #F9F9F9; }
 
