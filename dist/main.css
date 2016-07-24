@@ -522,7 +522,8 @@ header {
 
 #pokedex-list {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  width: 100%; }
 
 .loader {
   height: 50px;
@@ -702,93 +703,98 @@ header {
       background: #BEBEB1;
       color: white; }
   .filter-options dropdown ul li:nth-child(2) {
-    border-left: 4px solid #C0CD36; }
+    border-left: 4px solid #ED1851; }
     .filter-options dropdown ul li:nth-child(2):hover {
-      background: #C0CD36;
+      background: #ED1851;
       color: white; }
   .filter-options dropdown ul li:nth-child(3) {
-    border-left: 4px solid #886554; }
+    border-left: 4px solid #C0CD36; }
     .filter-options dropdown ul li:nth-child(3):hover {
-      background: #886554;
+      background: #C0CD36;
       color: white; }
   .filter-options dropdown ul li:nth-child(4) {
-    border-left: 4px solid #8979FB; }
+    border-left: 4px solid #886554; }
     .filter-options dropdown ul li:nth-child(4):hover {
-      background: #8979FB;
+      background: #886554;
       color: white; }
   .filter-options dropdown ul li:nth-child(5) {
-    border-left: 4px solid #FBE24C; }
+    border-left: 4px solid #8979FB; }
     .filter-options dropdown ul li:nth-child(5):hover {
-      background: #FBE24C;
+      background: #8979FB;
       color: white; }
   .filter-options dropdown ul li:nth-child(6) {
-    border-left: 4px solid #FAB0FD; }
+    border-left: 4px solid #FBE24C; }
     .filter-options dropdown ul li:nth-child(6):hover {
-      background: #FAB0FD;
+      background: #FBE24C;
       color: white; }
   .filter-options dropdown ul li:nth-child(7) {
-    border-left: 4px solid #A75645; }
+    border-left: 4px solid #FAB0FD; }
     .filter-options dropdown ul li:nth-child(7):hover {
-      background: #A75645;
+      background: #FAB0FD;
       color: white; }
   .filter-options dropdown ul li:nth-child(8) {
-    border-left: 4px solid #F65549; }
+    border-left: 4px solid #A75645; }
     .filter-options dropdown ul li:nth-child(8):hover {
-      background: #F65549;
+      background: #A75645;
       color: white; }
   .filter-options dropdown ul li:nth-child(9) {
-    border-left: 4px solid #79A3FC; }
+    border-left: 4px solid #F65549; }
     .filter-options dropdown ul li:nth-child(9):hover {
-      background: #79A3FC;
+      background: #F65549;
       color: white; }
   .filter-options dropdown ul li:nth-child(10) {
-    border-left: 4px solid #7877D2; }
+    border-left: 4px solid #79A3FC; }
     .filter-options dropdown ul li:nth-child(10):hover {
-      background: #7877D2;
+      background: #79A3FC;
       color: white; }
   .filter-options dropdown ul li:nth-child(11) {
-    border-left: 4px solid #8DD658; }
+    border-left: 4px solid #7877D2; }
     .filter-options dropdown ul li:nth-child(11):hover {
-      background: #8DD658;
+      background: #7877D2;
       color: white; }
   .filter-options dropdown ul li:nth-child(12) {
-    border-left: 4px solid #E9C85E; }
+    border-left: 4px solid #8DD658; }
     .filter-options dropdown ul li:nth-child(12):hover {
-      background: #E9C85E;
+      background: #8DD658;
       color: white; }
   .filter-options dropdown ul li:nth-child(13) {
-    border-left: 4px solid #99F1FE; }
+    border-left: 4px solid #E9C85E; }
     .filter-options dropdown ul li:nth-child(13):hover {
-      background: #99F1FE;
+      background: #E9C85E;
       color: white; }
   .filter-options dropdown ul li:nth-child(14) {
-    border-left: 4px solid #BEBEB1; }
+    border-left: 4px solid #99F1FE; }
     .filter-options dropdown ul li:nth-child(14):hover {
-      background: #BEBEB1;
+      background: #99F1FE;
       color: white; }
   .filter-options dropdown ul li:nth-child(15) {
-    border-left: 4px solid #A85F9F; }
+    border-left: 4px solid #BEBEB1; }
     .filter-options dropdown ul li:nth-child(15):hover {
-      background: #A85F9F;
+      background: #BEBEB1;
       color: white; }
   .filter-options dropdown ul li:nth-child(16) {
-    border-left: 4px solid #F868B3; }
+    border-left: 4px solid #A85F9F; }
     .filter-options dropdown ul li:nth-child(16):hover {
-      background: #F868B3;
+      background: #A85F9F;
       color: white; }
   .filter-options dropdown ul li:nth-child(17) {
-    border-left: 4px solid #CCBB76; }
+    border-left: 4px solid #F868B3; }
     .filter-options dropdown ul li:nth-child(17):hover {
-      background: #CCBB76;
+      background: #F868B3;
       color: white; }
   .filter-options dropdown ul li:nth-child(18) {
-    border-left: 4px solid #C2C2D9; }
+    border-left: 4px solid #CCBB76; }
     .filter-options dropdown ul li:nth-child(18):hover {
-      background: #C2C2D9;
+      background: #CCBB76;
       color: white; }
   .filter-options dropdown ul li:nth-child(19) {
-    border-left: 4px solid #5BAEFC; }
+    border-left: 4px solid #C2C2D9; }
     .filter-options dropdown ul li:nth-child(19):hover {
+      background: #C2C2D9;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(20) {
+    border-left: 4px solid #5BAEFC; }
+    .filter-options dropdown ul li:nth-child(20):hover {
       background: #5BAEFC;
       color: white; }
   .filter-options .animate {
