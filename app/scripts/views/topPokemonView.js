@@ -27,7 +27,6 @@ const TopPokemonView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template())
     let counter = 1
-    console.log(store.pokemons.topData);
     store.pokemons.topData.sortByField('likes');
     store.pokemons.topData.models = store.pokemons.topData.models.reverse()
     while (counter <= 10) {
