@@ -69,7 +69,8 @@ const PokemonView = Backbone.View.extend({
     store.session.save({
       favorite: String(this.model.get('id'))
     },{
-      url: `https://pokekeemster.herokuapp.com/users/${store.session.get('id')}`,
+      type: 'PUT',
+      url: `https://pokekeemster.herokuapp.com/users/${store.session.get('user_id')}`,
     })
     localStorage.favorite = store.session.get('favorite')
     this.$('.pokemon-favorite').addClass('favorited')
