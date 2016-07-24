@@ -90,6 +90,7 @@ const PokedexView = Backbone.View.extend({
     });
   },
   render: function(filteredBy) {
+    console.log('RENDERING');
     this.$el.html(this.template())
 
     if (!filteredBy) {
@@ -114,6 +115,17 @@ const PokedexView = Backbone.View.extend({
       }
 
       // console.log(store.pokemons.filteredData);
+    })
+
+    this.$('#search-btn').on('click', () => {
+      console.log('test');
+      store.pokemons.filteredData.reset()
+      store.pokemons.data.each((pokemon) => {
+        if (pokemon.get('name').indexOf(this.$('#pokemon-search-bar').val()) !== -1) {
+          store.pokemons.filteredData.add(pokemon)
+        }
+      })
+      this.render('All')
     })
     return this
   }

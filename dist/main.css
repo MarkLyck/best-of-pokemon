@@ -522,7 +522,8 @@ header {
 
 #pokedex-list {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  width: 100%; }
 
 .loader {
   height: 50px;
