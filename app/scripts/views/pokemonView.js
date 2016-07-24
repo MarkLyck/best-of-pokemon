@@ -27,7 +27,7 @@ const PokemonView = Backbone.View.extend({
     store.comments.data.add({
       id: 1234,
       username: 'Rob',
-      body: 'This is a test comment from a model',
+      body: 'This is a test comment',
       timestamp: new Date(),
     })
     store.comments.data.on('change', () => {
@@ -41,6 +41,7 @@ const PokemonView = Backbone.View.extend({
     'click #goto-pokedex-btn'   : 'gotoPokedex',
     'click #goto-previous-btn'  : 'gotoPrev',
     'click #goto-next-btn'      : 'gotoNext',
+    'click .like-btn'           : 'likePokemon',
     'click .pokemon-favorite'   : 'favoritePokemon',
     'click #new-comment'        : 'postComment'
   },
@@ -54,6 +55,14 @@ const PokemonView = Backbone.View.extend({
   gotoPrev: function() {
     console.log(this.model.get('id'));
     router.navigate('pokemon/' + (Number(this.model.get('id')) - 1), {trigger:true})
+  },
+  likePokemon: function() {
+    if (this.$('.like-btn').hasClass('liked')) {
+      this.$('.like-btn').text(Number(this.$('.like-btn').text()) - 1)
+    } else {
+      this.$('.like-btn').text(Number(this.$('.like-btn').text()) + 1)
+    }
+    this.$('.like-btn').toggleClass('liked')
   },
   favoritePokemon: function() {
     store.session.save({
@@ -81,11 +90,11 @@ const PokemonView = Backbone.View.extend({
         <div id="pokemon-image">
         </div>
         <div id="main-info">
-          <h1 id="pokemon-name">#${this.model.get('id')} - ${this.model.get('name')} <button id="like-btn">${this.model.get('likes')}</button></h1>
+          <h1 id="pokemon-name">#${this.model.get('id')} - ${this.model.get('name')} <button class="like-btn">${this.model.get('likes')}</button></h1>
           <button class="pokemon-favorite">Favorite</button>
           <h3 id="types">Type: </h3>
-          <h4 id="pokemon-height">Height ${this.model.get('height')}</h4>
-          <h4 id="pokemon-weight">Weight ${this.model.get('weight')}</h4>
+          <h4 id="pokemon-height">Height: ${this.model.get('height')}</h4>
+          <h4 id="pokemon-weight">Weight: ${this.model.get('weight')}</h4>
         </div>
       </section>
       <section id="comment-section">

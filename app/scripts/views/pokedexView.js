@@ -82,6 +82,11 @@ const PokedexView = Backbone.View.extend({
     this.$('#pokedex-list').append($pokemonLi);
 
     $pokemonLi.find('.like-btn').on('click',function() {
+      if ($pokemonLi.find('.like-btn').hasClass('liked')) {
+        $pokemonLi.find('.like-btn').text(Number($pokemonLi.find('.like-btn').text()) - 1)
+      } else {
+        $pokemonLi.find('.like-btn').text(Number($pokemonLi.find('.like-btn').text()) + 1)
+      }
       $pokemonLi.find('.like-btn').toggleClass('liked')
     });
 
