@@ -81,10 +81,9 @@
   }
   .bottom {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     position: relative;
-    // background: rgba(0, 0, 0, 0.1);
     height: 100px;
     box-sizing: border-box;
     border-bottom-right-radius: 5px;
@@ -139,13 +138,13 @@
         }
       }
     }
-    .pokemon-name {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      margin: 0;
-    }
+    // .pokemon-name {
+    //   position: absolute;
+    //   left: 50%;
+    //   top: 50%;
+    //   transform: translate(-50%, -50%);
+    //   margin: 0;
+    // }
   }
 }
 

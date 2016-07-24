@@ -27,10 +27,13 @@ const PokemonView = Backbone.View.extend({
     store.comments.data.add({
       id: 1234,
       username: 'Rob',
-      body: 'This is a test comment from a model',
+      body: 'This is a test comment',
       timestamp: new Date(),
     })
     store.comments.data.on('change', () => {
+      this.render()
+    })
+    store.comments.data.on('update', () => {
       this.render()
     })
   },
@@ -38,7 +41,9 @@ const PokemonView = Backbone.View.extend({
     'click #goto-pokedex-btn'   : 'gotoPokedex',
     'click #goto-previous-btn'  : 'gotoPrev',
     'click #goto-next-btn'      : 'gotoNext',
-    'click .pokemon-favorite'    : 'favoritePokemon'
+    'click .like-btn'           : 'likePokemon',
+    'click .pokemon-favorite'   : 'favoritePokemon',
+    'click #new-comment'        : 'postComment'
   },
   gotoPokedex: function() {
     router.navigate('', {trigger:true})
@@ -51,11 +56,29 @@ const PokemonView = Backbone.View.extend({
     console.log(this.model.get('id'));
     router.navigate('pokemon/' + (Number(this.model.get('id')) - 1), {trigger:true})
   },
+  likePokemon: function() {
+    if (this.$('.like-btn').hasClass('liked')) {
+      this.$('.like-btn').text(Number(this.$('.like-btn').text()) - 1)
+    } else {
+      this.$('.like-btn').text(Number(this.$('.like-btn').text()) + 1)
+    }
+    this.$('.like-btn').toggleClass('liked')
+  },
   favoritePokemon: function() {
     store.session.save({
       favorite: this.model.get('id')
     })
+    localStorage.favorite = this.model.get('id')
     this.$('.pokemon-favorite').addClass('favorited')
+  },
+  postComment: function() {
+    console.log('TEST');
+    store.comments.data.add({
+      id: Math.round(Math.random() * 10000),
+      username: store.session.get('username'),
+      body: this.$('#comment-area').val(),
+      timestamp: new Date(),
+    })
   },
   template: function() {
     return `
@@ -67,11 +90,11 @@ const PokemonView = Backbone.View.extend({
         <div id="pokemon-image">
         </div>
         <div id="main-info">
-          <h1 id="pokemon-name">#${this.model.get('id')} - ${this.model.get('name')} <button id="like-btn">${this.model.get('likes')}</button></h1>
+          <h1 id="pokemon-name">#${this.model.get('id')} - ${this.model.get('name')} <button class="like-btn">${this.model.get('likes')}</button></h1>
           <button class="pokemon-favorite">Favorite</button>
           <h3 id="types">Type: </h3>
-          <h4 id="pokemon-height">Height ${this.model.get('height')}</h4>
-          <h4 id="pokemon-weight">Weight ${this.model.get('weight')}</h4>
+          <h4 id="pokemon-height">Height: ${this.model.get('height')}</h4>
+          <h4 id="pokemon-weight">Weight: ${this.model.get('weight')}</h4>
         </div>
       </section>
       <section id="comment-section">
@@ -80,8 +103,8 @@ const PokemonView = Backbone.View.extend({
 
         </ul>
         <div id="input-wrapper">
-          <textarea placeholder="Comment"></textarea>
-          <input type="submit" value="Comment">
+          <textarea id="comment-area" placeholder="Comment"></textarea>
+          <input id="new-comment" type="submit" value="Comment">
         </div>
       </section>
     `
@@ -102,7 +125,7 @@ const PokemonView = Backbone.View.extend({
       this.$('#types').append($typeSpan)
     })
 
-    if (store.session.get('favorite') === this.model.get('id')) {
+    if (store.session.get('favorite') === String(this.model.get('id'))) {
       this.$('.pokemon-favorite').addClass('favorited')
     }
 

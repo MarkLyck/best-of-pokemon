@@ -9,6 +9,7 @@ if (localStorage.authtoken) {
   // Fake fetching, until backend is functional
   store.session.set('authtoken', localStorage.authtoken)
   store.session.set('username', localStorage.username)
+  store.session.set('favorite', localStorage.favorite)
 }
 
 Backbone.history.start()

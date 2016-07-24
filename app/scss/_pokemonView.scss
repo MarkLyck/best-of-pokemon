@@ -45,7 +45,7 @@
       #pokemon-name {
         display: flex;
         align-items: center;
-        #like-btn {
+        .like-btn {
           font-size: 1rem;
           margin-left: 15px;
           padding: 0;
@@ -61,6 +61,17 @@
             &::before {
               content: '\f004';
               color:$primary-color;
+            }
+          }
+        }
+        .liked {
+          &::before {
+            content: '\f004';
+          }
+          &:hover {
+            &::before {
+              content: '\f004';
+              color: #696969;
             }
           }
         }
