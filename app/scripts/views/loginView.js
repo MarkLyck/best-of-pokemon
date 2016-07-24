@@ -35,7 +35,7 @@ const LoginView = Backbone.View.extend({
       <i class="fa fa-times error-icon error-password" aria-hidden="true"></i>
       <i class="fa fa-check validation-icon validation-password" aria-hidden="true"></i>
     </div>
-    <input type="submit" name="submit" />
+    <input type="submit" name="submit" value="Login"/>
     `;
   },
   events: {
