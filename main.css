@@ -394,6 +394,9 @@ optgroup {
 textarea {
   overflow: auto; }
 
+@font-face {
+  font-family: pokemonTitle;
+  src: url("assets/fonts/PokemonSolid.ttf"); }
 header {
   background: #ED1851;
   display: flex;
@@ -402,9 +405,12 @@ header {
   height: 75px; }
   header #logo {
     padding-left: 40px;
-    color: #fff; }
+    color: #fff;
+    font-family: pokemonTitle;
+    font-size: 2rem; }
     header #logo:hover {
-      cursor: pointer; }
+      cursor: pointer;
+      color: #fff; }
   header .nav-buttons {
     height: 100%; }
     header .nav-buttons button {
@@ -419,7 +425,7 @@ header {
 
 .login-form, .signup-form {
   position: absolute;
-  top: 81px;
+  top: 85px;
   right: 65px;
   width: 240px;
   float: right;
@@ -430,6 +436,7 @@ header {
   .login-form::before, .signup-form::before {
     content: '';
     position: absolute;
+    top: -14px;
     right: 53px;
     border-bottom: 7px solid #ED1851;
     border-left: 7px solid transparent;
@@ -462,28 +469,30 @@ header {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      right: 30px; }
+      right: 20px; }
     .login-form .username .validation-icon, .login-form .password .validation-icon, .signup-form .username .validation-icon, .signup-form .password .validation-icon {
-      color: #1cb81c; }
+      color: #1cb871; }
     .login-form .username .error-icon, .login-form .password .error-icon, .signup-form .username .error-icon, .signup-form .password .error-icon {
-      color: red; }
+      color: #ED1851; }
 
 .username p, .password p {
   position: absolute;
-  top: 0px;
-  left: -135px;
+  top: -13px;
+  left: -150px;
   background: #ED1851;
   color: #fff;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 0.8rem;
-  padding: 4px 10px; }
+  padding: 10px; }
   .username p::after, .password p::after {
     content: '';
     position: absolute;
-    right: -20px;
-    border-bottom: 7px solid transparent;
-    border-left: 7px solid #fff;
-    border-top: 7px solid transparent; }
+    right: -8px;
+    top: 10px;
+    color: #ED1851;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #ED1851;
+    border-top: 8px solid transparent; }
 
 .username-icon, .password-icon {
   margin-right: 3px;
@@ -513,8 +522,22 @@ header {
 
 #pokedex-list {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  width: 100%; }
 
+.loader {
+  height: 50px;
+  width: 50px;
+  margin: 100px auto 0 auto;
+  border: 20px solid #fff;
+  border-top: 20px solid #ED1851;
+  border-radius: 50%;
+  animation: spin 2s linear infinite; }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 .pokemon-li {
   width: calc(100% / 5 - 40px);
   height: 300px;
@@ -541,6 +564,12 @@ header {
           font-family: FontAwesome;
           color: #fff;
           margin-right: 5px; }
+      .pokemon-li:hover .bottom .liked::before {
+        content: '\f004';
+        font-family: FontAwesome; }
+      .pokemon-li:hover .bottom .liked:hover::before {
+        content: '\f004';
+        color: #696969; }
   .pokemon-li .top {
     height: 100%;
     background-repeat: no-repeat;
@@ -590,6 +619,11 @@ header {
         font-family: FontAwesome;
         color: #fff;
         margin-right: 5px; }
+    .pokemon-li .bottom .liked::before {
+      content: '\f004'; }
+    .pokemon-li .bottom .liked:hover::before {
+      content: '\f004';
+      color: #696969; }
     .pokemon-li .bottom .pokemon-name {
       position: absolute;
       left: 50%;
@@ -597,79 +631,369 @@ header {
       transform: translate(-50%, -50%);
       margin: 0; }
 
+#load-more-btn {
+  margin: 0 auto;
+  padding: 15px;
+  width: 60%;
+  border-radius: 5px;
+  margin-bottom: 20px; }
+
+.filter-options {
+  width: 100%;
+  padding: 20px; }
+  .filter-options #search-container {
+    width: calc(100% - (100% / 5) - 5px);
+    float: right;
+    display: flex;
+    height: 50px; }
+    .filter-options #search-container #pokemon-search-bar {
+      padding: 0 20px;
+      border: 1px solid #eeeeee;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+      width: 100%;
+      box-sizing: border-box; }
+    .filter-options #search-container button {
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+      padding: 0 20px;
+      box-sizing: border-box; }
+  .filter-options .float-right {
+    float: right; }
+  .filter-options dropdown {
+    position: absolute;
+    height: 20px;
+    display: inline-block;
+    width: calc(100% / 5 - 40px); }
+  .filter-options dropdown label, .filter-options dropdown ul li {
+    display: block;
+    width: 100%;
+    background: #fff;
+    padding: 15px 20px;
+    box-sizing: border-box; }
+  .filter-options dropdown label:hover, .filter-options dropdown ul li:hover {
+    background: #ED1851;
+    color: white;
+    cursor: pointer; }
+  .filter-options dropdown label {
+    color: #ED1851;
+    border: 1px solid #eee;
+    border-left: 4px solid #ED1851;
+    border-radius: 0 5px 0 0;
+    position: relative;
+    z-index: 2; }
+  .filter-options dropdown input {
+    display: none; }
+  .filter-options dropdown input ~ ul {
+    position: relative;
+    visibility: hidden;
+    opacity: 0;
+    top: -20px;
+    z-index: 1; }
+  .filter-options dropdown input:checked + label {
+    background: #ED1851;
+    color: white; }
+  .filter-options dropdown input:checked ~ ul {
+    visibility: visible;
+    opacity: 1;
+    top: 0; }
+  .filter-options dropdown ul li:nth-child(1) {
+    border-left: 4px solid #BEBEB1; }
+    .filter-options dropdown ul li:nth-child(1):hover {
+      background: #BEBEB1;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(2) {
+    border-left: 4px solid #ED1851; }
+    .filter-options dropdown ul li:nth-child(2):hover {
+      background: #ED1851;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(3) {
+    border-left: 4px solid #C0CD36; }
+    .filter-options dropdown ul li:nth-child(3):hover {
+      background: #C0CD36;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(4) {
+    border-left: 4px solid #886554; }
+    .filter-options dropdown ul li:nth-child(4):hover {
+      background: #886554;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(5) {
+    border-left: 4px solid #8979FB; }
+    .filter-options dropdown ul li:nth-child(5):hover {
+      background: #8979FB;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(6) {
+    border-left: 4px solid #FBE24C; }
+    .filter-options dropdown ul li:nth-child(6):hover {
+      background: #FBE24C;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(7) {
+    border-left: 4px solid #FAB0FD; }
+    .filter-options dropdown ul li:nth-child(7):hover {
+      background: #FAB0FD;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(8) {
+    border-left: 4px solid #A75645; }
+    .filter-options dropdown ul li:nth-child(8):hover {
+      background: #A75645;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(9) {
+    border-left: 4px solid #F65549; }
+    .filter-options dropdown ul li:nth-child(9):hover {
+      background: #F65549;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(10) {
+    border-left: 4px solid #79A3FC; }
+    .filter-options dropdown ul li:nth-child(10):hover {
+      background: #79A3FC;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(11) {
+    border-left: 4px solid #7877D2; }
+    .filter-options dropdown ul li:nth-child(11):hover {
+      background: #7877D2;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(12) {
+    border-left: 4px solid #8DD658; }
+    .filter-options dropdown ul li:nth-child(12):hover {
+      background: #8DD658;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(13) {
+    border-left: 4px solid #E9C85E; }
+    .filter-options dropdown ul li:nth-child(13):hover {
+      background: #E9C85E;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(14) {
+    border-left: 4px solid #99F1FE; }
+    .filter-options dropdown ul li:nth-child(14):hover {
+      background: #99F1FE;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(15) {
+    border-left: 4px solid #BEBEB1; }
+    .filter-options dropdown ul li:nth-child(15):hover {
+      background: #BEBEB1;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(16) {
+    border-left: 4px solid #A85F9F; }
+    .filter-options dropdown ul li:nth-child(16):hover {
+      background: #A85F9F;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(17) {
+    border-left: 4px solid #F868B3; }
+    .filter-options dropdown ul li:nth-child(17):hover {
+      background: #F868B3;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(18) {
+    border-left: 4px solid #CCBB76; }
+    .filter-options dropdown ul li:nth-child(18):hover {
+      background: #CCBB76;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(19) {
+    border-left: 4px solid #C2C2D9; }
+    .filter-options dropdown ul li:nth-child(19):hover {
+      background: #C2C2D9;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(20) {
+    border-left: 4px solid #5BAEFC; }
+    .filter-options dropdown ul li:nth-child(20):hover {
+      background: #5BAEFC;
+      color: white; }
+  .filter-options .animate {
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    /* Chrome and Safari */
+    -moz-backface-visibility: hidden;
+    /* Firefox */
+    -ms-backface-visibility: hidden;
+    /* Internet Explorer */ }
+
 @media (max-width: 1200px) {
   #pokedex-list {
     display: flex;
     flex-wrap: wrap; }
     #pokedex-list li {
-      width: calc(100% / 4 - 40px); } }
+      width: calc(100% / 4 - 40px); }
+
+  .filter-options dropdown {
+    width: calc(100% / 4 - 40px); }
+  .filter-options #search-container {
+    width: calc(100% - (100% / 4) - 5px); } }
 @media (max-width: 1000px) {
   #pokedex-list {
     display: flex;
     flex-wrap: wrap; }
     #pokedex-list li {
-      width: calc(100% / 3 - 40px); } }
+      width: calc(100% / 3 - 40px); }
+
+  .filter-options dropdown {
+    width: calc(100% / 3 - 40px); }
+  .filter-options #search-container {
+    width: calc(100% - (100% / 3) - 5px); } }
 @media (max-width: 750px) {
   #pokedex-list {
     display: flex;
     flex-wrap: wrap; }
     #pokedex-list li {
-      width: calc(100% / 2 - 40px); } }
+      width: calc(100% / 2 - 40px); }
+    #pokedex-list #search-container {
+      width: calc(100% - (100% / 2) - 5px); }
+
+  .filter-options dropdown {
+    width: calc(100% / 2 - 40px); }
+  .filter-options #search-container {
+    width: calc(100% - (100% / 2) - 5px); } }
 @media (max-width: 500px) {
   #pokedex-list {
     display: flex;
     flex-wrap: wrap; }
     #pokedex-list li {
-      width: calc(100% - 40px); } }
-#pokemonView #goto-pokedex-btn {
-  margin: 20px;
-  background: none;
-  color: #ED1851;
-  font-size: 1.5rem; }
-  #pokemonView #goto-pokedex-btn:hover {
-    color: #c30f3f; }
-#pokemonView #pokemon-info {
-  margin-left: 20px;
-  margin-top: 20px;
-  display: flex; }
-  #pokemonView #pokemon-info #pokemon-image {
-    width: 250px;
-    height: 250px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
-    background-color: #fff;
-    border-radius: 5px;
-    margin-right: 20px; }
-#pokemonView #traits {
-  margin: 20px; }
-#pokemonView #comment-section {
+      width: calc(100% - 40px); }
+    #pokedex-list #search-container {
+      display: none; }
+
+  .filter-options dropdown {
+    width: calc(100% - 40px); } }
+#pokemonView {
+  min-height: calc(100vh - 75px);
+  display: flex;
+  flex-direction: column; }
+  #pokemonView nav #goto-next-btn {
+    float: right; }
+  #pokemonView nav button {
+    padding: 20px;
+    background: none;
+    color: #ED1851; }
+    #pokemonView nav button:hover {
+      color: #da1147; }
+  #pokemonView #goto-pokedex-btn {
+    margin: 20px;
+    background: none;
+    color: #ED1851;
+    font-size: 1.5rem; }
+    #pokemonView #goto-pokedex-btn:hover {
+      color: #c30f3f; }
+  #pokemonView #pokemon-info {
+    margin: 0 20px 20px 20px;
+    display: flex; }
+    #pokemonView #pokemon-info #pokemon-image {
+      display: flex;
+      width: 250px;
+      height: 250px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      background-color: #fff;
+      border: 2px solid #eeeeee;
+      border-radius: 5px;
+      margin-right: 20px; }
+    #pokemonView #pokemon-info #main-info #pokemon-name {
+      display: flex;
+      align-items: center; }
+      #pokemonView #pokemon-info #main-info #pokemon-name #like-btn {
+        font-size: 1rem;
+        margin-left: 15px;
+        padding: 0;
+        background: none;
+        color: #ED1851; }
+        #pokemonView #pokemon-info #main-info #pokemon-name #like-btn::before {
+          content: '\f08a';
+          font-family: FontAwesome;
+          color: #ED1851;
+          margin-right: 5px; }
+        #pokemonView #pokemon-info #main-info #pokemon-name #like-btn:hover::before {
+          content: '\f004';
+          color: #ED1851; }
+    #pokemonView #pokemon-info #main-info #types {
+      display: flex;
+      align-items: center; }
+      #pokemonView #pokemon-info #main-info #types span {
+        padding: 5px 10px;
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: normal;
+        margin: 0 5px; }
+      #pokemonView #pokemon-info #main-info #types .fire {
+        background: #F65549; }
+      #pokemonView #pokemon-info #main-info #types .water {
+        background: #5BAEFC; }
+      #pokemonView #pokemon-info #main-info #types .grass {
+        background: #8DD658; }
+      #pokemonView #pokemon-info #main-info #types .poison {
+        background: #A85F9F; }
+      #pokemonView #pokemon-info #main-info #types .flying {
+        background: #79A3FC; }
+      #pokemonView #pokemon-info #main-info #types .bug {
+        background: #C0CD36; }
+      #pokemonView #pokemon-info #main-info #types .normal {
+        background: #BEBEB1; }
+      #pokemonView #pokemon-info #main-info #types .fairy {
+        background: #FAB0FD; }
+      #pokemonView #pokemon-info #main-info #types .fighting {
+        background: #A75645; }
+      #pokemonView #pokemon-info #main-info #types .rock {
+        background: #CCBB76; }
+      #pokemonView #pokemon-info #main-info #types .ground {
+        background: #E9C85E; }
+      #pokemonView #pokemon-info #main-info #types .ice {
+        background: #99F1FE; }
+      #pokemonView #pokemon-info #main-info #types .psychic {
+        background: #F868B3; }
+      #pokemonView #pokemon-info #main-info #types .ghost {
+        background: #7877D2; }
+      #pokemonView #pokemon-info #main-info #types .electric {
+        background: #FBE24C; }
+      #pokemonView #pokemon-info #main-info #types .dragon {
+        background: #8979FB; }
+      #pokemonView #pokemon-info #main-info #types .dark {
+        background: #886554; }
+      #pokemonView #pokemon-info #main-info #types .steel {
+        background: #C2C2D9; }
+
+#comment-section {
   background-color: #ED1851;
-  padding-top: 20px; }
-  #pokemonView #comment-section h2 {
+  padding-top: 20px;
+  flex-grow: 1; }
+  #comment-section h2 {
     width: 80%;
     margin: 0 auto;
     color: #fff; }
-  #pokemonView #comment-section .comment {
+  #comment-section .comment {
     width: 80%;
     margin: 20px auto 20px auto;
     background: rgba(255, 255, 255, 0.9);
     padding: 10px 20px;
     border-radius: 5px;
     box-sizing: border-box; }
-  #pokemonView #comment-section #input-wrapper {
+    #comment-section .comment .wrapper {
+      display: flex;
+      justify-content: space-between; }
+      #comment-section .comment .wrapper h4, #comment-section .comment .wrapper .comment-timestamp {
+        margin: 10px 0 0 0; }
+      #comment-section .comment .wrapper .comment-timestamp {
+        color: rgba(0, 0, 0, 0.5); }
+      #comment-section .comment .wrapper .comment-user:hover {
+        cursor: pointer;
+        color: #ED1851; }
+  #comment-section #input-wrapper {
     display: flex;
     margin: 0 auto;
     width: 80%;
     padding-bottom: 40px; }
-    #pokemonView #comment-section #input-wrapper textarea {
+    #comment-section #input-wrapper textarea {
       width: 80%;
       border: none;
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
       padding: 20px;
       outline: none; }
-    #pokemonView #comment-section #input-wrapper input[type=submit] {
+    #comment-section #input-wrapper input[type=submit] {
       width: 20%;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px; }
@@ -686,7 +1010,7 @@ header {
   background: #404040; }
 
 #top-list {
-  width: calc((250px + 40px) * 11);
+  width: calc((250px + 40px) * 10);
   background: #404040; }
   #top-list::after {
     clear: both;
@@ -717,6 +1041,45 @@ header {
     border-radius: 5px; }
     #missing-container button:hover {
       background: #DFE5EB; }
+
+#trainerView h1 {
+  color: #ED1851;
+  font-size: 1.5rem;
+  display: inline-block;
+  padding-left: 30px; }
+
+#trainer-list {
+  display: flex;
+  flex-wrap: wrap; }
+  #trainer-list .user-thumbnail {
+    width: calc(100% / 5 - 20px);
+    height: 183px;
+    margin: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 5px;
+    font-family: Avenir; }
+    #trainer-list .user-thumbnail .user-image {
+      height: 183px;
+      width: 100%;
+      margin-top: 5px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center; }
+    #trainer-list .user-thumbnail:hover {
+      background: #f2f2f2; }
+      #trainer-list .user-thumbnail:hover h3 {
+        background: #ED1851;
+        color: #fff; }
+    #trainer-list .user-thumbnail h3 {
+      display: flex;
+      margin: 3px 0 0 0;
+      padding: 1em 0;
+      justify-content: center;
+      color: #8B8B8B; }
 
 body {
   background: #F9F9F9; }
