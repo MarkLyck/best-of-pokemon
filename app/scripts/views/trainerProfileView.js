@@ -22,6 +22,9 @@ const TrainerProfileView = Backbone.View.extend({
     if (!this.model.get('description')) {
       this.model.set('description', 'Gotta catch \'em all!');
     }
+    store.session.on('change', () => {
+      this.render();
+    });
   },
   id: 'trainer-profile',
   events: {
@@ -87,7 +90,7 @@ const TrainerProfileView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template());
     this.$('#trainer-image').css('background-image', `url("${this.model.get('profileImg')}")`)
-    if (localStorage.username === this.model.get('username')) {
+    if (store.session.get('username') === this.model.get('username')) {
       this.$('#trainer-info').prepend(`<button id="edit-profile">Edit Profile</button`);
     }
     return this;
