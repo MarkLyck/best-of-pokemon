@@ -5,6 +5,12 @@ import Backbone from 'backbone'
 import router from './router'
 import store from './store'
 
+if (localStorage.authtoken) {
+  // Fake fetching, until backend is functional
+  store.session.set('authtoken', localStorage.authtoken)
+  store.session.set('username', localStorage.username)
+}
+
 Backbone.history.start()
 
 String.prototype.capitalizeFirstLetter = function() {

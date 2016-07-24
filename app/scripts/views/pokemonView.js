@@ -15,20 +15,17 @@ const PokemonView = Backbone.View.extend({
       store.pokemons.data.add({id: id})
     }
     this.model = store.pokemons.data.get(id)
+    if (!this.model.get('likes')) {
+      this.model.set('likes', Math.round(Math.random() * 100))
+    }
     this.model.on('change', () => this.render())
     this.model.fetch()
-
-    // Fake comment
-    // Comments.create({
-    //
-    // })
-
-
   },
   events: {
     'click #goto-pokedex-btn'   : 'gotoPokedex',
     'click #goto-previous-btn'  : 'gotoPrev',
-    'click #goto-next-btn'      : 'gotoNext'
+    'click #goto-next-btn'      : 'gotoNext',
+    'click .pokemon-favorite'    : 'favoritePokemon'
   },
   gotoPokedex: function() {
     router.navigate('', {trigger:true})
@@ -41,6 +38,12 @@ const PokemonView = Backbone.View.extend({
     console.log(this.model.get('id'));
     router.navigate('pokemon/' + (Number(this.model.get('id')) - 1), {trigger:true})
   },
+  favoritePokemon: function() {
+    store.session.save({
+      favorite: this.model.get('id')
+    })
+    this.$('.pokemon-favorite').addClass('favorited')
+  },
   template: function() {
     return `
       <nav>
@@ -51,11 +54,11 @@ const PokemonView = Backbone.View.extend({
         <div id="pokemon-image">
         </div>
         <div id="main-info">
-          <h1 id="pokemon-name">#${this.model.get('id')} - ${this.model.get('name')} <button id="like-btn">0</button></h1>
+          <h1 id="pokemon-name">#${this.model.get('id')} - ${this.model.get('name')} <button id="like-btn">${this.model.get('likes')}</button></h1>
+          <button class="pokemon-favorite">Favorite</button>
           <h3 id="types">Type: </h3>
           <h4 id="pokemon-height">Height ${this.model.get('height')}</h4>
           <h4 id="pokemon-weight">Weight ${this.model.get('weight')}</h4>
-          <h3>Description: ${this.model.get('description')}</h3>
         </div>
       </section>
       <section id="comment-section">
@@ -92,14 +95,15 @@ const PokemonView = Backbone.View.extend({
       this.$('#types').append($typeSpan)
     })
 
+    if (store.session.get('favorite') === this.model.get('id')) {
+      this.$('.pokemon-favorite').addClass('favorited')
+    }
+
     if (this.model.get('id') <= 1) {
       this.$('#goto-previous-btn').remove()
     } else if (this.model.get('id') >= 720) {
       this.$('#goto-next-btn').remove()
     }
-
-    console.log(Comments);
-
     return this;
   }
 })

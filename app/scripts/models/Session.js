@@ -1,20 +1,24 @@
+import _ from 'underscore';
 import Backbone from 'backbone';
+import store from '../store'
+
 
 const Session = Backbone.Model.extend({
   urlRoot: 'https://pokekeemster.herokuapp.com/login',
   defaults: {
     username: '',
   },
-  toJSON: function() {
-    return { user: _.clone( this.attributes ) }
-  },
   login: function(username, password) {
     this.save({
       username: username,
       password: password
     }, {
-      success: function(response) {
-        console.log('SUCCESSFUL LOGIN: ', response);
+      success: (response) => {
+        console.log('SUCCESSFUL LOGIN: ');
+        this.unset('password')
+        localStorage.authtoken = this.get('authtoken')
+        localStorage.username = this.get('username')
+        // console.log(store.session);
       },
       error: function(response) {
         console.log('LOGIN ERROR: ', response);
@@ -30,10 +34,20 @@ const Session = Backbone.Model.extend({
     }, {
       url: 'https://pokekeemster.herokuapp.com/users',
       type: 'POST',
-      success: function(response) {
+      success: (response) => {
         console.log('SUCCESSFUL SIGNUP: ', response);
+        localStorage.authtoken = this.get('authtoken')
+        localStorage.username = this.get('username')
+      },
+      error: function(response) {
+        console.log('LOGIN ERROR: ', response);
       }
     })
+  },
+  logout: function() {
+    store.session.clear()
+    localStorage.removeItem('authtoken')
+    localStorage.removeItem('username')
   }
 })
 

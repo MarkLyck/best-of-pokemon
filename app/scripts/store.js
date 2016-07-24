@@ -1,12 +1,18 @@
 import Pokemons from './collections/Pokemons';
+import Users from './collections/Users';
 import Session from './models/Session';
 
 let store = {
   pokemons: {
     fetching: false,
-    data: new Pokemons()
+    data: new Pokemons(),
+    filteredData: new Pokemons(),
+    topData: new Pokemons()
   },
-  session: new Session()
+  session: new Session(),
+  users: {
+    data: new Users()
+  }
 }
 
 export default store;
