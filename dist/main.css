@@ -411,18 +411,39 @@ header {
     header #logo:hover {
       cursor: pointer;
       color: #fff; }
-  header .nav-buttons {
-    height: 100%; }
-    header .nav-buttons button {
-      width: 125px;
-      box-sizing: border-box;
-      height: 100%;
-      padding: 0 20px; }
-    header .nav-buttons #goto-signup-btn {
-      background-color: #ed1851; }
-      header .nav-buttons #goto-signup-btn:hover {
-        background-color: #c30f3f; }
 
+.nav-buttons {
+  display: flex;
+  height: 100%; }
+  .nav-buttons button {
+    width: 125px;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0 20px; }
+  .nav-buttons #goto-signup-btn {
+    background-color: #ed1851; }
+    .nav-buttons #goto-signup-btn::after {
+      content: "Signup"; }
+    .nav-buttons #goto-signup-btn:hover {
+      background-color: #c30f3f; }
+  .nav-buttons #goto-login-btn::after {
+    content: "Login"; }
+  .nav-buttons #goto-trainers-btn::after {
+    content: "Trainers"; }
+  .nav-buttons #logout-btn::after {
+    content: "Logout"; }
+
+@media (max-width: 600px) {
+  .nav-buttons button {
+    width: 75px; }
+  .nav-buttons #goto-signup-btn::after {
+    content: ""; }
+  .nav-buttons #goto-login-btn::after {
+    content: ""; }
+  .nav-buttons #goto-trainers-btn::after {
+    content: ""; }
+  .nav-buttons #logout-btn::after {
+    content: ""; } }
 .login-form, .signup-form {
   position: absolute;
   top: 85px;
@@ -513,6 +534,9 @@ header {
   .signup-form::before {
     right: 47px; }
 
+@media (max-width: 600px) {
+  .login-form {
+    right: -10px; } }
 #pokedex-container {
   display: flex;
   flex-wrap: wrap; }
