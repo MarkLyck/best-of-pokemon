@@ -1,0 +1,47 @@
+#trainerView {
+  h1 {
+    color: $primary-color;
+    font-size: 1.5rem;
+    display: inline-block;
+    padding-left: 30px;
+  }
+}
+
+#trainer-list {
+  display: flex;
+  flex-wrap: wrap;
+  .user-thumbnail {
+    width: calc(100% / 5 - 20px);
+    height: 183px;
+    margin: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: $secondary-color;
+    border-radius: 5px;
+    font-family: Avenir;
+    .user-image {
+      height: 183px;
+      width: 100%;
+      margin-top: 5px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    &:hover {
+      background: darken($secondary-background,5%);
+      h3 {
+        background: $primary-color;
+        color: $secondary-color;
+      }
+    }
+    h3 {
+      display: flex;
+      margin: 3px 0 0 0;
+      padding: 1em 0;
+      justify-content: center;
+      color: #8B8B8B;
+    }
+  }
+}
