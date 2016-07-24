@@ -35,7 +35,7 @@ const LoginView = Backbone.View.extend({
       <i class="fa fa-times error-icon error-password" aria-hidden="true"></i>
       <i class="fa fa-check validation-icon validation-password" aria-hidden="true"></i>
     </div>
-    <input type="submit" name="submit" />
+    <input type="submit" name="submit" value="Login"/>
     `;
   },
   events: {
@@ -73,7 +73,6 @@ const LoginView = Backbone.View.extend({
     let password = $('#password').val();
     let checker = /[a-zA-Z0-9]/g;
     let characters = username.match(checker);
-    console.log(characters);
     if (characters) {
       if (characters.length < username.length) {
         this.$('.error-username').show();
@@ -84,7 +83,7 @@ const LoginView = Backbone.View.extend({
         this.$('.password p').show();
         this.$el.shake(65);
       } else {
-        store.session.login()
+        store.session.login(username, password)
       }
     } else {
       this.$('.error-username').show();
@@ -105,6 +104,7 @@ const LoginView = Backbone.View.extend({
     // });
   },
   render: function() {
+    this.$el.hide()
     this.$el.html(this.template());
     this.$('.error-icon').hide();
     this.$('.validation-icon').hide();

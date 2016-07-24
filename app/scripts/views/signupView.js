@@ -1,6 +1,8 @@
 import $ from 'jquery'
 import Backbone from 'backbone'
 
+import store from '../store'
+
 const SignupView = Backbone.View.extend({
   initialize: function() {
 
@@ -23,7 +25,7 @@ const SignupView = Backbone.View.extend({
       <i class="fa fa-times error-icon error-password" aria-hidden="true"></i>
       <i class="fa fa-check validation-icon validation-password" aria-hidden="true"></i>
     </div>
-    <input type="submit" name="submit" />
+    <input type="submit" name="submit"  value="Signup"/>
     `;
   },
   events: {
@@ -71,6 +73,7 @@ const SignupView = Backbone.View.extend({
         this.$('.password p').show();
         this.$el.shake(-50);
       } else {
+        store.session.signup(username, password)
         localStorage.authtoken = 1234;
       }
     } else {
@@ -87,6 +90,7 @@ const SignupView = Backbone.View.extend({
     // });
   },
   render: function() {
+    this.$el.hide()
     this.$el.html(this.template());
     this.$('.error-icon').hide();
     this.$('.validation-icon').hide();
