@@ -20,9 +20,40 @@ const PokedexView = Backbone.View.extend({
   },
   template: function() {
     return `
-    <h3 id="pokedex-title">All Pokemon</h3>
+    <div class="filter-options">
+      <dropdown>
+        <input id="toggle1" type="checkbox">
+        <label for="toggle1" class="animate">Filter by: <span id="filter-by-span">All</span><i class="fa fa-list float-right"></i></label>
+        <ul class="animate type-list">
+          <li class="animate type">All</li>
+          <li class="animate type">Bug</li>
+          <li class="animate type">Dark</li>
+          <li class="animate type">Dragon</li>
+          <li class="animate type">Electric</li>
+          <li class="animate type">Fairy</li>
+          <li class="animate type">Fighting</li>
+          <li class="animate type">Fire</li>
+          <li class="animate type">Flying</li>
+          <li class="animate type">Ghost</li>
+          <li class="animate type">Grass</li>
+          <li class="animate type">Ground</li>
+          <li class="animate type">Ice</li>
+          <li class="animate type">Normal</li>
+          <li class="animate type">Poison</li>
+          <li class="animate type">Psychic</li>
+          <li class="animate type">Rock</li>
+          <li class="animate type">Steel</li>
+          <li class="animate type">Water</li>
+        </ul>
+      </dropdown>
+      <div id="search-container">
+        <input id="pokemon-search-bar" type="text" placeholder="Search..."/>
+        <button id="search-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </div>
+    </div>
     <ul id="pokedex-list">
     </ul>
+    <button id="load-more-btn">Load more Pokemon</button>
     `
   },
   render: function() {
@@ -49,14 +80,20 @@ const PokedexView = Backbone.View.extend({
 
       $pokemonLi.find('.top').css('background-image', `url('assets/images/pokemon/${fixedNumber}.png')`);
       this.$('#pokedex-list').append($pokemonLi);
+
       $pokemonLi.find('.like-btn').on('click',function() {
         $pokemonLi.find('.like-btn').toggleClass('liked')
       });
+
       $pokemonLi.on('click', function (e) {
         if (!$(e.target).hasClass('like-btn')) {
           router.navigate(`pokemon/${$pokemonLi.find('.pokemon-number').text()}`, {trigger:true});
         }
       });
+    })
+    this.$('.type').on('click', (e) => {
+      this.$('#filter-by-span').text($(e.target).text());
+      // console.log($(e.target));
     })
     return this
   }
