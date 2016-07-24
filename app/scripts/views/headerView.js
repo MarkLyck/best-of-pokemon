@@ -2,6 +2,7 @@ import $ from 'jquery'
 import Backbone from 'backbone'
 
 import router from '../router'
+import store from '../store'
 
 import LoginView from './loginView';
 import SignupView from './signupView';
@@ -12,8 +13,7 @@ const HeaderView = Backbone.View.extend({
     return `
       <h2 id="logo">PokeDex</h2>
       <div class="nav-buttons">
-        <button id="goto-trainers-btn">
-<i class="fa fa-users" aria-hidden="true"></i> Trainers</button>
+        <button id="goto-trainers-btn"><i class="fa fa-users" aria-hidden="true"></i> Trainers</button>
       </div>
     `
   },
@@ -25,8 +25,9 @@ const HeaderView = Backbone.View.extend({
     'click #goto-trainers-btn' : 'gotoTrainers'
   },
   logout: function() {
-    localStorage.removeItem(authtoken)
-    this.render()
+    // localStorage.removeItem(authtoken)
+    store.session.logout();
+    this.render();
   },
   gotoLogin: function() {
     $(document).off();
