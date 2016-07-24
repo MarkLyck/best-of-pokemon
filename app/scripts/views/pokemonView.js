@@ -15,6 +15,9 @@ const PokemonView = Backbone.View.extend({
       store.pokemons.data.add({id: id})
     }
     this.model = store.pokemons.data.get(id)
+    if (!this.model.get('likes')) {
+      this.model.set('likes', Math.round(Math.random() * 100))
+    }
     this.model.on('change', () => this.render())
     this.model.fetch()
   },
@@ -51,7 +54,7 @@ const PokemonView = Backbone.View.extend({
         <div id="pokemon-image">
         </div>
         <div id="main-info">
-          <h1 id="pokemon-name">#${this.model.get('id')} - ${this.model.get('name')} <button id="like-btn">0</button></h1>
+          <h1 id="pokemon-name">#${this.model.get('id')} - ${this.model.get('name')} <button id="like-btn">${this.model.get('likes')}</button></h1>
           <button class="pokemon-favorite">Favorite</button>
           <h3 id="types">Type: </h3>
           <h4 id="pokemon-height">Height ${this.model.get('height')}</h4>
