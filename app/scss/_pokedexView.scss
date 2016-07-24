@@ -9,7 +9,6 @@
 #pokedex-list {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 80px;
 }
 
 .loader {
@@ -158,13 +157,25 @@
 }
 
 .filter-options {
-  // display: flex;
-
-  #pokemon-search-bar {
-    position: absolute;
-    left: calc(100% / 5);
+  width: 100%;
+  padding: 20px;
+  #search-container {
+    width: 40%;
+    float: right;
+    display: flex;
+    #pokemon-search-bar {
+      padding: 15px 20px;
+      border: 1px solid $primary-border;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+      width: 100%;
+    }
+    button {
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+      padding: 20px;
+    }
   }
-
   .float-right{
     float: right;
   }
@@ -172,13 +183,12 @@
     position: absolute;
     height: 20px;
     display: inline-block;
-    margin: 20px;
+    // margin: 20px;
     width: calc(100% / 5 - 40px);
   }
 
   dropdown label, dropdown ul li{
     display: block;
-    // width: 200px;
     width: 100%;
     background: #fff;
     padding: 15px 20px;

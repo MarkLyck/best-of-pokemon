@@ -46,7 +46,10 @@ const PokedexView = Backbone.View.extend({
           <li class="animate">Water</li>
         </ul>
       </dropdown>
-      <input id="pokemon-search-bar" type="text" placeholder="Search...">
+      <div id="search-container">
+        <input id="pokemon-search-bar" type="text" placeholder="Search..."/>
+        <button id="search-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </div>
     </div>
     <ul id="pokedex-list">
     </ul>
@@ -55,25 +58,6 @@ const PokedexView = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.template())
-    // //TOGGLING NESTED ul
-    // this.$(".drop-down .selected a").click(function() {
-    //     this.$(".drop-down .options ul").toggle();
-    // });
-    //
-    // //SELECT OPTIONS AND HIDE OPTION AFTER SELECTION
-    // this.$(".drop-down .options ul li a").click(function() {
-    //     var text = $(this).html();
-    //     this.$(".drop-down .selected a span").html(text);
-    //     this.$(".drop-down .options ul").hide();
-    // });
-    //
-    //
-    // //HIDE OPTIONS IF CLICKED ANYWHERE ELSE ON PAGE
-    // $(document).bind('click', function(e) {
-    //     var $clicked = $(e.target);
-    //     if (! $clicked.parents().hasClass("drop-down"))
-    //         this.$(".drop-down .options ul").hide();
-    // });
     store.pokemons.data.each((pokemon) => {
       let $pokemonLi = $(`
           <li class="pokemon-li">
