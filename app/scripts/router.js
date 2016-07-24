@@ -9,12 +9,15 @@ import SignupView from './views/signupView'
 import PokedexView from './views/pokedexView'
 import PokemonView from './views/pokemonView'
 import TopPokemonView from './views/topPokemonView'
+import TrainerView from './views/trainerView';
 import MissingView from './views/404View'
 
 const Router = Backbone.Router.extend({
   routes: {
     pokedex       : 'pokedex',
     'pokemon/:id' : 'pokemon',
+    'trainer'     : 'trainer',
+    'trainer/:id' : 'trainerProfile',
     '/*'          : 'pokedex',
     '404'         : 'missing'
   },
@@ -33,6 +36,14 @@ const Router = Backbone.Router.extend({
     } else {
       router.navigate('404', {trigger:true})
     }
+  },
+  trainer: function() {
+    let headerView = new HeaderView();
+    let trainerView = new TrainerView();
+    $('#container').empty().append(headerView.render().$el).append(trainerView.render().$el);
+  },
+  trainerProfile: function() {
+    let headerView = new HeaderView();
   },
   missing: function() {
     let missingView = new MissingView()
