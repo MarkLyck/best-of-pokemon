@@ -5,6 +5,9 @@ import Backbone from 'backbone';
 import router from '../router';
 import store from '../store';
 
+let pokemonsLoaded = 0
+let pokemonsToLoad = 50
+
 const PokedexView = Backbone.View.extend({
   initialize: function() {
     this.$el.append($(`<div class="loader"></div>`));
@@ -19,6 +22,18 @@ const PokedexView = Backbone.View.extend({
     })
   },
   id: 'pokedex-container',
+  events: {
+    'click #load-more-btn': 'loadMore'
+  },
+  loadMore: function() {
+    pokemonsLoaded = pokemonsToLoad
+    pokemonsToLoad += 50
+    store.pokemons.data.each((pokemon) => {
+      if (pokemon.get('id') > pokemonsLoaded && pokemon.get('id') <= pokemonsToLoad) {
+        this.addPokemonLi(pokemon)
+      }
+    });
+  },
   template: function() {
     return `
     <div class="filter-options">
@@ -99,7 +114,13 @@ const PokedexView = Backbone.View.extend({
   render: function(filteredBy) {
     this.$el.html(this.template())
 
-    store.pokemons.data.each((pokemon) => this.addPokemonLi(pokemon));
+
+
+    store.pokemons.data.each((pokemon) => {
+      if (pokemon.get('id') > pokemonsLoaded && pokemon.get('id') <= pokemonsToLoad) {
+        this.addPokemonLi(pokemon)
+      }
+    });
 
     this.$('.type').on('click', (e) => {
       this.$("#type-dropdown").prop( "checked", false );
