@@ -22,7 +22,7 @@ const PokemonView = Backbone.View.extend({
     'click #goto-pokedex-btn'   : 'gotoPokedex',
     'click #goto-previous-btn'  : 'gotoPrev',
     'click #goto-next-btn'      : 'gotoNext',
-    'click pokemon-favorite'    : 'favoritePokemon'
+    'click .pokemon-favorite'    : 'favoritePokemon'
   },
   gotoPokedex: function() {
     router.navigate('', {trigger:true})
@@ -39,6 +39,7 @@ const PokemonView = Backbone.View.extend({
     store.session.save({
       favorite: this.model.get('id')
     })
+    this.$('.pokemon-favorite').addClass('favorited')
   },
   template: function() {
     return `
@@ -91,7 +92,7 @@ const PokemonView = Backbone.View.extend({
       this.$('#types').append($typeSpan)
     })
 
-    if (session.get('favorite') === this.model.get('id')) {
+    if (store.session.get('favorite') === this.model.get('id')) {
       this.$('.pokemon-favorite').addClass('favorited')
     }
 
@@ -100,9 +101,6 @@ const PokemonView = Backbone.View.extend({
     } else if (this.model.get('id') >= 720) {
       this.$('#goto-next-btn').remove()
     }
-
-    console.log(Comments);
-
     return this;
   }
 })
