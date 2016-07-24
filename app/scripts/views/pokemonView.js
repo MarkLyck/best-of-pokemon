@@ -57,7 +57,11 @@ const PokemonView = Backbone.View.extend({
     router.navigate('pokemon/' + (Number(this.model.get('id')) - 1), {trigger:true})
   },
   likePokemon: function() {
-    console.log('LIKE');
+    if (this.$('.like-btn').hasClass('liked')) {
+      this.$('.like-btn').text(Number(this.$('.like-btn').text()) - 1)
+    } else {
+      this.$('.like-btn').text(Number(this.$('.like-btn').text()) + 1)
+    }
     this.$('.like-btn').toggleClass('liked')
   },
   favoritePokemon: function() {
