@@ -1132,6 +1132,7 @@ header {
       display: flex;
       margin: 3px 0 0 0;
       padding: 1em 0;
+      font-size: 1rem;
       justify-content: center;
       color: #8B8B8B; }
 
@@ -1149,6 +1150,7 @@ header {
   #trainer-profile #trainer-image {
     width: 250px;
     height: 350px;
+    background: #fff;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -1158,14 +1160,97 @@ header {
     margin-right: 20px; }
     #trainer-profile #trainer-image #change-image {
       position: relative;
-      top: 305px;
-      right: 10px; }
+      top: 360px;
+      right: 0px;
+      padding: 10px;
+      font-size: 0.8rem;
+      background: #ED1851;
+      color: #fff; }
+      #trainer-profile #trainer-image #change-image:hover {
+        background: #da1147; }
+    #trainer-profile #trainer-image #img-src-form {
+      position: relative;
+      top: 360px;
+      right: 0px; }
+      #trainer-profile #trainer-image #img-src-form button {
+        padding: 10px;
+        font-size: 0.8rem;
+        margin-left: 5px;
+        background: #ED1851;
+        color: #fff;
+        display: inline-block; }
+        #trainer-profile #trainer-image #img-src-form button:hover {
+          background: #da1147; }
   #trainer-profile #trainer-info {
     float: left; }
+    #trainer-profile #trainer-info h1 {
+      margin-bottom: 0; }
+    #trainer-profile #trainer-info h3 {
+      margin: 0;
+      font-weight: lighter;
+      font-size: 0.8rem; }
+    #trainer-profile #trainer-info p {
+      font-size: 1.5rem; }
+    #trainer-profile #trainer-info #change-description {
+      position: relative;
+      bottom: 25px;
+      left: 0;
+      background: #ED1851;
+      color: #fff;
+      font-size: 0.8rem;
+      padding: 5px; }
     #trainer-profile #trainer-info #edit-profile {
       position: absolute;
-      right: 0; }
+      right: 15px;
+      font-size: 0.8rem;
+      padding: 5px;
+      background: #ED1851;
+      color: #fff; }
+      #trainer-profile #trainer-info #edit-profile:hover {
+        background: #da1147; }
+    #trainer-profile #trainer-info #new-description {
+      position: relative;
+      line-height: 2rem;
+      font-size: 1.5rem;
+      top: 20px;
+      width: 200px; }
+    #trainer-profile #trainer-info #submit-description {
+      position: relative;
+      top: 25px;
+      left: 155px;
+      background: #ED1851;
+      color: #fff;
+      padding: 5px;
+      font-size: 0.8rem; }
+      #trainer-profile #trainer-info #submit-description:hover {
+        background: #da1147; }
 
+@media screen and (max-width: 1000px) {
+  #trainer-list .user-thumbnail {
+    width: calc(100% / 4 - 20px); } }
+@media screen and (max-width: 800px) {
+  #trainer-list .user-thumbnail {
+    width: calc(100% / 3 - 20px); } }
+@media screen and (max-width: 600px) {
+  #trainer-profile #trainer-image {
+    width: 200px;
+    height: 280px; }
+
+  #trainer-list .user-thumbnail {
+    width: calc(100% / 2 - 20px); } }
+@media screen and (max-width: 500px) {
+  #trainer-profile #trainer-image {
+    width: 100px;
+    height: 140px; }
+    #trainer-profile #trainer-image #change-image {
+      top: 150px; }
+    #trainer-profile #trainer-image #img-src-form {
+      top: 155px; }
+      #trainer-profile #trainer-image #img-src-form button {
+        margin-top: 5px; } }
+@media screen and (max-width: 400px) {
+  #trainer-list .user-thumbnail {
+    width: calc(100% / 1 - 20px); } }
 body {
   background: #F9F9F9; }
 
