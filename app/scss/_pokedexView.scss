@@ -160,20 +160,23 @@
   width: 100%;
   padding: 20px;
   #search-container {
-    width: 40%;
+    width: calc(100% - (100% / 5) - 5px);
     float: right;
     display: flex;
+    height: 50px;
     #pokemon-search-bar {
-      padding: 15px 20px;
+      padding: 0 20px;
       border: 1px solid $primary-border;
       border-bottom-left-radius: 5px;
       border-top-left-radius: 5px;
       width: 100%;
+      box-sizing: border-box;
     }
     button {
       border-bottom-right-radius: 5px;
       border-top-right-radius: 5px;
-      padding: 20px;
+      padding: 0 20px;
+      box-sizing: border-box;
     }
   }
   .float-right{
@@ -270,6 +273,9 @@
     dropdown {
       width: calc(100% / 4 - 40px);
     }
+    #search-container {
+      width: calc(100% - (100% / 4) - 5px);
+    }
   }
 }
 
@@ -285,6 +291,9 @@
     dropdown {
       width: calc(100% / 3 - 40px);
     }
+    #search-container {
+      width: calc(100% - (100% / 3) - 5px);
+    }
   }
 }
 
@@ -295,10 +304,16 @@
     li {
       width: calc(100% / 2 - 40px);
     }
+    #search-container {
+      width: calc(100% - (100% / 2) - 5px);
+    }
   }
   .filter-options {
     dropdown {
       width: calc(100% / 2 - 40px);
+    }
+    #search-container {
+      width: calc(100% - (100% / 2) - 5px);
     }
   }
 }
@@ -309,6 +324,10 @@
     flex-wrap: wrap;
     li {
       width: calc(100% - 40px);
+    }
+    #search-container {
+      // width: calc(100% - (100% / 2) - 5px);
+      display: none;
     }
   }
   .filter-options {
