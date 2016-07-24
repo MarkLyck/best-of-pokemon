@@ -46,6 +46,7 @@ const PokedexView = Backbone.View.extend({
           <li class="animate">Water</li>
         </ul>
       </dropdown>
+      <input id="pokemon-search-bar" type="text" placeholder="Search...">
     </div>
     <ul id="pokedex-list">
     </ul>
