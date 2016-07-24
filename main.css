@@ -998,6 +998,18 @@ header {
       #comment-section .comment .wrapper .comment-user:hover {
         cursor: pointer;
         color: #ED1851; }
+    #comment-section .comment .manage-comment {
+      float: right;
+      margin-top: -35px;
+      margin-right: -5px; }
+      #comment-section .comment .manage-comment button {
+        padding: 10px;
+        background: none;
+        color: #ED1851; }
+        #comment-section .comment .manage-comment button:hover {
+          background: #ED1851;
+          border-radius: 5px;
+          color: #fff; }
   #comment-section #input-wrapper {
     display: flex;
     margin: 0 auto;
