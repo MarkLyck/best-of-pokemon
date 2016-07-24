@@ -22,6 +22,7 @@ const PokemonView = Backbone.View.extend({
     this.model.fetch()
 
     store.comments.data.reset()
+
     // This needs to fetch comments, but backend is not ready.
     store.comments.data.add({
       id: 1234,
@@ -112,7 +113,7 @@ const PokemonView = Backbone.View.extend({
     }
 
     store.comments.data.each(comment => {
-      let commentLi = $(`
+      let $commentLi = $(`
         <li class="comment">
           <div class="wrapper">
             <h4 class="comment-user">${comment.get('username')}</h4>
@@ -127,17 +128,24 @@ const PokemonView = Backbone.View.extend({
       if (store.session.get('username') === comment.get('username')) {
         let $editBtn = $(`<button class="edit-comment-btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button.`)
         let $delBtn = $(`<button class="del-comment-btn"><i class="fa fa-trash-o" aria-hidden="true"></i></button.`)
-        commentLi.find('.manage-comment').append($editBtn).append($delBtn)
+        $commentLi.find('.manage-comment').append($editBtn).append($delBtn)
       }
-      commentLi.find('.edit-comment-btn').on('click', function() {
+
+      $commentLi.find('.del-comment-btn').on('click', function() {
+        console.log('DESTROY!');
+        let commentEditing = store.comments.data.get(comment.get('id'))
+        commentEditing.destroy()
+        $commentLi.remove()
+      })
+      $commentLi.find('.edit-comment-btn').on('click', function() {
         let $editComment = $(`
           <div id="input-wrapper">
             <textarea class="edit-comment-textarea" value="${comment.get('body')}"></textarea>
             <button class="edit-comment-submit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
           </div>
         `)
-        commentLi.after($editComment)
-        commentLi.hide()
+        $commentLi.after($editComment)
+        $commentLi.remove()
         $editComment.find('.edit-comment-submit').on('click', function() {
           console.log('clicked edit');
           let commentEditing = store.comments.data.get(comment.get('id'))
@@ -145,15 +153,13 @@ const PokemonView = Backbone.View.extend({
             body: $editComment.find('.edit-comment-textarea').val(),
             timestamp: new Date()
           })
-          console.log(store.comments.data);
           // commentEditing.save({
           //   body: $editComment.find('.edit-comment-textarea').val(),
           //   timestamp: new Date()
           // })
         })
-        console.log('edit');
       })
-      this.$('#comments').append(commentLi)
+      this.$('#comments').append($commentLi)
     })
 
     return this;
