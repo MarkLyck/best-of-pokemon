@@ -9,6 +9,7 @@
 #pokedex-list {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .loader {
@@ -148,12 +149,133 @@
   }
 }
 
+#load-more-btn {
+  margin: 0 auto;
+  padding: 15px;
+  width: 60%;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.filter-options {
+  width: 100%;
+  padding: 20px;
+  #search-container {
+    width: calc(100% - (100% / 5) - 5px);
+    float: right;
+    display: flex;
+    height: 50px;
+    #pokemon-search-bar {
+      padding: 0 20px;
+      border: 1px solid $primary-border;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+  }
+  .float-right{
+    float: right;
+  }
+  dropdown {
+    position: absolute;
+    height: 20px;
+    display: inline-block;
+    // margin: 20px;
+    width: calc(100% / 5 - 40px);
+  }
+
+  dropdown label, dropdown ul li{
+    display: block;
+    width: 100%;
+    background: #fff;
+    padding: 15px 20px;
+    box-sizing: border-box;
+  }
+
+  dropdown label:hover, dropdown ul li:hover{
+    background: $primary-color;
+    color: white;
+    cursor: pointer;
+  }
+  dropdown label {
+    color: $primary-color;
+    border: 1px solid #eee;
+    border-left: 4px solid $primary-color;
+    border-radius: 0 5px 0 0;
+    position: relative;
+    z-index: 2;
+  }
+  dropdown input{
+    display: none;
+  }
+  dropdown input ~ ul{
+    position: relative;
+    visibility: hidden;
+    opacity: 0;
+    top: -20px;
+    z-index: 1;
+  }
+  dropdown input:checked + label{
+    background: $primary-color;
+    color: white;
+  }
+
+  dropdown input:checked ~ ul{
+    visibility: visible;
+    opacity: 1;
+    top: 0;
+  }
+  $colors: $type-normal, $primary-color, $type-bug, $type-dark, $type-dragon, $type-electric, $type-fairy, $type-fighting, $type-fire, $type-flying, $type-ghost, $type-grass, $type-ground, $type-ice, $type-normal, $type-poison, $type-psychic, $type-rock, $type-steel, $type-water;
+
+
+
+  @for $i from 1 through length($colors) {
+    dropdown ul li:nth-child(#{$i}) {
+      border-left: 4px solid nth($colors, $i);
+      &:hover {
+          background: nth($colors, $i);
+          color: white;
+      }
+    }
+  }
+
+  .animate{
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden; /* Chrome and Safari */
+    -moz-backface-visibility:hidden; /* Firefox */
+    -ms-backface-visibility:hidden; /* Internet Explorer */
+  }
+}
+
+
+
+
 @media (max-width: 1200px) {
   #pokedex-list {
     display: flex;
     flex-wrap: wrap;
     li {
       width: calc(100% / 4 - 40px);
+    }
+  }
+  .filter-options {
+    dropdown {
+      width: calc(100% / 4 - 40px);
+    }
+    #search-container {
+      width: calc(100% - (100% / 4) - 5px);
     }
   }
 }
@@ -166,6 +288,14 @@
       width: calc(100% / 3 - 40px);
     }
   }
+  .filter-options {
+    dropdown {
+      width: calc(100% / 3 - 40px);
+    }
+    #search-container {
+      width: calc(100% - (100% / 3) - 5px);
+    }
+  }
 }
 
 @media (max-width: 750px) {
@@ -175,6 +305,17 @@
     li {
       width: calc(100% / 2 - 40px);
     }
+    #search-container {
+      width: calc(100% - (100% / 2) - 5px);
+    }
+  }
+  .filter-options {
+    dropdown {
+      width: calc(100% / 2 - 40px);
+    }
+    #search-container {
+      width: calc(100% - (100% / 2) - 5px);
+    }
   }
 }
 
@@ -183,6 +324,14 @@
     display: flex;
     flex-wrap: wrap;
     li {
+      width: calc(100% - 40px);
+    }
+    #search-container {
+      display: none;
+    }
+  }
+  .filter-options {
+    dropdown {
       width: calc(100% - 40px);
     }
   }

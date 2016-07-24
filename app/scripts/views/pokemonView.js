@@ -6,6 +6,7 @@ import router from '../router'
 import store from '../store'
 
 import Pokemon from '../models/Pokemon'
+import Comments from '../collections/Comments'
 
 const PokemonView = Backbone.View.extend({
   id: 'pokemonView',
@@ -16,6 +17,13 @@ const PokemonView = Backbone.View.extend({
     this.model = store.pokemons.data.get(id)
     this.model.on('change', () => this.render())
     this.model.fetch()
+
+    // Fake comment
+    // Comments.create({
+    //
+    // })
+
+
   },
   events: {
     'click #goto-pokedex-btn'   : 'gotoPokedex',
@@ -89,6 +97,8 @@ const PokemonView = Backbone.View.extend({
     } else if (this.model.get('id') >= 720) {
       this.$('#goto-next-btn').remove()
     }
+
+    console.log(Comments);
 
     return this;
   }

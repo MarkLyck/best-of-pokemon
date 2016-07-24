@@ -84,7 +84,7 @@ const LoginView = Backbone.View.extend({
         this.$('.password p').show();
         this.$el.shake(65);
       } else {
-        store.session.login()
+        store.session.login(username, password)
       }
     } else {
       this.$('.error-username').show();
