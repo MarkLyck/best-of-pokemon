@@ -121,3 +121,9 @@
     right: 47px;
   }
 }
+
+@media (max-width: 600px) {
+  .login-form {
+    right: -10px;
+  }
+}

@@ -19,18 +19,56 @@ header {
       color: #fff;
     }
   }
-  .nav-buttons {
+}
+
+.nav-buttons {
+  display: flex;
+  height: 100%;
+  button {
+    width: 125px;
+    box-sizing: border-box;
     height: 100%;
+    padding: 0 20px;
+  }
+  #goto-signup-btn {
+    background-color: darken($primary-color, 0);
+    &::after {
+      content: 'Signup'
+    }
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+  #goto-login-btn {
+    &::after {
+      content: 'Login'
+    }
+  }
+  #goto-trainers-btn {
+    &::after {
+      content: 'Trainers'
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-buttons {
     button {
-      width: 125px;
-      box-sizing: border-box;
-      height: 100%;
-      padding: 0 20px;
+      width: 75px;
     }
     #goto-signup-btn {
-      background-color: darken($primary-color, 0);
-      &:hover {
-        background-color: darken($primary-color, 10%);
+      &::after {
+        content: ''
+      }
+    }
+    #goto-login-btn {
+      &::after {
+        content: ''
+      }
+    }
+    #goto-trainers-btn {
+      &::after {
+        content: ''
       }
     }
   }
