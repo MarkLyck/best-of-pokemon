@@ -10,7 +10,6 @@ import SignupView from './signupView';
 const HeaderView = Backbone.View.extend({
   initialize: function() {
     store.session.on('change', () => {
-      console.log('SESSION CHANGED');
       this.render()
     })
   },
@@ -74,8 +73,6 @@ const HeaderView = Backbone.View.extend({
     router.navigate('trainer', {trigger:true})
   },
   render: function() {
-    console.log('rendering header');
-    console.log(store.session);
     this.$el.html(this.template())
     let loginView = new LoginView();
     let signupView = new SignupView();
