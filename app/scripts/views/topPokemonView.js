@@ -62,8 +62,9 @@ const TopPokemonView = Backbone.View.extend({
         $topLi.find('.like-btn').toggleClass('liked')
       });
 
-      $topLi.on('click', function () {
-        if (!$(e.target).hasClass('like-btn')) {
+      $topLi.on('click', function (e) {
+        console.log($(e.target));
+        if (!$(e.target).hasClass('like-btn') && !$(e.target).hasClass('like-number')) {
           router.navigate(`pokemon/${pokemon.get('id')}`, {trigger:true});
         }
       });
