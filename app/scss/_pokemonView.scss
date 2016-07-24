@@ -194,6 +194,21 @@
         }
       }
     }
+    .manage-comment {
+      float: right;
+      margin-top: -35px;
+      margin-right: -5px;
+      button {
+        padding: 10px;
+        background: none;
+        color: $primary-color;
+        &:hover {
+          background: $primary-color;
+          border-radius: 5px;
+          color: #fff;
+        }
+      }
+    }
   }
   #input-wrapper {
     display: flex;

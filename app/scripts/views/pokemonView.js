@@ -20,6 +20,15 @@ const PokemonView = Backbone.View.extend({
     }
     this.model.on('change', () => this.render())
     this.model.fetch()
+
+    store.comments.data.reset()
+    // This needs to fetch comments, but backend is not ready.
+    store.comments.data.add({
+      username: 'Rob',
+      body: 'This is a test comment from a model',
+      timestamp: new Date(),
+    })
+    console.log(store.comments.data);
   },
   events: {
     'click #goto-pokedex-btn'   : 'gotoPokedex',
@@ -64,13 +73,7 @@ const PokemonView = Backbone.View.extend({
       <section id="comment-section">
         <h2>Comments</h2>
         <ul id="comments">
-          <li class="comment">
-            <div class="wrapper">
-              <h4 class="comment-user">MarkL</h4>
-              <p class="comment-timestamp">${moment().format('MMM DD YYYY')}</p>
-            </div>
-            <p class="comment-body">This is a test comment<p>
-          </li>
+
         </ul>
         <div id="input-wrapper">
           <textarea placeholder="Comment"></textarea>
@@ -104,6 +107,28 @@ const PokemonView = Backbone.View.extend({
     } else if (this.model.get('id') >= 720) {
       this.$('#goto-next-btn').remove()
     }
+
+    store.comments.data.each(comment => {
+      let commentLi = $(`
+        <li class="comment">
+          <div class="wrapper">
+            <h4 class="comment-user">${comment.get('username')}</h4>
+            <p class="comment-timestamp">${moment(comment.get('timestamp')).format('MMM DD YYYY')}</p>
+          </div>
+          <p class="comment-body">${comment.get('body')}<p>
+          <div class="manage-comment">
+
+          </div>
+        </li>
+      `)
+      if (store.session.get('username') === comment.get('username')) {
+        let $editBtn = $(`<button class="edit-comment-btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button.`)
+        let $delBtn = $(`<button class="del-comment-btn"><i class="fa fa-trash-o" aria-hidden="true"></i></button.`)
+        commentLi.find('.manage-comment').append($editBtn).append($delBtn)
+      }
+      this.$('#comments').append(commentLi)
+    })
+
     return this;
   }
 })
