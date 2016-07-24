@@ -1110,6 +1110,37 @@ header {
       justify-content: center;
       color: #8B8B8B; }
 
+#trainer-profile {
+  margin: 0 20px; }
+  #trainer-profile button {
+    padding: 20px;
+    background: none;
+    color: #ED1851;
+    display: block; }
+    #trainer-profile button i {
+      margin-right: 5px; }
+    #trainer-profile button:hover {
+      color: #da1147; }
+  #trainer-profile #trainer-image {
+    width: 250px;
+    height: 350px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid #eeeeee;
+    border-radius: 5px;
+    float: left;
+    margin-right: 20px; }
+    #trainer-profile #trainer-image #change-image {
+      position: relative;
+      top: 305px;
+      right: 10px; }
+  #trainer-profile #trainer-info {
+    float: left; }
+    #trainer-profile #trainer-info #edit-profile {
+      position: absolute;
+      right: 0; }
+
 body {
   background: #F9F9F9; }
 
