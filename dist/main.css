@@ -1200,10 +1200,10 @@ header {
       position: relative;
       bottom: 25px;
       left: 0;
-      background: #ED1851;
-      color: #fff;
+      background: none;
+      color: #ED1851;
       font-size: 0.8rem;
-      padding: 5px; }
+      padding: 0 0 0 2px; }
     #trainer-profile #trainer-info #edit-profile {
       position: absolute;
       right: 15px;
@@ -1216,7 +1216,6 @@ header {
     #trainer-profile #trainer-info #new-description {
       position: relative;
       line-height: 2rem;
-      font-size: 1.5rem;
       top: 20px;
       width: 200px; }
     #trainer-profile #trainer-info #submit-description {
@@ -1240,6 +1239,8 @@ header {
   #trainer-profile #trainer-image {
     width: 200px;
     height: 280px; }
+    #trainer-profile #trainer-image #change-image {
+      top: 290px; }
 
   #trainer-list .user-thumbnail {
     width: calc(100% / 2 - 20px); } }
@@ -1250,7 +1251,9 @@ header {
     #trainer-profile #trainer-image p {
       top: 150px; }
     #trainer-profile #trainer-image #change-image {
-      top: 150px; }
+      top: 150px;
+      width: 100px;
+      padding: 10px 0px; }
     #trainer-profile #trainer-image #img-src-form {
       top: 155px; }
       #trainer-profile #trainer-image #img-src-form button {
