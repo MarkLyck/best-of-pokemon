@@ -1,12 +1,10 @@
+import _ from 'underscore';
 import Backbone from 'backbone';
 
 const Session = Backbone.Model.extend({
   urlRoot: 'https://pokekeemster.herokuapp.com/login',
   defaults: {
     username: '',
-  },
-  toJSON: function() {
-    return { user: _.clone( this.attributes ) }
   },
   login: function(username, password) {
     this.save({

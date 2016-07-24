@@ -8,7 +8,7 @@ import LoginView from './views/loginView'
 import SignupView from './views/signupView'
 import PokedexView from './views/pokedexView'
 import PokemonView from './views/pokemonView'
-import TopPokemonView from './views/TopPokemonView'
+import TopPokemonView from './views/topPokemonView'
 import TrainerView from './views/trainerView';
 import MissingView from './views/404View'
 
