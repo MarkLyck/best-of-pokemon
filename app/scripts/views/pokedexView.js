@@ -22,8 +22,8 @@ const PokedexView = Backbone.View.extend({
     return `
     <div class="filter-options">
       <dropdown>
-        <input id="toggle1" type="checkbox">
-        <label for="toggle1" class="animate">Filter by: <span id="filter-by-span">All</span><i class="fa fa-list float-right"></i></label>
+        <input id="type-dropdown" type="checkbox">
+        <label for="type-dropdown" class="animate">Filter by: <span id="filter-by-span">All</span><i class="fa fa-list float-right"></i></label>
         <ul class="animate type-list">
           <li class="animate type">All</li>
           <li class="animate type">Bug</li>
@@ -90,17 +90,13 @@ const PokedexView = Backbone.View.extend({
     });
   },
   render: function(filteredBy) {
-    console.log('RENDERING');
     this.$el.html(this.template())
 
-    if (!filteredBy) {
-      store.pokemons.data.each((pokemon) => this.addPokemonLi(pokemon));
-    } else {
-      this.$('#filter-by-span').text(filteredBy);
-      store.pokemons.filteredData.each((pokemon) => this.addPokemonLi(pokemon));
-    }
+    store.pokemons.data.each((pokemon) => this.addPokemonLi(pokemon));
 
     this.$('.type').on('click', (e) => {
+      this.$("#type-dropdown").prop( "checked", false );
+
       store.pokemons.filteredData.reset()
       store.pokemons.data.each(function(pokemon) {
         if (pokemon.get('types').indexOf($(e.target).text().toLowerCase()) !== -1) {
@@ -108,25 +104,39 @@ const PokedexView = Backbone.View.extend({
         }
       })
 
+      this.$('#filter-by-span').text($(e.target).text());
+      this.$('#pokedex-list').empty()
       if ($(e.target).text() !== 'All') {
-        this.render($(e.target).text())
+        store.pokemons.filteredData.each((pokemon) => this.addPokemonLi(pokemon));
       } else {
-        this.render()
+        store.pokemons.data.each((pokemon) => this.addPokemonLi(pokemon));
       }
-
-      // console.log(store.pokemons.filteredData);
     })
 
     this.$('#search-btn').on('click', () => {
-      console.log('test');
       store.pokemons.filteredData.reset()
       store.pokemons.data.each((pokemon) => {
         if (pokemon.get('name').indexOf(this.$('#pokemon-search-bar').val()) !== -1) {
           store.pokemons.filteredData.add(pokemon)
         }
       })
-      this.render('All')
+      this.$('#filter-by-span').text('All');
+      this.$('#pokedex-list').empty()
+      store.pokemons.filteredData.each((pokemon) => this.addPokemonLi(pokemon));
     })
+
+    this.$('#pokemon-search-bar').on('keyup', () => {
+      store.pokemons.filteredData.reset()
+      store.pokemons.data.each((pokemon) => {
+        if (pokemon.get('name').indexOf(this.$('#pokemon-search-bar').val()) !== -1) {
+          store.pokemons.filteredData.add(pokemon)
+        }
+      })
+      this.$('#filter-by-span').text('All');
+      this.$('#pokedex-list').empty()
+      store.pokemons.filteredData.each((pokemon) => this.addPokemonLi(pokemon));
+    })
+
     return this
   }
 })
