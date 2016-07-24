@@ -194,12 +194,28 @@
         }
       }
     }
+    .manage-comment {
+      float: right;
+      margin-top: -35px;
+      margin-right: -5px;
+      button {
+        padding: 10px;
+        background: none;
+        color: $primary-color;
+        &:hover {
+          background: $primary-color;
+          border-radius: 5px;
+          color: #fff;
+        }
+      }
+    }
   }
   #input-wrapper {
     display: flex;
-    margin: 0 auto;
+    // margin: 0 auto;
     width: 80%;
     padding-bottom: 40px;
+    margin: 20px auto 20px auto;
     textarea {
       width: 80%;
       border: none;
@@ -208,7 +224,7 @@
       padding: 20px;
       outline: none;
     }
-    input[type=submit] {
+    input[type=submit], .edit-comment-submit {
       width: 20%;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
