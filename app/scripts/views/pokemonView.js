@@ -116,7 +116,7 @@ const PokemonView = Backbone.View.extend({
       this.$('#types').append($typeSpan)
     })
 
-    if (store.session.get('favorite') === this.model.get('id')) {
+    if (store.session.get('favorite') === String(this.model.get('id'))) {
       this.$('.pokemon-favorite').addClass('favorited')
     }
 
