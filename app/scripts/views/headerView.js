@@ -29,7 +29,7 @@ const HeaderView = Backbone.View.extend({
   gotoLogin: function() {
     let loginView = new LoginView();
     if (this.$el.find('.login-form').length === 0) {
-      this.$el.append(loginView.render().$el);
+      // this.$el.append(loginView.render().$el);
       this.$el.find('.signup-form').remove();
       let removeLoginTimeout = window.setTimeout(() => {
         $(document).on('click', e => {
@@ -67,6 +67,10 @@ const HeaderView = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.template())
+    let loginView = new LoginView();
+    let signupView = new SignupView();
+    this.$el.append(loginView.render().$el);
+    this.$el.append(signupView.render().$el);
     if (localStorage.authtoken) {
       let $logoutBtn = $(`<button id="logout-btn"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</button>`)
       this.$('.nav-buttons').append($logoutBtn)

@@ -73,7 +73,6 @@ const LoginView = Backbone.View.extend({
     let password = $('#password').val();
     let checker = /[a-zA-Z0-9]/g;
     let characters = username.match(checker);
-    console.log(characters);
     if (characters) {
       if (characters.length < username.length) {
         this.$('.error-username').show();
@@ -105,6 +104,7 @@ const LoginView = Backbone.View.extend({
     // });
   },
   render: function() {
+    this.$el.hide()
     this.$el.html(this.template());
     this.$('.error-icon').hide();
     this.$('.validation-icon').hide();

@@ -90,6 +90,7 @@ const SignupView = Backbone.View.extend({
     // });
   },
   render: function() {
+    this.$el.hide()
     this.$el.html(this.template());
     this.$('.error-icon').hide();
     this.$('.validation-icon').hide();
