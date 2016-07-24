@@ -1158,6 +1158,11 @@ header {
     border-radius: 5px;
     float: left;
     margin-right: 20px; }
+    #trainer-profile #trainer-image p {
+      position: relative;
+      top: 345px;
+      font-size: 0.8rem;
+      color: #ED1851; }
     #trainer-profile #trainer-image #change-image {
       position: relative;
       top: 360px;
@@ -1242,6 +1247,8 @@ header {
   #trainer-profile #trainer-image {
     width: 100px;
     height: 140px; }
+    #trainer-profile #trainer-image p {
+      top: 150px; }
     #trainer-profile #trainer-image #change-image {
       top: 150px; }
     #trainer-profile #trainer-image #img-src-form {

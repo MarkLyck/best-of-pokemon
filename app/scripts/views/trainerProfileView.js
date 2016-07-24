@@ -28,6 +28,7 @@ const TrainerProfileView = Backbone.View.extend({
     'click #goto-trainerView': 'goToTrainers',
     'click #edit-profile' : 'editProfile',
     'click #change-image' : 'editImage',
+    'click #img-src'      : 'clearError',
     'click #submit-img-src'     : 'submitImage',
     'click #change-description': 'editDescription',
     'click #submit-description': 'submitDescription'
@@ -43,10 +44,19 @@ const TrainerProfileView = Backbone.View.extend({
   editImage: function() {
     this.$('#trainer-image').append(`<div id="img-src-form"><input type="text" name="img-src" id="img-src" /><button type="submit" id="submit-img-src">Submit</button></div>`);
   },
+  clearError: function() {
+    this.$('#trainer-image p').remove();
+  },
   submitImage: function(e) {
-      this.model.save('profileImg', `${this.$('#img-src').val()}`);
-      console.log(this.model.get('profileImg'));
-      this.render();
+      let checker = /[png|jpg|jpeg]$/i;
+      if (checker.test(this.$('#img-src').val())) {
+        this.model.save('profileImg', `${this.$('#img-src').val()}`);
+        console.log(this.model.get('profileImg'));
+        this.render();
+      } else {
+        this.$('#trainer-image').append(`<p>Please enter a valid image url</p>`)
+        this.$('#img-src').val('');
+      }
   },
   editDescription: function() {
     this.$('#trainer-info').append(`<input type="text" id="new-description" value="${this.$('#description').text()}" /><button type="submit" id="submit-description">Submit</button>`);
