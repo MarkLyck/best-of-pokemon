@@ -19,9 +19,6 @@ const PokedexView = Backbone.View.extend({
     })
   },
   id: 'pokedex-container',
-  events: {
-
-  },
   template: function() {
     return `
     <div class="filter-options">
