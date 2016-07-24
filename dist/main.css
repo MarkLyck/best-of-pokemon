@@ -998,11 +998,23 @@ header {
       #comment-section .comment .wrapper .comment-user:hover {
         cursor: pointer;
         color: #ED1851; }
+    #comment-section .comment .manage-comment {
+      float: right;
+      margin-top: -35px;
+      margin-right: -5px; }
+      #comment-section .comment .manage-comment button {
+        padding: 10px;
+        background: none;
+        color: #ED1851; }
+        #comment-section .comment .manage-comment button:hover {
+          background: #ED1851;
+          border-radius: 5px;
+          color: #fff; }
   #comment-section #input-wrapper {
     display: flex;
-    margin: 0 auto;
     width: 80%;
-    padding-bottom: 40px; }
+    padding-bottom: 40px;
+    margin: 20px auto 20px auto; }
     #comment-section #input-wrapper textarea {
       width: 80%;
       border: none;
@@ -1010,7 +1022,7 @@ header {
       border-bottom-left-radius: 5px;
       padding: 20px;
       outline: none; }
-    #comment-section #input-wrapper input[type=submit] {
+    #comment-section #input-wrapper input[type=submit], #comment-section #input-wrapper .edit-comment-submit {
       width: 20%;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px; }
