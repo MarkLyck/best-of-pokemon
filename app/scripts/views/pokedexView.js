@@ -26,6 +26,7 @@ const PokedexView = Backbone.View.extend({
         <label for="type-dropdown" class="animate">Filter by: <span id="filter-by-span">All</span><i class="fa fa-list float-right"></i></label>
         <ul class="animate type-list">
           <li class="animate type">All</li>
+          <li class="animate type">Most liked</li>
           <li class="animate type">Bug</li>
           <li class="animate type">Dark</li>
           <li class="animate type">Dragon</li>
@@ -106,7 +107,7 @@ const PokedexView = Backbone.View.extend({
 
       this.$('#filter-by-span').text($(e.target).text());
       this.$('#pokedex-list').empty()
-      if ($(e.target).text() !== 'All') {
+      if ($(e.target).text() !== 'All' && $(e.target).text() !== 'Most liked') {
         store.pokemons.filteredData.each((pokemon) => this.addPokemonLi(pokemon));
       } else {
         store.pokemons.data.each((pokemon) => this.addPokemonLi(pokemon));
