@@ -641,19 +641,22 @@ header {
   width: 100%;
   padding: 20px; }
   .filter-options #search-container {
-    width: 40%;
+    width: calc(100% - (100% / 5) - 5px);
     float: right;
-    display: flex; }
+    display: flex;
+    height: 50px; }
     .filter-options #search-container #pokemon-search-bar {
-      padding: 15px 20px;
+      padding: 0 20px;
       border: 1px solid #eeeeee;
       border-bottom-left-radius: 5px;
       border-top-left-radius: 5px;
-      width: 100%; }
+      width: 100%;
+      box-sizing: border-box; }
     .filter-options #search-container button {
       border-bottom-right-radius: 5px;
       border-top-right-radius: 5px;
-      padding: 20px; }
+      padding: 0 20px;
+      box-sizing: border-box; }
   .filter-options .float-right {
     float: right; }
   .filter-options dropdown {
@@ -810,7 +813,9 @@ header {
       width: calc(100% / 4 - 40px); }
 
   .filter-options dropdown {
-    width: calc(100% / 4 - 40px); } }
+    width: calc(100% / 4 - 40px); }
+  .filter-options #search-container {
+    width: calc(100% - (100% / 4) - 5px); } }
 @media (max-width: 1000px) {
   #pokedex-list {
     display: flex;
@@ -819,22 +824,30 @@ header {
       width: calc(100% / 3 - 40px); }
 
   .filter-options dropdown {
-    width: calc(100% / 3 - 40px); } }
+    width: calc(100% / 3 - 40px); }
+  .filter-options #search-container {
+    width: calc(100% - (100% / 3) - 5px); } }
 @media (max-width: 750px) {
   #pokedex-list {
     display: flex;
     flex-wrap: wrap; }
     #pokedex-list li {
       width: calc(100% / 2 - 40px); }
+    #pokedex-list #search-container {
+      width: calc(100% - (100% / 2) - 5px); }
 
   .filter-options dropdown {
-    width: calc(100% / 2 - 40px); } }
+    width: calc(100% / 2 - 40px); }
+  .filter-options #search-container {
+    width: calc(100% - (100% / 2) - 5px); } }
 @media (max-width: 500px) {
   #pokedex-list {
     display: flex;
     flex-wrap: wrap; }
     #pokedex-list li {
       width: calc(100% - 40px); }
+    #pokedex-list #search-container {
+      display: none; }
 
   .filter-options dropdown {
     width: calc(100% - 40px); } }
