@@ -6,7 +6,8 @@ let store = {
   pokemons: {
     fetching: false,
     data: new Pokemons(),
-    filteredData: new Pokemons()
+    filteredData: new Pokemons(),
+    topData: new Pokemons()
   },
   session: new Session(),
   users: {
