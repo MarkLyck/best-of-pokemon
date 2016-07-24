@@ -907,6 +907,23 @@ header {
         #pokemonView #pokemon-info #main-info #pokemon-name #like-btn:hover::before {
           content: '\f004';
           color: #ED1851; }
+    #pokemonView #pokemon-info #main-info .pokemon-favorite {
+      color: #ED1851;
+      background: none;
+      padding: 0; }
+      #pokemonView #pokemon-info #main-info .pokemon-favorite::before {
+        content: '\f006';
+        font-family: FontAwesome;
+        margin-right: 5px; }
+      #pokemonView #pokemon-info #main-info .pokemon-favorite:hover {
+        color: #da1147; }
+        #pokemonView #pokemon-info #main-info .pokemon-favorite:hover::before {
+          content: '\f005';
+          color: #ED1851; }
+    #pokemonView #pokemon-info #main-info .favorited::before {
+      content: '\f005';
+      font-family: FontAwesome;
+      margin-right: 5px; }
     #pokemonView #pokemon-info #main-info #types {
       display: flex;
       align-items: center; }
