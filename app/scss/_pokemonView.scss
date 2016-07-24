@@ -65,6 +65,30 @@
           }
         }
       }
+      .pokemon-favorite {
+        color: $primary-color;
+        background: none;
+        padding: 0;
+        &::before {
+          content: '\f006';
+          font-family: FontAwesome;
+          margin-right: 5px;
+        }
+        &:hover {
+          color: darken($primary-color, 5%);
+          &::before {
+            content: '\f005';
+            color:$primary-color;
+          }
+        }
+      }
+      .favorited {
+        &::before {
+          content: '\f005';
+          font-family: FontAwesome;
+          margin-right: 5px;
+        }
+      }
       #types {
         display: flex;
         align-items: center;
