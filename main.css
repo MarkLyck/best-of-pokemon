@@ -522,7 +522,8 @@ header {
 
 #pokedex-list {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  width: 100%; }
 
 .loader {
   height: 50px;
@@ -630,30 +631,232 @@ header {
       transform: translate(-50%, -50%);
       margin: 0; }
 
+#load-more-btn {
+  margin: 0 auto;
+  padding: 15px;
+  width: 60%;
+  border-radius: 5px;
+  margin-bottom: 20px; }
+
+.filter-options {
+  width: 100%;
+  padding: 20px; }
+  .filter-options #search-container {
+    width: calc(100% - (100% / 5) - 5px);
+    float: right;
+    display: flex;
+    height: 50px; }
+    .filter-options #search-container #pokemon-search-bar {
+      padding: 0 20px;
+      border: 1px solid #eeeeee;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+      width: 100%;
+      box-sizing: border-box; }
+    .filter-options #search-container button {
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+      padding: 0 20px;
+      box-sizing: border-box; }
+  .filter-options .float-right {
+    float: right; }
+  .filter-options dropdown {
+    position: absolute;
+    height: 20px;
+    display: inline-block;
+    width: calc(100% / 5 - 40px); }
+  .filter-options dropdown label, .filter-options dropdown ul li {
+    display: block;
+    width: 100%;
+    background: #fff;
+    padding: 15px 20px;
+    box-sizing: border-box; }
+  .filter-options dropdown label:hover, .filter-options dropdown ul li:hover {
+    background: #ED1851;
+    color: white;
+    cursor: pointer; }
+  .filter-options dropdown label {
+    color: #ED1851;
+    border: 1px solid #eee;
+    border-left: 4px solid #ED1851;
+    border-radius: 0 5px 0 0;
+    position: relative;
+    z-index: 2; }
+  .filter-options dropdown input {
+    display: none; }
+  .filter-options dropdown input ~ ul {
+    position: relative;
+    visibility: hidden;
+    opacity: 0;
+    top: -20px;
+    z-index: 1; }
+  .filter-options dropdown input:checked + label {
+    background: #ED1851;
+    color: white; }
+  .filter-options dropdown input:checked ~ ul {
+    visibility: visible;
+    opacity: 1;
+    top: 0; }
+  .filter-options dropdown ul li:nth-child(1) {
+    border-left: 4px solid #BEBEB1; }
+    .filter-options dropdown ul li:nth-child(1):hover {
+      background: #BEBEB1;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(2) {
+    border-left: 4px solid #ED1851; }
+    .filter-options dropdown ul li:nth-child(2):hover {
+      background: #ED1851;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(3) {
+    border-left: 4px solid #C0CD36; }
+    .filter-options dropdown ul li:nth-child(3):hover {
+      background: #C0CD36;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(4) {
+    border-left: 4px solid #886554; }
+    .filter-options dropdown ul li:nth-child(4):hover {
+      background: #886554;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(5) {
+    border-left: 4px solid #8979FB; }
+    .filter-options dropdown ul li:nth-child(5):hover {
+      background: #8979FB;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(6) {
+    border-left: 4px solid #FBE24C; }
+    .filter-options dropdown ul li:nth-child(6):hover {
+      background: #FBE24C;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(7) {
+    border-left: 4px solid #FAB0FD; }
+    .filter-options dropdown ul li:nth-child(7):hover {
+      background: #FAB0FD;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(8) {
+    border-left: 4px solid #A75645; }
+    .filter-options dropdown ul li:nth-child(8):hover {
+      background: #A75645;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(9) {
+    border-left: 4px solid #F65549; }
+    .filter-options dropdown ul li:nth-child(9):hover {
+      background: #F65549;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(10) {
+    border-left: 4px solid #79A3FC; }
+    .filter-options dropdown ul li:nth-child(10):hover {
+      background: #79A3FC;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(11) {
+    border-left: 4px solid #7877D2; }
+    .filter-options dropdown ul li:nth-child(11):hover {
+      background: #7877D2;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(12) {
+    border-left: 4px solid #8DD658; }
+    .filter-options dropdown ul li:nth-child(12):hover {
+      background: #8DD658;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(13) {
+    border-left: 4px solid #E9C85E; }
+    .filter-options dropdown ul li:nth-child(13):hover {
+      background: #E9C85E;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(14) {
+    border-left: 4px solid #99F1FE; }
+    .filter-options dropdown ul li:nth-child(14):hover {
+      background: #99F1FE;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(15) {
+    border-left: 4px solid #BEBEB1; }
+    .filter-options dropdown ul li:nth-child(15):hover {
+      background: #BEBEB1;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(16) {
+    border-left: 4px solid #A85F9F; }
+    .filter-options dropdown ul li:nth-child(16):hover {
+      background: #A85F9F;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(17) {
+    border-left: 4px solid #F868B3; }
+    .filter-options dropdown ul li:nth-child(17):hover {
+      background: #F868B3;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(18) {
+    border-left: 4px solid #CCBB76; }
+    .filter-options dropdown ul li:nth-child(18):hover {
+      background: #CCBB76;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(19) {
+    border-left: 4px solid #C2C2D9; }
+    .filter-options dropdown ul li:nth-child(19):hover {
+      background: #C2C2D9;
+      color: white; }
+  .filter-options dropdown ul li:nth-child(20) {
+    border-left: 4px solid #5BAEFC; }
+    .filter-options dropdown ul li:nth-child(20):hover {
+      background: #5BAEFC;
+      color: white; }
+  .filter-options .animate {
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    /* Chrome and Safari */
+    -moz-backface-visibility: hidden;
+    /* Firefox */
+    -ms-backface-visibility: hidden;
+    /* Internet Explorer */ }
+
 @media (max-width: 1200px) {
   #pokedex-list {
     display: flex;
     flex-wrap: wrap; }
     #pokedex-list li {
-      width: calc(100% / 4 - 40px); } }
+      width: calc(100% / 4 - 40px); }
+
+  .filter-options dropdown {
+    width: calc(100% / 4 - 40px); }
+  .filter-options #search-container {
+    width: calc(100% - (100% / 4) - 5px); } }
 @media (max-width: 1000px) {
   #pokedex-list {
     display: flex;
     flex-wrap: wrap; }
     #pokedex-list li {
-      width: calc(100% / 3 - 40px); } }
+      width: calc(100% / 3 - 40px); }
+
+  .filter-options dropdown {
+    width: calc(100% / 3 - 40px); }
+  .filter-options #search-container {
+    width: calc(100% - (100% / 3) - 5px); } }
 @media (max-width: 750px) {
   #pokedex-list {
     display: flex;
     flex-wrap: wrap; }
     #pokedex-list li {
-      width: calc(100% / 2 - 40px); } }
+      width: calc(100% / 2 - 40px); }
+    #pokedex-list #search-container {
+      width: calc(100% - (100% / 2) - 5px); }
+
+  .filter-options dropdown {
+    width: calc(100% / 2 - 40px); }
+  .filter-options #search-container {
+    width: calc(100% - (100% / 2) - 5px); } }
 @media (max-width: 500px) {
   #pokedex-list {
     display: flex;
     flex-wrap: wrap; }
     #pokedex-list li {
-      width: calc(100% - 40px); } }
+      width: calc(100% - 40px); }
+    #pokedex-list #search-container {
+      display: none; }
+
+  .filter-options dropdown {
+    width: calc(100% - 40px); } }
 #pokemonView {
   min-height: calc(100vh - 75px);
   display: flex;
@@ -704,6 +907,23 @@ header {
         #pokemonView #pokemon-info #main-info #pokemon-name #like-btn:hover::before {
           content: '\f004';
           color: #ED1851; }
+    #pokemonView #pokemon-info #main-info .pokemon-favorite {
+      color: #ED1851;
+      background: none;
+      padding: 0; }
+      #pokemonView #pokemon-info #main-info .pokemon-favorite::before {
+        content: '\f006';
+        font-family: FontAwesome;
+        margin-right: 5px; }
+      #pokemonView #pokemon-info #main-info .pokemon-favorite:hover {
+        color: #da1147; }
+        #pokemonView #pokemon-info #main-info .pokemon-favorite:hover::before {
+          content: '\f005';
+          color: #ED1851; }
+    #pokemonView #pokemon-info #main-info .favorited::before {
+      content: '\f005';
+      font-family: FontAwesome;
+      margin-right: 5px; }
     #pokemonView #pokemon-info #main-info #types {
       display: flex;
       align-items: center; }
@@ -825,7 +1045,7 @@ header {
   text-align: center; }
   #missing-container img {
     margin-top: 10%;
-    width: 60%;
+    max-height: 60vh;
     height: auto; }
   #missing-container h3 {
     font-size: 1.4rem;
@@ -838,6 +1058,45 @@ header {
     border-radius: 5px; }
     #missing-container button:hover {
       background: #DFE5EB; }
+
+#trainerView h1 {
+  color: #ED1851;
+  font-size: 1.5rem;
+  display: inline-block;
+  padding-left: 30px; }
+
+#trainer-list {
+  display: flex;
+  flex-wrap: wrap; }
+  #trainer-list .user-thumbnail {
+    width: calc(100% / 5 - 20px);
+    height: 183px;
+    margin: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 5px;
+    font-family: Avenir; }
+    #trainer-list .user-thumbnail .user-image {
+      height: 183px;
+      width: 100%;
+      margin-top: 5px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center; }
+    #trainer-list .user-thumbnail:hover {
+      background: #f2f2f2; }
+      #trainer-list .user-thumbnail:hover h3 {
+        background: #ED1851;
+        color: #fff; }
+    #trainer-list .user-thumbnail h3 {
+      display: flex;
+      margin: 3px 0 0 0;
+      padding: 1em 0;
+      justify-content: center;
+      color: #8B8B8B; }
 
 body {
   background: #F9F9F9; }
