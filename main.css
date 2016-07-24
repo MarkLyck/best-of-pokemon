@@ -893,20 +893,25 @@ header {
     #pokemonView #pokemon-info #main-info #pokemon-name {
       display: flex;
       align-items: center; }
-      #pokemonView #pokemon-info #main-info #pokemon-name #like-btn {
+      #pokemonView #pokemon-info #main-info #pokemon-name .like-btn {
         font-size: 1rem;
         margin-left: 15px;
         padding: 0;
         background: none;
         color: #ED1851; }
-        #pokemonView #pokemon-info #main-info #pokemon-name #like-btn::before {
+        #pokemonView #pokemon-info #main-info #pokemon-name .like-btn::before {
           content: '\f08a';
           font-family: FontAwesome;
           color: #ED1851;
           margin-right: 5px; }
-        #pokemonView #pokemon-info #main-info #pokemon-name #like-btn:hover::before {
+        #pokemonView #pokemon-info #main-info #pokemon-name .like-btn:hover::before {
           content: '\f004';
           color: #ED1851; }
+      #pokemonView #pokemon-info #main-info #pokemon-name .liked::before {
+        content: '\f004'; }
+      #pokemonView #pokemon-info #main-info #pokemon-name .liked:hover::before {
+        content: '\f004';
+        color: #696969; }
     #pokemonView #pokemon-info #main-info .pokemon-favorite {
       color: #ED1851;
       background: none;
