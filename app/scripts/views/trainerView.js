@@ -6,7 +6,7 @@ import store from '../store';
 
 const TrainerView = Backbone.View.extend({
   initialize: function() {
-    store.users.data.on('add', () => {
+    store.users.data.on('update', () => {
       this.render();
     });
     store.users.data.fetch();
