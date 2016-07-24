@@ -33,12 +33,16 @@ const PokemonView = Backbone.View.extend({
     store.comments.data.on('change', () => {
       this.render()
     })
+    store.comments.data.on('update', () => {
+      this.render()
+    })
   },
   events: {
     'click #goto-pokedex-btn'   : 'gotoPokedex',
     'click #goto-previous-btn'  : 'gotoPrev',
     'click #goto-next-btn'      : 'gotoNext',
-    'click .pokemon-favorite'    : 'favoritePokemon'
+    'click .pokemon-favorite'   : 'favoritePokemon',
+    'click #new-comment'        : 'postComment'
   },
   gotoPokedex: function() {
     router.navigate('', {trigger:true})
@@ -55,7 +59,17 @@ const PokemonView = Backbone.View.extend({
     store.session.save({
       favorite: this.model.get('id')
     })
+    localStorage.favorite = this.model.get('id')
     this.$('.pokemon-favorite').addClass('favorited')
+  },
+  postComment: function() {
+    console.log('TEST');
+    store.comments.data.add({
+      id: Math.round(Math.random() * 10000),
+      username: store.session.get('username'),
+      body: this.$('#comment-area').val(),
+      timestamp: new Date(),
+    })
   },
   template: function() {
     return `
@@ -80,8 +94,8 @@ const PokemonView = Backbone.View.extend({
 
         </ul>
         <div id="input-wrapper">
-          <textarea placeholder="Comment"></textarea>
-          <input type="submit" value="Comment">
+          <textarea id="comment-area" placeholder="Comment"></textarea>
+          <input id="new-comment" type="submit" value="Comment">
         </div>
       </section>
     `
@@ -102,7 +116,7 @@ const PokemonView = Backbone.View.extend({
       this.$('#types').append($typeSpan)
     })
 
-    if (store.session.get('favorite') === this.model.get('id')) {
+    if (store.session.get('favorite') === String(this.model.get('id'))) {
       this.$('.pokemon-favorite').addClass('favorited')
     }
 
