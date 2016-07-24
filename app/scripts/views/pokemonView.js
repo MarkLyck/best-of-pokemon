@@ -24,11 +24,14 @@ const PokemonView = Backbone.View.extend({
     store.comments.data.reset()
     // This needs to fetch comments, but backend is not ready.
     store.comments.data.add({
+      id: 1234,
       username: 'Rob',
       body: 'This is a test comment from a model',
       timestamp: new Date(),
     })
-    console.log(store.comments.data);
+    store.comments.data.on('change', () => {
+      this.render()
+    })
   },
   events: {
     'click #goto-pokedex-btn'   : 'gotoPokedex',
@@ -126,6 +129,30 @@ const PokemonView = Backbone.View.extend({
         let $delBtn = $(`<button class="del-comment-btn"><i class="fa fa-trash-o" aria-hidden="true"></i></button.`)
         commentLi.find('.manage-comment').append($editBtn).append($delBtn)
       }
+      commentLi.find('.edit-comment-btn').on('click', function() {
+        let $editComment = $(`
+          <div id="input-wrapper">
+            <textarea class="edit-comment-textarea" value="${comment.get('body')}"></textarea>
+            <button class="edit-comment-submit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
+          </div>
+        `)
+        commentLi.after($editComment)
+        commentLi.hide()
+        $editComment.find('.edit-comment-submit').on('click', function() {
+          console.log('clicked edit');
+          let commentEditing = store.comments.data.get(comment.get('id'))
+          commentEditing.set({
+            body: $editComment.find('.edit-comment-textarea').val(),
+            timestamp: new Date()
+          })
+          console.log(store.comments.data);
+          // commentEditing.save({
+          //   body: $editComment.find('.edit-comment-textarea').val(),
+          //   timestamp: new Date()
+          // })
+        })
+        console.log('edit');
+      })
       this.$('#comments').append(commentLi)
     })
 
