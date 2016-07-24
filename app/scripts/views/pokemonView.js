@@ -36,6 +36,9 @@ const PokemonView = Backbone.View.extend({
     store.comments.data.on('update', () => {
       this.render()
     })
+    store.session.on('change', () => {
+      this.render()
+    })
   },
   events: {
     'click #goto-pokedex-btn'   : 'gotoPokedex',
