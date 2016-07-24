@@ -8,8 +8,9 @@ import LoginView from './views/loginView'
 import SignupView from './views/signupView'
 import PokedexView from './views/pokedexView'
 import PokemonView from './views/pokemonView'
-import TopPokemonView from './views/TopPokemonView'
+import TopPokemonView from './views/topPokemonView'
 import TrainerView from './views/trainerView';
+import TrainerProfileView from './views/trainerProfileView';
 import MissingView from './views/404View'
 
 const Router = Backbone.Router.extend({
@@ -42,8 +43,10 @@ const Router = Backbone.Router.extend({
     let trainerView = new TrainerView();
     $('#container').empty().append(headerView.render().$el).append(trainerView.render().$el);
   },
-  trainerProfile: function() {
+  trainerProfile: function(id) {
     let headerView = new HeaderView();
+    let trainerProfileView = new TrainerProfileView(id);
+    $('#container').empty().append(headerView.render().$el).append(trainerProfileView.render().$el);
   },
   missing: function() {
     let missingView = new MissingView()

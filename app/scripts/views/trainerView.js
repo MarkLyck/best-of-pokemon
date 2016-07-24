@@ -1,32 +1,42 @@
 import Backbone from 'backbone';
 import $ from 'jquery';
 
+import router from '../router';
 import store from '../store';
 
 const TrainerView = Backbone.View.extend({
   initialize: function() {
-    store.users.data.on('add', this.render);
+    store.users.data.on('add', () => {
+      this.render();
+    });
     store.users.data.fetch();
   },
   id: 'trainerView',
   template: function() {
     return `
-    <ul id="trainer-list"></ul>
+    <h1>Trainers</h1>
+    <ul id="trainer-list">
+    </ul>
     `;
   },
   render: function() {
+    this.$el.html(this.template());
     store.users.data.each((user) => {
+      if (!user.get('profileImg')) {
+        user.set("profileImg", "https\://rebekahlang.files.wordpress.com/2015/08/pokemon-egg-png.png");
+      }
       let $userLi = $(`
         <li class="user-thumbnail">
+          <div class="user-image">
+          </div>
           <h3>${user.get('username')}</h3>
         </li>
         `);
-      this.$el.append($userLi);
-    });
-    this.$el.html(this.template());
-    this.$('.user-thumbnail').on('click', function(e) {
-      let username = $('e.target').children('h3').val();
-      router.navigate(`trainer/${username}`, {trigger:true});
+      this.$('#trainer-list').append($userLi);
+      this.$('.user-image').css('background-image', `url("${user.get('profileImg')}")`);
+      $userLi.on('click', function(e) {
+        router.navigate(`trainer/${user.get('id')}`, {trigger:true});
+      });
     });
     return this;
   }
