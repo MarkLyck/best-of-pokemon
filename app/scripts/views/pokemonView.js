@@ -65,10 +65,13 @@ const PokemonView = Backbone.View.extend({
     this.$('.like-btn').toggleClass('liked')
   },
   favoritePokemon: function() {
+    console.log(store.session);
     store.session.save({
-      favorite: this.model.get('id')
+      favorite: String(this.model.get('id'))
+    },{
+      url: `https://pokekeemster.herokuapp.com/users/${store.session.get('id')}`,
     })
-    localStorage.favorite = this.model.get('id')
+    localStorage.favorite = store.session.get('favorite')
     this.$('.pokemon-favorite').addClass('favorited')
   },
   postComment: function() {

@@ -14,10 +14,12 @@ const Session = Backbone.Model.extend({
       password: password
     }, {
       success: (response) => {
+        console.log(response);
         console.log('SUCCESSFUL LOGIN: ');
         this.unset('password')
         localStorage.authtoken = this.get('authtoken')
         localStorage.username = this.get('username')
+        localStorage.id = this.get('id')
         // console.log(store.session);
       },
       error: function(response) {
