@@ -89,23 +89,30 @@ const PokedexView = Backbone.View.extend({
       }
     });
   },
-  render: function(filtered) {
+  render: function(filteredBy) {
     this.$el.html(this.template())
-    if (!filtered) {
+
+    if (!filteredBy) {
       store.pokemons.data.each((pokemon) => this.addPokemonLi(pokemon));
     } else {
+      this.$('#filter-by-span').text(filteredBy);
       store.pokemons.filteredData.each((pokemon) => this.addPokemonLi(pokemon));
     }
 
     this.$('.type').on('click', (e) => {
-      this.$('#filter-by-span').text($(e.target).text());
       store.pokemons.filteredData.reset()
       store.pokemons.data.each(function(pokemon) {
         if (pokemon.get('types').indexOf($(e.target).text().toLowerCase()) !== -1) {
           store.pokemons.filteredData.add(pokemon)
         }
       })
-      this.render('filtered')
+
+      if ($(e.target).text() !== 'All') {
+        this.render($(e.target).text())
+      } else {
+        this.render()
+      }
+
       // console.log(store.pokemons.filteredData);
     })
     return this
