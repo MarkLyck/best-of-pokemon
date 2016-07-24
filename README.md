@@ -1,25 +1,62 @@
-# Basic Build with NPM scripts
-This is a project scaffolding and build tool for the TIY Austin Front-End Engineering course. Feel free to use and enjoy! Feedback and PRs welcome!
+## Best of Pokemon app
 
-## Features
-- A bare bones scaffolding for an SPA, without any libraries built in
-- A static server for serving up your dev environment via http
-- `app` directory for development, preloaded with an `index.html`, `scripts/entry.js`, `scss/main.scss` and `assets/`
-- `dist` directory for deployable code
-- es2015 and babel, including module syntax
-- sass (.scss)
+#### Team Members:
+ - Mark Lyck
+ - Caryn Ligon
+ - Ahkeem Lang
 
-## Installation
-- Clone this repo (or fork then clone, if you prefer)
-- Remove the git history by running `rm -rf .git`
-- Set up a new git repo
-- Run `npm install`
+#### Live Website
+- [gh-pages](https://marklyck.github.io/best-of-pokemon/)
 
-## Use
-- `npm install` will scaffold your project AND start the dev server
-- `npm start` will start the dev server and watch for changes
-- `npm run deploy` will push the content of `dist/` to gh-pages
-- When the server is running, your site will be live on [http://localhost:8080/](http://localhost:8080/)
+#### SCRUM:
+- [Trello](https://trello.com/b/0uo5wthK/best-of-pokemon)
 
-## Dependencies
-- `sass` [install guide here](http://sass-lang.com/install)
+#### Process:
+- **Front End**
+  - Data Modeling
+  - Wireframing
+  - Set up file structure
+  - Built router
+  - Built out each view
+  - Built out models and collections
+
+### Style Guide
+
+- **File Structure**:
+  - scripts folder
+   - collections folder
+   - models folder
+   - views folder
+   - entry.js
+   - router.js
+   - store.js
+- **Naming**:
+  - Collections & Models that are dependent on one another should have the same capitalized name with the collection being plural
+  - Views: will be the view its representing followed by "View
+  - Buttons that route should be goto-theView-btn
+  - SCSS Views: partial for each view: nameOfView.scss
+
+- **Functions**:
+  - Always use ```{}``` with arrow functions
+ - spacing:
+```javascript
+ function() {} ```
+
+- **Backbone View Structure**:
+ - initialize
+ - tagName
+ - id/className
+ - events
+ - other functions
+ - template
+ - render
+
+- **Import Organization**:
+ - Dependencies
+ - Router & store
+ - Models/Collections
+ - Views/other
+
+- **Buttons**
+ - form elements: ```<input>```
+ - otherwise: ```<button>```
