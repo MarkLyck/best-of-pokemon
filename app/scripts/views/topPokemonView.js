@@ -52,8 +52,21 @@ const TopPokemonView = Backbone.View.extend({
         imageid = '0' + String(imageid)
       }
       $topLi.find('.top').css('background-image', `url('assets/images/pokemon/${imageid}.png')`)
-      $topLi.on('click', function () {
-        router.navigate(`pokemon/${pokemon.get('id')}`, {trigger:true});
+
+      $topLi.find('.like-btn').on('click',function() {
+        if ($topLi.find('.like-btn').hasClass('liked')) {
+          $topLi.find('.like-btn').text(Number($topLi.find('.like-btn').text()) - 1)
+        } else {
+          $topLi.find('.like-btn').text(Number($topLi.find('.like-btn').text()) + 1)
+        }
+        $topLi.find('.like-btn').toggleClass('liked')
+      });
+
+      $topLi.on('click', function (e) {
+        console.log($(e.target));
+        if (!$(e.target).hasClass('like-btn') && !$(e.target).hasClass('like-number')) {
+          router.navigate(`pokemon/${pokemon.get('id')}`, {trigger:true});
+        }
       });
       this.$('#top-list').append($topLi)
       counter++

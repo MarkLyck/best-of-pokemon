@@ -82,11 +82,16 @@ const PokedexView = Backbone.View.extend({
     this.$('#pokedex-list').append($pokemonLi);
 
     $pokemonLi.find('.like-btn').on('click',function() {
+      if ($pokemonLi.find('.like-btn').hasClass('liked')) {
+        $pokemonLi.find('.like-btn').text(Number($pokemonLi.find('.like-btn').text()) - 1)
+      } else {
+        $pokemonLi.find('.like-btn').text(Number($pokemonLi.find('.like-btn').text()) + 1)
+      }
       $pokemonLi.find('.like-btn').toggleClass('liked')
     });
 
     $pokemonLi.on('click', function (e) {
-      if (!$(e.target).hasClass('like-btn')) {
+      if (!$(e.target).hasClass('like-btn') && !$(e.target).hasClass('like-number')) {
         router.navigate(`pokemon/${$pokemonLi.find('.pokemon-number').text()}`, {trigger:true});
       }
     });

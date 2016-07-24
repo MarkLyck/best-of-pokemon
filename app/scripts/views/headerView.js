@@ -18,7 +18,7 @@ const HeaderView = Backbone.View.extend({
     return `
       <h2 id="logo">PokeDex</h2>
       <div class="nav-buttons">
-        <button id="goto-trainers-btn"><i class="fa fa-users" aria-hidden="true"></i> Trainers</button>
+        <button id="goto-trainers-btn"><i class="fa fa-users" aria-hidden="true"></i> </button>
       </div>
     `
   },
@@ -79,11 +79,11 @@ const HeaderView = Backbone.View.extend({
     this.$el.append(loginView.render().$el);
     this.$el.append(signupView.render().$el);
     if (store.session.get('authtoken')) {
-      let $logoutBtn = $(`<button id="logout-btn"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</button>`)
+      let $logoutBtn = $(`<button id="logout-btn"><i class="fa fa-sign-out" aria-hidden="true"></i> </button>`)
       this.$('.nav-buttons').append($logoutBtn)
     } else {
-      let $loginBtn = $(`<button id="goto-login-btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</button>`)
-      let $signupBtn = $(`<button id="goto-signup-btn"><i class="fa fa-user-plus" aria-hidden="true"></i> Signup</button>`)
+      let $loginBtn = $(`<button id="goto-login-btn"><i class="fa fa-sign-in" aria-hidden="true"></i> </button>`)
+      let $signupBtn = $(`<button id="goto-signup-btn"><i class="fa fa-user-plus" aria-hidden="true"></i> </button>`)
       this.$('.nav-buttons').append($loginBtn).append($signupBtn)
     }
     return this
