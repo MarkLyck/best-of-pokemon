@@ -6,13 +6,9 @@ import store from '../store'
 
 const TopPokemonView = Backbone.View.extend({
   initialize: function() {
-    store.pokemons.topData.fetch({success: () => {
-      console.log('SUCCESSFUL FETCH');
-      store.pokemons.topData.each(pokemon => {
-        pokemon.set('likes', Math.round(Math.random()*100))
-      })
+    store.pokemons.data.on('update', () => {
       this.render()
-    }})
+    })
   },
   tagName: 'div',
   id: 'top-section',
@@ -27,8 +23,15 @@ const TopPokemonView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template())
     let counter = 1
+
+    store.pokemons.topData.models = store.pokemons.data.models
+    store.pokemons.topData.each(pokemon => {
+      pokemon.set('likes', Math.round(Math.random()*100))
+    })
     store.pokemons.topData.sortByField('likes');
     store.pokemons.topData.models = store.pokemons.topData.models.reverse()
+
+
     while (counter <= 10) {
       let pokemon = store.pokemons.topData.models[counter-1]
       let $topLi = $(`
