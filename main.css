@@ -430,6 +430,8 @@ header {
     content: "Login"; }
   .nav-buttons #goto-trainers-btn::after {
     content: "Trainers"; }
+  .nav-buttons #logout-btn::after {
+    content: "Logout"; }
 
 @media (max-width: 600px) {
   .nav-buttons button {
@@ -439,6 +441,8 @@ header {
   .nav-buttons #goto-login-btn::after {
     content: ""; }
   .nav-buttons #goto-trainers-btn::after {
+    content: ""; }
+  .nav-buttons #logout-btn::after {
     content: ""; } }
 .login-form, .signup-form {
   position: absolute;
