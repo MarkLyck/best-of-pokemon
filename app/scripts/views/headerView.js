@@ -12,7 +12,8 @@ const HeaderView = Backbone.View.extend({
     return `
       <h2 id="logo">PokeDex</h2>
       <div class="nav-buttons">
-
+        <button id="goto-trainers-btn">
+<i class="fa fa-users" aria-hidden="true"></i> Trainers</button>
       </div>
     `
   },
@@ -20,7 +21,8 @@ const HeaderView = Backbone.View.extend({
     'click #logout-btn'     : 'logout',
     'click #goto-login-btn' : 'gotoLogin',
     'click #goto-signup-btn': 'gotoSignup',
-    'click #logo'           : 'gotoPokedex'
+    'click #logo'           : 'gotoPokedex',
+    'click #goto-trainers-btn' : 'gotoTrainers'
   },
   logout: function() {
     localStorage.removeItem(authtoken)
@@ -60,6 +62,9 @@ const HeaderView = Backbone.View.extend({
   },
   gotoPokedex: function() {
     router.navigate('', {trigger:true})
+  },
+  gotoTrainers: function() {
+    router.navigate('trainer', {trigger:true})
   },
   render: function() {
     this.$el.html(this.template())
