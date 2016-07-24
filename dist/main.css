@@ -580,7 +580,7 @@ header {
       font-size: 1.2rem; }
   .pokemon-li .bottom {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     position: relative;
     height: 100px;
@@ -624,12 +624,6 @@ header {
     .pokemon-li .bottom .liked:hover::before {
       content: '\f004';
       color: #696969; }
-    .pokemon-li .bottom .pokemon-name {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      margin: 0; }
 
 #load-more-btn {
   margin: 0 auto;
