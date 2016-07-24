@@ -4,7 +4,8 @@ import Session from './models/Session';
 let store = {
   pokemons: {
     fetching: false,
-    data: new Pokemons()
+    data: new Pokemons(),
+    filteredData: new Pokemons()
   },
   session: new Session()
 }

@@ -92,7 +92,7 @@ const PokedexView = Backbone.View.extend({
       });
     })
     this.$('.type').on('click', (e) => {
-      this.$('#filter-by-span').text($(e.target).text())
+      this.$('#filter-by-span').text($(e.target).text());
       // console.log($(e.target));
     })
     return this
