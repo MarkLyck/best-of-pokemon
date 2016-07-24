@@ -24,26 +24,26 @@ const PokedexView = Backbone.View.extend({
       <dropdown>
         <input id="toggle1" type="checkbox">
         <label for="toggle1" class="animate">Filter by: <span id="filter-by-span">All</span><i class="fa fa-list float-right"></i></label>
-        <ul class="animate">
-          <li class="animate">All</li>
-          <li class="animate">Bug</li>
-          <li class="animate">Dark</li>
-          <li class="animate">Dragon</li>
-          <li class="animate">Electric</li>
-          <li class="animate">Fairy</li>
-          <li class="animate">Fighting</li>
-          <li class="animate">Fire</li>
-          <li class="animate">Flying</li>
-          <li class="animate">Ghost</li>
-          <li class="animate">Grass</li>
-          <li class="animate">Ground</li>
-          <li class="animate">Ice</li>
-          <li class="animate">Normal</li>
-          <li class="animate">Poison</li>
-          <li class="animate">Psychic</li>
-          <li class="animate">Rock</li>
-          <li class="animate">Steel</li>
-          <li class="animate">Water</li>
+        <ul class="animate type-list">
+          <li class="animate type">All</li>
+          <li class="animate type">Bug</li>
+          <li class="animate type">Dark</li>
+          <li class="animate type">Dragon</li>
+          <li class="animate type">Electric</li>
+          <li class="animate type">Fairy</li>
+          <li class="animate type">Fighting</li>
+          <li class="animate type">Fire</li>
+          <li class="animate type">Flying</li>
+          <li class="animate type">Ghost</li>
+          <li class="animate type">Grass</li>
+          <li class="animate type">Ground</li>
+          <li class="animate type">Ice</li>
+          <li class="animate type">Normal</li>
+          <li class="animate type">Poison</li>
+          <li class="animate type">Psychic</li>
+          <li class="animate type">Rock</li>
+          <li class="animate type">Steel</li>
+          <li class="animate type">Water</li>
         </ul>
       </dropdown>
       <div id="search-container">
@@ -90,6 +90,10 @@ const PokedexView = Backbone.View.extend({
           router.navigate(`pokemon/${$pokemonLi.find('.pokemon-number').text()}`, {trigger:true});
         }
       });
+    })
+    this.$('.type').on('click', (e) => {
+      this.$('#filter-by-span').text($(e.target).text())
+      // console.log($(e.target));
     })
     return this
   }
