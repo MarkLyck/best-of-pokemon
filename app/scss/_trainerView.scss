@@ -72,6 +72,12 @@
     border-radius: 5px;
     float: left;
     margin-right: 20px;
+    p {
+      position: relative;
+      top: 345px;
+      font-size: 0.8rem;
+      color: $primary-color
+    }
     #change-image {
       position: relative;
       top: 360px;
@@ -191,6 +197,9 @@
     #trainer-image {
       width: 100px;
       height: 140px;
+      p {
+        top: 150px;
+      }
       #change-image {
         top: 150px;
       }
