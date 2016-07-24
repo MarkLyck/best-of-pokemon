@@ -49,6 +49,11 @@ header {
       content: 'Trainers'
     }
   }
+  #logout-btn {
+    &::after {
+      content: 'Logout'
+    }
+  }
 }
 
 @media (max-width: 600px) {
@@ -67,6 +72,11 @@ header {
       }
     }
     #goto-trainers-btn {
+      &::after {
+        content: ''
+      }
+    }
+    #logout-btn {
       &::after {
         content: ''
       }
