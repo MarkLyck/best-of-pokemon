@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import _ from 'underscore'
 import Backbone from 'backbone';
 
 import router from '../router';
@@ -8,6 +9,9 @@ const PokedexView = Backbone.View.extend({
   initialize: function() {
     this.$el.append($(`<div class="loader"></div>`));
     store.pokemons.data.fetch({success: () => {
+      store.pokemons.data.each(pokemon => {
+        pokemon.set('likes', Math.round(Math.random()*100))
+      })
       this.render()
       store.pokemons.fetching = false;
       this.$('.loader').hide();
@@ -65,7 +69,7 @@ const PokedexView = Backbone.View.extend({
           </div>
           <div class="bottom">
             <h3 class="pokemon-name">${pokemon.get('name').capitalizeFirstLetter()}</h3>
-            <button class="like-btn"><span class="like-number">${Math.round(Math.random()*100)}</span></button>
+            <button class="like-btn"><span class="like-number">${pokemon.get('likes')}</span></button>
           </div>
         </li>
       `);
@@ -99,17 +103,25 @@ const PokedexView = Backbone.View.extend({
       this.$("#type-dropdown").prop( "checked", false );
 
       store.pokemons.filteredData.reset()
-      store.pokemons.data.each(function(pokemon) {
-        if (pokemon.get('types').indexOf($(e.target).text().toLowerCase()) !== -1) {
-          store.pokemons.filteredData.add(pokemon)
-        }
-      })
+      if ($(e.target).text() !== 'Most liked') {
+        store.pokemons.data.each(function(pokemon) {
+          if (pokemon.get('types').indexOf($(e.target).text().toLowerCase()) !== -1) {
+            store.pokemons.filteredData.add(pokemon)
+          }
+        })
+      }
+
 
       this.$('#filter-by-span').text($(e.target).text());
       this.$('#pokedex-list').empty()
       if ($(e.target).text() !== 'All' && $(e.target).text() !== 'Most liked') {
         store.pokemons.filteredData.each((pokemon) => this.addPokemonLi(pokemon));
+      } else if ($(e.target).text() === 'Most liked') {
+        store.pokemons.data.sortByField('likes');
+        store.pokemons.data.models = store.pokemons.data.models.reverse()
+        store.pokemons.data.each((pokemon) => this.addPokemonLi(pokemon));
       } else {
+        store.pokemons.data.sortByField('id');
         store.pokemons.data.each((pokemon) => this.addPokemonLi(pokemon));
       }
     })
