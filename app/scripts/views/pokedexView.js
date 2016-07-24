@@ -56,44 +56,57 @@ const PokedexView = Backbone.View.extend({
     <button id="load-more-btn">Load more Pokemon</button>
     `
   },
-  render: function() {
-    this.$el.html(this.template())
-    store.pokemons.data.each((pokemon) => {
-      let $pokemonLi = $(`
-          <li class="pokemon-li">
-            <div class="top">
-              <p class="pokemon-number">${pokemon.get('id')}</p>
-            </div>
-            <div class="bottom">
-              <h3 class="pokemon-name">${pokemon.get('name').capitalizeFirstLetter()}</h3>
-              <button class="like-btn"><span class="like-number">${Math.round(Math.random()*100)}</span></button>
-            </div>
-          </li>
-        `);
-      let fixedNumber = pokemon.id
+  addPokemonLi: function(pokemon) {
+    let $pokemonLi = $(`
+        <li class="pokemon-li">
+          <div class="top">
+            <p class="pokemon-number">${pokemon.get('id')}</p>
+          </div>
+          <div class="bottom">
+            <h3 class="pokemon-name">${pokemon.get('name').capitalizeFirstLetter()}</h3>
+            <button class="like-btn"><span class="like-number">${Math.round(Math.random()*100)}</span></button>
+          </div>
+        </li>
+      `);
+    let fixedNumber = pokemon.id
 
-      if (fixedNumber < 10) {
-        fixedNumber = '00' + String(fixedNumber)
-      } else if (fixedNumber < 100) {
-        fixedNumber = '0' + String(fixedNumber)
+    if (fixedNumber < 10) {
+      fixedNumber = '00' + String(fixedNumber)
+    } else if (fixedNumber < 100) {
+      fixedNumber = '0' + String(fixedNumber)
+    }
+
+    $pokemonLi.find('.top').css('background-image', `url('assets/images/pokemon/${fixedNumber}.png')`);
+    this.$('#pokedex-list').append($pokemonLi);
+
+    $pokemonLi.find('.like-btn').on('click',function() {
+      $pokemonLi.find('.like-btn').toggleClass('liked')
+    });
+
+    $pokemonLi.on('click', function (e) {
+      if (!$(e.target).hasClass('like-btn')) {
+        router.navigate(`pokemon/${$pokemonLi.find('.pokemon-number').text()}`, {trigger:true});
       }
+    });
+  },
+  render: function(filtered) {
+    this.$el.html(this.template())
+    if (!filtered) {
+      store.pokemons.data.each((pokemon) => this.addPokemonLi(pokemon));
+    } else {
+      store.pokemons.filteredData.each((pokemon) => this.addPokemonLi(pokemon));
+    }
 
-      $pokemonLi.find('.top').css('background-image', `url('assets/images/pokemon/${fixedNumber}.png')`);
-      this.$('#pokedex-list').append($pokemonLi);
-
-      $pokemonLi.find('.like-btn').on('click',function() {
-        $pokemonLi.find('.like-btn').toggleClass('liked')
-      });
-
-      $pokemonLi.on('click', function (e) {
-        if (!$(e.target).hasClass('like-btn')) {
-          router.navigate(`pokemon/${$pokemonLi.find('.pokemon-number').text()}`, {trigger:true});
-        }
-      });
-    })
     this.$('.type').on('click', (e) => {
       this.$('#filter-by-span').text($(e.target).text());
-      // console.log($(e.target));
+      store.pokemons.filteredData.reset()
+      store.pokemons.data.each(function(pokemon) {
+        if (pokemon.get('types').indexOf($(e.target).text().toLowerCase()) !== -1) {
+          store.pokemons.filteredData.add(pokemon)
+        }
+      })
+      this.render('filtered')
+      // console.log(store.pokemons.filteredData);
     })
     return this
   }
