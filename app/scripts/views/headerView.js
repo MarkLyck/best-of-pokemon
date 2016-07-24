@@ -8,6 +8,12 @@ import LoginView from './loginView';
 import SignupView from './signupView';
 
 const HeaderView = Backbone.View.extend({
+  initialize: function() {
+    store.session.on('change', () => {
+      console.log('SESSION CHANGED');
+      this.render()
+    })
+  },
   tagName: 'header',
   template: function() {
     return `
@@ -68,12 +74,14 @@ const HeaderView = Backbone.View.extend({
     router.navigate('trainer', {trigger:true})
   },
   render: function() {
+    console.log('rendering header');
+    console.log(store.session);
     this.$el.html(this.template())
     let loginView = new LoginView();
     let signupView = new SignupView();
     this.$el.append(loginView.render().$el);
     this.$el.append(signupView.render().$el);
-    if (localStorage.authtoken) {
+    if (store.session.get('authtoken')) {
       let $logoutBtn = $(`<button id="logout-btn"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</button>`)
       this.$('.nav-buttons').append($logoutBtn)
     } else {

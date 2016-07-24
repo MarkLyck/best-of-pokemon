@@ -7,7 +7,7 @@ import store from './store'
 
 if (localStorage.authtoken) {
   // Fake fetching, until backend is functional
-  store.session.set('authoken', localStorage.authtoken)
+  store.session.set('authtoken', localStorage.authtoken)
   store.session.set('username', localStorage.username)
 }
 

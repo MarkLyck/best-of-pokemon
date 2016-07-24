@@ -45,6 +45,7 @@ const Session = Backbone.Model.extend({
     })
   },
   logout: function() {
+    store.session.clear()
     localStorage.removeItem('authtoken')
     localStorage.removeItem('username')
   }
