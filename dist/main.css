@@ -1060,10 +1060,12 @@ header {
 
 #top-pokemon-title {
   margin: 0 20px;
-  color: #ED1851;
+  position: absolute;
+  color: #fff;
   background: #404040; }
 
 #top-list {
+  margin-top: 25px;
   width: calc((250px + 40px) * 10);
   background: #404040; }
   #top-list::after {
