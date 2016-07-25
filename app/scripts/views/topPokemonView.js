@@ -28,7 +28,7 @@ const TopPokemonView = Backbone.View.extend({
     store.pokemons.topData.each(pokemon => {
       pokemon.set('likes', Math.round(Math.random()*100))
     })
-    console.log(store.pokemons.topData);
+
     store.pokemons.topData.sortByField('id');
     store.pokemons.topData.models[24].set('likes', 998)
     store.pokemons.topData.models[6].set('likes', 932)
