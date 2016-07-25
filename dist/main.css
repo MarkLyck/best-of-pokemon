@@ -1228,6 +1228,17 @@ header {
       font-size: 0.8rem; }
       #trainer-profile #trainer-info #submit-description:hover {
         background: #da1147; }
+    #trainer-profile #trainer-info #delete-account {
+      position: absolute;
+      bottom: 0;
+      background: #ED1851;
+      color: #fff;
+      font-size: 0.8rem;
+      width: 150px;
+      padding: 10px; }
+    #trainer-profile #trainer-info #warning {
+      position: absolute;
+      bottom: 50px; }
 
 @media screen and (max-width: 1000px) {
   #trainer-list .user-thumbnail {

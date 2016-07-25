@@ -1,5 +1,6 @@
 import Backbone from 'backbone';
 import $ from 'jquery';
+import _ from 'underscore';
 
 import router from '../router';
 import store from '../store';
@@ -28,13 +29,13 @@ const TrainerView = Backbone.View.extend({
       }
       let $userLi = $(`
         <li class="user-thumbnail">
-          <div class="user-image">
+          <div class="user-image" id="${user.get('id')}">
           </div>
           <h3>${user.get('username')}</h3>
         </li>
         `);
       this.$('#trainer-list').append($userLi);
-      this.$('.user-image').css('background-image', `url("${user.get('profileImg')}")`);
+      this.$(`#${user.get('id')}`).css('background-image', `url("${user.get('profileImg')}")`);
       $userLi.on('click', function(e) {
         router.navigate(`trainer/${user.get('id')}`, {trigger:true});
       });

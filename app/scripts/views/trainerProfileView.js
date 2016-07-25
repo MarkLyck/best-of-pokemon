@@ -34,7 +34,8 @@ const TrainerProfileView = Backbone.View.extend({
     'click #img-src'      : 'clearError',
     'click #submit-img-src'     : 'submitImage',
     'click #change-description': 'editDescription',
-    'click #submit-description': 'submitDescription'
+    'click #submit-description': 'submitDescription',
+    'click #delete-account': 'deleteAccount'
   },
   goToTrainers: function(e) {
     router.navigate('trainer', {trigger:true});
@@ -42,7 +43,8 @@ const TrainerProfileView = Backbone.View.extend({
   editProfile: function() {
     this.$('#edit-profile').remove();
     this.$('#trainer-image').append(`<button id="change-image">Change Image</button>`);
-    this.$('#trainer-info').append(`<button id="change-description">Edit</button>`)
+    this.$('#trainer-info').append(`<button id="change-description">Edit</button>`);
+    this.$('#trainer-info').append(`<button id="delete-account">Delete Account</button>`);
   },
   editImage: function() {
     this.$('#trainer-image').append(`<div id="img-src-form"><input type="text" name="img-src" id="img-src" /><button type="submit" id="submit-img-src">Submit</button></div>`);
@@ -68,12 +70,19 @@ const TrainerProfileView = Backbone.View.extend({
   },
   submitDescription: function() {
     this.model.save('description', `${this.$('#new-description').val()}`);
-    console.log(this.model.get('description'));
     this.$('#description').show();
     this.render();
   },
+  deleteAccount: function() {
+    let userConfirm = confirm('This cannot be undone, click \'ok\' to continue');
+    if (userConfirm) {
+      this.model.destroy();
+      router.navigate('trainer', {trigger:true});
+    } else {
+      this.render();
+    }
+  },
   template: function() {
-    console.log(this.model);
     return `
     <section id="trainer-wrapper">
       <button id="goto-trainerView"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</button>
