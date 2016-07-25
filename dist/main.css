@@ -1230,7 +1230,8 @@ header {
         background: #da1147; }
     #trainer-profile #trainer-info #delete-account {
       position: absolute;
-      bottom: 0;
+      bottom: 20px;
+      left: 20px;
       background: #ED1851;
       color: #fff;
       font-size: 0.8rem;

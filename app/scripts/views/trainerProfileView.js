@@ -77,6 +77,7 @@ const TrainerProfileView = Backbone.View.extend({
     let userConfirm = confirm('This cannot be undone, click \'ok\' to continue');
     if (userConfirm) {
       this.model.destroy();
+      store.session.logout();
       router.navigate('trainer', {trigger:true});
     } else {
       this.render();
