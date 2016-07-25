@@ -41,7 +41,7 @@ const Router = Backbone.Router.extend({
   trainer: function() {
     let headerView = new HeaderView();
     let trainerView = new TrainerView();
-    $('#container').empty().append(headerView.render().$el).append(trainerView.render().$el);
+    $('#container').empty().append(headerView.render().$el).append(trainerView.$el);
   },
   trainerProfile: function(id) {
     let headerView = new HeaderView();
