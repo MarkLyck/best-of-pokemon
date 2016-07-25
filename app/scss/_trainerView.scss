@@ -158,6 +158,19 @@
         background: darken($primary-color, 5%);
       }
     }
+    #delete-account {
+      position: absolute;
+      bottom: 0;
+      background: $primary-color;
+      color: $secondary-color;
+      font-size: 0.8rem;
+      width: 150px;
+      padding: 10px;
+    }
+    #warning {
+      position: absolute;
+      bottom: 50px;
+    }
   }
 }
 

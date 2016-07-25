@@ -21,15 +21,12 @@ const TrainerView = Backbone.View.extend({
     `;
   },
   render: function() {
-    _.sortBy(store.users.data, 'id');
     this.$el.html(this.template());
     store.users.data.sortByField('id');
     store.users.data.each((user) => {
       if (!user.get('profileImg')) {
         user.set("profileImg", "https\://rebekahlang.files.wordpress.com/2015/08/pokemon-egg-png.png");
-        console.log(user);
       }
-      console.log(user);
       let $userLi = $(`
         <li class="user-thumbnail">
           <div class="user-image" id="${user.get('id')}">
