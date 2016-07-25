@@ -10,7 +10,7 @@ const TrainerView = Backbone.View.extend({
     store.users.data.on('update', () => {
       this.render();
     });
-    store.users.data.on('change', () => {
+    store.users.data.on('remove', () => {
       this.render();
     });
     store.users.data.fetch();
@@ -24,6 +24,7 @@ const TrainerView = Backbone.View.extend({
     `;
   },
   render: function() {
+    console.log('rendering');
     this.$el.html(this.template());
     store.users.data.sortByField('id');
     store.users.data.each((user) => {
