@@ -186,6 +186,10 @@ const PokemonView = Backbone.View.extend({
       this.$('#comments').append($commentLi)
     })
 
+    if (!store.session.get('username')) {
+      this.$('#input-wrapper').hide()
+    }
+
     return this;
   }
 })
