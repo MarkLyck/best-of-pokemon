@@ -21,6 +21,7 @@ const TrainerView = Backbone.View.extend({
   },
   render: function() {
     this.$el.html(this.template());
+    store.users.data.sortByField('id');
     store.users.data.each((user) => {
       if (!user.get('profileImg')) {
         user.set("profileImg", "https\://rebekahlang.files.wordpress.com/2015/08/pokemon-egg-png.png");
