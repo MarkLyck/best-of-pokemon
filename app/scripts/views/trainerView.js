@@ -10,6 +10,9 @@ const TrainerView = Backbone.View.extend({
     store.users.data.on('update', () => {
       this.render();
     });
+    store.users.data.on('change', () => {
+      this.render();
+    });
     store.users.data.fetch();
   },
   id: 'trainerView',
