@@ -14,9 +14,6 @@ const Session = Backbone.Model.extend({
       password: password
     }, {
       success: (response, response2) => {
-        console.log(response);
-        console.log(response2);
-        console.log('SUCCESSFUL LOGIN: ');
         this.unset('password')
         localStorage.authtoken = this.get('authtoken')
         localStorage.username = this.get('username')
@@ -30,8 +27,6 @@ const Session = Backbone.Model.extend({
     })
   },
   signup: function(username, password) {
-    console.log('signing up with username: ', username);
-    console.log('signing up with pw: ', password);
     this.save({
       username: username,
       password: password
@@ -39,7 +34,6 @@ const Session = Backbone.Model.extend({
       url: 'https://pokekeemster.herokuapp.com/users',
       type: 'POST',
       success: (response) => {
-        console.log('SUCCESSFUL SIGNUP: ', response);
         localStorage.authtoken = this.get('authtoken')
         localStorage.username = this.get('username')
       },

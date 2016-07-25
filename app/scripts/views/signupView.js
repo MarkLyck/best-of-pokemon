@@ -81,13 +81,6 @@ const SignupView = Backbone.View.extend({
       this.$('.username p').show();
       this.$el.shake(-50);
     }
-    // let newUser = new UserMod();
-    // userCollection.create({username:username, password: password, fullname: fullname}, {
-    //   success: function () {
-    //     console.log('success, you created a new user');
-    //     router.navigate('pokedex', {trigger:true});
-    //   }
-    // });
   },
   render: function() {
     this.$el.hide()

@@ -11,13 +11,16 @@
 }
 #top-pokemon-title {
   margin: 0 20px;
-  color: $primary-color;
+  position: absolute;
+  // color: $primary-color;
+  color: #fff;
   background: $dark-background;
 }
 
 #top-list {
   // display: flex;
   // position: absolute;
+  margin-top: 25px;
   width: calc((250px + 40px) * 10);
 
   background: $dark-background;

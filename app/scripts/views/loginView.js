@@ -91,17 +91,6 @@ const LoginView = Backbone.View.extend({
       this.$el.shake(65);
     }
 
-    // session.save({username: username, password: password}, {
-    //   success: function (model, response) {
-    //     window.localStorage.setItem('authtoken', response._kmd.authtoken);
-    //     model.unset('password');
-    //     router.navigate('pokedex', {trigger:true});
-    //   },
-    //   error: function () {
-    //     $('.login-form').shake();
-    //     console.log('error, you did not log in');
-    //   }
-    // });
   },
   render: function() {
     this.$el.hide()

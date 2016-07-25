@@ -8,6 +8,10 @@ import store from '../store'
 import Pokemon from '../models/Pokemon'
 import Comments from '../collections/Comments'
 
+String.prototype.capitalizeFirstLetter = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
 const PokemonView = Backbone.View.extend({
   id: 'pokemonView',
   initialize: function(id) {
@@ -52,11 +56,9 @@ const PokemonView = Backbone.View.extend({
     router.navigate('', {trigger:true})
   },
   gotoNext: function() {
-    console.log(this.model.get('id'));
     router.navigate('pokemon/' + (Number(this.model.get('id')) + 1), {trigger:true})
   },
   gotoPrev: function() {
-    console.log(this.model.get('id'));
     router.navigate('pokemon/' + (Number(this.model.get('id')) - 1), {trigger:true})
   },
   likePokemon: function() {
@@ -68,7 +70,6 @@ const PokemonView = Backbone.View.extend({
     this.$('.like-btn').toggleClass('liked')
   },
   favoritePokemon: function() {
-    console.log(store.session);
     store.session.save({
       favorite: String(this.model.get('id'))
     },{
@@ -79,7 +80,6 @@ const PokemonView = Backbone.View.extend({
     this.$('.pokemon-favorite').addClass('favorited')
   },
   postComment: function() {
-    console.log('TEST');
     store.comments.data.add({
       id: Math.round(Math.random() * 10000),
       username: store.session.get('username'),
@@ -97,7 +97,7 @@ const PokemonView = Backbone.View.extend({
         <div id="pokemon-image">
         </div>
         <div id="main-info">
-          <h1 id="pokemon-name">#${this.model.get('id')} - ${this.model.get('name')} <button class="like-btn">${this.model.get('likes')}</button></h1>
+          <h1 id="pokemon-name">#${this.model.get('id')} - ${this.model.get('name').capitalizeFirstLetter()} <button class="like-btn">${this.model.get('likes')}</button></h1>
           <button class="pokemon-favorite">Favorite</button>
           <h3 id="types">Type: </h3>
           <h4 id="pokemon-height">Height: ${this.model.get('height')}</h4>
@@ -162,7 +162,6 @@ const PokemonView = Backbone.View.extend({
       }
 
       $commentLi.find('.del-comment-btn').on('click', function() {
-        console.log('DESTROY!');
         let commentEditing = store.comments.data.get(comment.get('id'))
         commentEditing.destroy()
         $commentLi.remove()
@@ -177,20 +176,19 @@ const PokemonView = Backbone.View.extend({
         $commentLi.after($editComment)
         $commentLi.remove()
         $editComment.find('.edit-comment-submit').on('click', function() {
-          console.log('clicked edit');
           let commentEditing = store.comments.data.get(comment.get('id'))
           commentEditing.set({
             body: $editComment.find('.edit-comment-textarea').val(),
             timestamp: new Date()
           })
-          // commentEditing.save({
-          //   body: $editComment.find('.edit-comment-textarea').val(),
-          //   timestamp: new Date()
-          // })
         })
       })
       this.$('#comments').append($commentLi)
     })
+
+    if (!store.session.get('username')) {
+      this.$('#input-wrapper').hide()
+    }
 
     return this;
   }
