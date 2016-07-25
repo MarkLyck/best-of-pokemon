@@ -13,8 +13,19 @@ const PokedexView = Backbone.View.extend({
     this.$el.append($(`<div class="loader"></div>`));
     store.pokemons.data.fetch({success: () => {
       store.pokemons.data.each(pokemon => {
-        pokemon.set('likes', Math.round(Math.random()*100))
+        pokemon.set('likes', Math.round(Math.random()*176))
       })
+      store.pokemons.data.sortByField('id');
+      store.pokemons.data.models[24].set('likes', 998)
+      store.pokemons.data.models[6].set('likes', 932)
+      store.pokemons.data.models[3].set('likes', 874)
+      store.pokemons.data.models[243].set('likes', 812)
+      store.pokemons.data.models[248].set('likes', 797)
+      store.pokemons.data.models[150].set('likes', 793)
+      store.pokemons.data.models[0].set('likes', 623)
+      store.pokemons.data.models[38].set('likes', 524)
+      store.pokemons.data.models[149].set('likes', 321)
+      store.pokemons.data.models[242].set('likes', 179)
       this.render()
       store.pokemons.fetching = false;
       this.$('.loader').hide();
