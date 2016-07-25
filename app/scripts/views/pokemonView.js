@@ -8,6 +8,10 @@ import store from '../store'
 import Pokemon from '../models/Pokemon'
 import Comments from '../collections/Comments'
 
+String.prototype.capitalizeFirstLetter = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
 const PokemonView = Backbone.View.extend({
   id: 'pokemonView',
   initialize: function(id) {
@@ -93,7 +97,7 @@ const PokemonView = Backbone.View.extend({
         <div id="pokemon-image">
         </div>
         <div id="main-info">
-          <h1 id="pokemon-name">#${this.model.get('id')} - ${this.model.get('name')} <button class="like-btn">${this.model.get('likes')}</button></h1>
+          <h1 id="pokemon-name">#${this.model.get('id')} - ${this.model.get('name').capitalizeFirstLetter()} <button class="like-btn">${this.model.get('likes')}</button></h1>
           <button class="pokemon-favorite">Favorite</button>
           <h3 id="types">Type: </h3>
           <h4 id="pokemon-height">Height: ${this.model.get('height')}</h4>
