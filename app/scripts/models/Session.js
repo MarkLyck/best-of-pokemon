@@ -21,6 +21,7 @@ const Session = Backbone.Model.extend({
         localStorage.authtoken = this.get('authtoken')
         localStorage.username = this.get('username')
         localStorage.user_id = this.get('user_id')
+        console.log(store.session);
         // console.log(store.session);
       },
       error: function(response) {
