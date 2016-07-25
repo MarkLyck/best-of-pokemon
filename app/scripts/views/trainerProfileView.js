@@ -56,7 +56,6 @@ const TrainerProfileView = Backbone.View.extend({
       let checker = /[png|jpg|jpeg]$/i;
       if (checker.test(this.$('#img-src').val())) {
         this.model.save('profileImg', `${this.$('#img-src').val()}`);
-        console.log(this.model.get('profileImg'));
         this.render();
       } else {
         this.$('#trainer-image').append(`<p>Please enter a valid image url</p>`)

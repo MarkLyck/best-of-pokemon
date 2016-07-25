@@ -24,7 +24,6 @@ const TrainerView = Backbone.View.extend({
     `;
   },
   render: function() {
-    console.log('rendering');
     this.$el.html(this.template());
     store.users.data.sortByField('id');
     store.users.data.each((user) => {
